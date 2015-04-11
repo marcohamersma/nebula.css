@@ -42,29 +42,3 @@ a {
   @include scaledSpacingAndType($spacingScale, $bodyTextScale, $headerTextScale);
   @include borderRules($borderScale);
 }
-
-// HLJS styles (remove in final version), add to pages branch
-// 
-.hljs {
-  display: block;
-  overflow-x: auto;
-  -webkit-text-size-adjust: none;
-
-  &-keyword {
-    color: adjust-hue(color('accent'), 120deg);
-  }
-
-  &-variable {
-    color: color('accent');
-  }
-
-  &-comment {
-    color: color('light');
-  }
-
-  &-tag, &-class {
-    color: adjust-hue(color('accent'), 180deg)
-  }
-}
-
-
