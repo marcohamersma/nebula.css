@@ -1,0 +1,25 @@
+@function font-size($name) {
+  @return map-get($fontBaseSizes, $name);
+}
+
+@function color($name) {
+  @return map-get($colors, $name);
+};
+
+.#{$class-prefix}-hideOnMobile {
+  display: none;
+}
+
+.#{$class-prefix}-showOnMobile {
+  display: initial;
+}
+
+@media screen and (min-width: $breakpoint-mobile) {
+  .hideOnMobile {
+    display: block;
+  }
+
+  .showOnMobile {
+    display: none;
+  }
+}

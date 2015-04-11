@@ -1,11 +1,3 @@
-@function font-size($name) {
-  @return map-get($fontBaseSizes, $name);
-}
-
-@function color($name) {
-  @return map-get($colors, $name);
-};
-
 @mixin font-rules($size) {
   font-size: #{$size}px;
   font-size: #{$size/10}rem;
@@ -34,22 +26,22 @@
   }
 }
 
-@mixin typeRules($bodyScale: 1, $headerScale: 1) {
+@mixin typeRules($bodyTextScale: 1, $headerTextScale: 1) {
 
-  body { @include font-rules(font-size('normal') * $bodyScale); }
+  body { @include font-rules(font-size('normal') * $bodyTextScale); }
 
   @each $name, $value in $fontBaseSizes {
-    .#{$class-prefix}-font-#{$name} {  @include font-rules($value * $bodyScale); }
+    .#{$class-prefix}-font-#{$name} {  @include font-rules($value * $bodyTextScale); }
   }
 
   @each $name, $value in $headerBaseSizes {
-    #{$name}, .#{$class-prefix}-font-#{$name}  { @include font-rules($value * $headerScale); }
+    #{$name}, .#{$class-prefix}-font-#{$name}  { @include font-rules($value * $headerTextScale); }
   }
 }
 
-@mixin scaledSpacingAndType($spacingScale, $bodyScale, $headerScale) {
+@mixin scaledSpacingAndType($spacingScale, $bodyTextScale, $headerTextScale) {
   @include spacingRules($spacingScale);
-  @include typeRules($bodyScale, $headerScale);
+  @include typeRules($bodyTextScale, $headerTextScale);
 }
 
 @mixin borderRules($scale: 1) {

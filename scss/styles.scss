@@ -1,61 +1,28 @@
-// This file is supposed to be edited by the user, the main css of the website
-// TODO: maybe release 2 different versions, one as the base script for your stylesheet,
-// and one that's just plain to include seperately without most of the content in this file
-
-$colors: (
-  "accent"     : #009CDA,
-  "background" : #FAFAF2,
-  "black"      : #262626,
-  "dark"       : #4D4D4D,
-  "mid"        : #737373,
-  "light"      : #999999,
-  "white"      : #ffffff
-);
-
-
-$fontBaseSizes: (
-  // TODO: rename to BODY
-  normal: 16,
-  smallest: 12,
-  small: 14
-);
-
-// TODO: Maybe make this an array? first item is H1, second H2, etc…
-$headerBaseSizes: (
-  h1: 26,
-  h2: 18
-);
-
-$spacingValues: (
-  smallest: 5,
-  small: 10,
-  medium: 20,
-  large: 40
-);
-
-// Generate border support classes for these colors
-$bordersForColor: 'accent', 'mid', 'black', 'white';
-$borderProperties: 'border', 'border-bottom';
-$spacingDirections: 'top', 'bottom'; 
-
 /**
  *  Nebula CSS Framework
  *  Designed & Developed by Marco Hamersma
  *  You can replace these website credits with your own
  */
 
+// Edit this file for setting up Nebula
+@import "nebula/config";
+
+// This import runs nebula and adds helper classes according to the configuration
 @import "nebula/base";
+
+
+//-----------------------
+// This is where you can add your site-specific styles
 
 body {
   line-height: 1.5;
 }
 
-/* Typography */
-@import "nebula/typography";
+// TIP: If you want to use some of the font sizes or colors you've defined
+// in the configuration, you can use helpers like color() and font-size().
+// For example:
 
-/* Links */
-.#{$class-prefix}-link,
-p>a, {
+a {
   color: color('accent');
   text-decoration: none;
 
@@ -64,43 +31,19 @@ p>a, {
   }
 }
 
-.#{$class-prefix}-link-on-black {
-  color: color('white');
-}
-
-
-@media screen and (min-width: 320px) {
-  .hideOnMobile {
-    display: block;
-  }
-
-  .showOnMobile {
-    display: none;
-  }
-}
-
-@media screen and (min-width:800px) {
-  // Defining what size multiplier we use for the text and spacing for this breakpoint
-  $bodyScale: 1.125;
-  $headerScale: 1.8;
+// How to define breakpoints:
+// Set multipliers for body
+@media screen and (min-width: $breakpoint-tablet) {
+  $bodyTextScale: 1.125;
+  $headerTextScale: 1.8;
   $spacingScale: 2;
   $borderScale: 2;
-  @include scaledSpacingAndType($spacingScale, $bodyScale, $headerScale);
+
+  @include scaledSpacingAndType($spacingScale, $bodyTextScale, $headerTextScale);
   @include borderRules($borderScale);
-
-  // MH.nl only
-  @include rulesForSpaceValue('huge', 80);
 }
 
-
-// MH.nl only
-@media screen and (min-width:1119px) {
-  @include borderRules(2);
-  @include rulesForSpaceValue('huge', 160);
-}
-
-
-// HLJS styles (remove in final version)
+// HLJS styles (remove in final version), add to pages branch
 // 
 .hljs {
   display: block;
