@@ -1,0 +1,93 @@
+// http://blog.webtype.com/?p=4085
+$font-feature-settings: "calt", "liga", "clig", "kern", "onum";
+$font-feature-heading-settings: "dlig", "swsh";
+
+html {
+  font-size: 62.5%;
+  text-rendering: optimizeLegibility;
+
+  -moz-font-feature-settings: $font-feature-settings;
+  -ms-font-feature-settings: $font-feature-settings;
+  -webkit-font-feature-settings: $font-feature-settings;
+  font-feature-settings: $font-feature-settings;
+}
+
+/* Typography */
+h1, h2, h3 {
+  font-weight: bold;
+  position: relative;
+  -moz-font-feature-settings: $font-feature-settings, $font-feature-heading-settings;
+  -ms-font-feature-settings: $font-feature-settings, $font-feature-heading-settings;
+  -webkit-font-feature-settings: $font-feature-settings, $font-feature-heading-settings;
+  font-feature-settings: $font-feature-settings, $font-feature-heading-settings;
+}
+
+// TODO: explain, or go copy some stuff from the medium folks
+h1, h2 {
+  top: -.2em;
+  line-height: 1.2;
+}
+
+@include typeRules;
+
+// TODO: explain
+// h1 { margin-bottom: -.2em; }
+
+@each $name, $value in $fontBaseSizes {
+  .#{$class-prefix}-font-#{$name} {  @include font-rules($value); }
+}
+
+p { 
+  margin-bottom: 1.3em;
+}
+
+p:last-of-type {
+  margin-bottom: 0;
+}
+
+abbr, .#{$class-prefix}-small-caps {
+  font-variant: small-caps;
+  text-transform: lowercase;
+  font-size: 1.2em; // TODO: this might be just a font thing
+  line-height: 1em;
+}
+
+code, pre {
+  font-family: 'Fira Mono', Inconsolata, monospace;
+}
+
+pre {
+  background-color: rgba(128,128,128,.1);
+  padding: 1em;
+  overflow: auto;
+}
+
+// From normalize.css:
+// Prevent `sub` and `sup` affecting `line-height` in all browsers. 
+
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sup {
+  top: -0.5em;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+strong {
+  font-weight: bold;
+}
+em {
+  font-style: italic;
+}
+
+.#{$class-prefix}-text-centered {
+  text-align: center;
+}
