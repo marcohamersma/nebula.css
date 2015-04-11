@@ -8,7 +8,7 @@ If you want to customise colors, spacing & other things, you need to use SASS to
   * [Node.js](http://nodejs.org)
   * [Ruby](https://www.ruby-lang.org/en/downloads/)
   * [Sass](http://sass-lang.com)
-  * [grunt.js](http://grunt.js); `[sudo] npm install -g grunt-cli`
+  * [grunt.js](http://grunt.js)
 
 ### Install Local Dependancies
   * Download zip or clone the repo
