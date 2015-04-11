@@ -1,4 +1,7 @@
 @function font-size($name) {
+  @return raw-font-size($name) + px;
+}
+@function raw-font-size($name) {
   @return map-get($fontBaseSizes, $name);
 }
 

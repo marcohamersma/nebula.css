@@ -56,6 +56,10 @@ code, pre {
   font-family: 'Fira Mono', Inconsolata, monospace;
 }
 
+code {
+  white-space: nowrap;
+}
+
 pre {
   background-color: rgba(128,128,128,.1);
   padding: 1em;
