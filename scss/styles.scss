@@ -1,7 +1,6 @@
 /**
  *  Nebula CSS Framework
  *  Designed & Developed by Marco Hamersma
- *  You can replace these website credits with your own
  */
 
 // Edit this file for setting up Nebula
@@ -36,6 +35,16 @@ a {
 @media screen and (min-width: $breakpoint-tablet) {
   $bodyTextScale: 1.125;
   $headerTextScale: 1.8;
+  $spacingScale: 2;
+  $borderScale: 2;
+
+  @include scaledSpacingAndType($spacingScale, $bodyTextScale, $headerTextScale);
+  @include borderRules($borderScale);
+}
+
+@media screen and (min-width: $breakpoint-widescreen) {
+  $bodyTextScale: 1.4;
+  $headerTextScale: 2;
   $spacingScale: 2;
   $borderScale: 2;
 
