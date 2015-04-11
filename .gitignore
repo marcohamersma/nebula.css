@@ -1,4 +1,4 @@
 node_modules
 .sass-cache
 readme-from-html.md
-css/nebula.css.map
+*.css.map
