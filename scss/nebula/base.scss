@@ -17,19 +17,19 @@
 @import "typography";
 
 ::-moz-selection {
-    background: rgba(color('accent'), .4);
-    text-shadow: none;
+  background: rgba(color('accent'), .4);
+  text-shadow: none;
 }
 
 ::selection {
-    background: rgba(color('accent'), .4);
-    text-shadow: none;
+  background: rgba(color('accent'), .4);
+  text-shadow: none;
 }
 
 /* Typography */
 
 .#{$class-prefix}-ul {
-  list-style: circle inside;
+  list-style: disc inside;
 }
 
 .#{$class-prefix}-ol {

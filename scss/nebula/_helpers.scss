@@ -9,20 +9,35 @@
   @return map-get($colors, $name);
 };
 
+
+.#{$class-prefix}-centered {
+  text-align: center;
+}
+
+.#{$class-prefix}-inline {
+  display: inline;
+}
+
+.#{$class-prefix}-clear:after {
+  content:"";
+  display:table;
+  clear:both;
+}
+
 .#{$class-prefix}-hideOnMobile {
-  display: none;
+  display: none !important;
 }
 
 .#{$class-prefix}-showOnMobile {
-  display: initial;
+  display: initial !important;
 }
 
-@media screen and (min-width: $breakpoint-mobile) {
-  .hideOnMobile {
-    display: block;
+@media screen and (min-width: $breakpoint-hideOnMobile) {
+  .#{$class-prefix}-hideOnMobile {
+    display: block !important;
   }
 
-  .showOnMobile {
-    display: none;
+  .#{$class-prefix}-showOnMobile {
+    display: none !important;
   }
 }
