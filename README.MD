@@ -146,3 +146,25 @@ a {
   color: color('accent');
 }
 </pre>
+
+## [Other elements + lists](#basic-styling)
+
+Besides a nice foundation type-wise, Nebula also has some basis styles for other html elements. You've been able to see the `pre` and `code` elements above, but there's lists as well.
+
+### [Unordered List (`.n-ul`)](#unordered-list) 
+
+*   List item
+*   List item
+*   List item
+
+### [Ordered List (`.n-ol`)](#ordered-list) 
+
+1.  List item
+2.  List item
+3.  List item
+
+### [Unstyled List](#unstyled-list) 
+
+1.  List item
+2.  List item
+3.  You get it…
