@@ -208,9 +208,9 @@ em { font-style: italic; }
 ::selection { background: rgba(0, 156, 218, 0.4); text-shadow: none; }
 
 /* Typography */
-.n-ul { list-style: circle inside; }
+.n-ul { list-style: circle outside; }
 
-.n-ol { list-style: decimal inside; padding-left: 0; margin-top: 0; }
+.n-ol { list-style: decimal outside; padding-left: 0; margin-top: 0; }
 
 .n-ul { padding-left: 0; margin-top: 0; }
 

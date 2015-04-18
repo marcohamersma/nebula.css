@@ -13,7 +13,7 @@ html {
 }
 
 /* Typography */
-h1, h2, h3 {
+h1, h2, h3, h4, h5, h6 {
   font-weight: bold;
   position: relative;
   -moz-font-feature-settings: $font-feature-settings, $font-feature-heading-settings;
@@ -22,23 +22,15 @@ h1, h2, h3 {
   font-feature-settings: $font-feature-settings, $font-feature-heading-settings;
 }
 
-// TODO: explain, or go copy some stuff from the medium folks
-h1, h2 {
+h1, h2, h3 {
   top: -.2em;
   line-height: 1.2;
 }
 
 @include typeRules;
 
-// TODO: explain
-// h1 { margin-bottom: -.2em; }
-
 @each $name, $value in $fontBaseSizes {
   .#{$class-prefix}-font-#{$name} {  @include font-rules($value); }
-}
-
-p { 
-  margin-bottom: 1.3em;
 }
 
 p:last-of-type {
@@ -52,18 +44,19 @@ abbr, .#{$class-prefix}-small-caps {
   line-height: 1em;
 }
 
-code, pre {
-  font-family: 'Fira Mono', Inconsolata, monospace;
-}
-
 code {
+  font-family: 'Fira Mono', Inconsolata, monospace;
+  background-color: rgba(128,128,128,.15);
   white-space: nowrap;
+  padding: 0 .2em;
+  font-size: 90%;
 }
 
-pre {
-  background-color: rgba(128,128,128,.1);
+pre > code {
   padding: 1em;
   overflow: auto;
+  display: block;
+  white-space: pre;
 }
 
 // From normalize.css:
@@ -92,6 +85,20 @@ em {
   font-style: italic;
 }
 
-.#{$class-prefix}-text-centered {
-  text-align: center;
+.#{$class-prefix}-ul {
+  list-style: disc outside;
+}
+
+.#{$class-prefix}-ol {
+  list-style: decimal outside;
+}
+
+.#{$class-prefix}-ul,
+.#{$class-prefix}-ol {
+  padding-left: 1.4em;
+  margin-top: 0;
+
+  li {
+    margin-bottom: space('smallest');
+  }
 }

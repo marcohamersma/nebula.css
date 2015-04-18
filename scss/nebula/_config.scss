@@ -4,7 +4,7 @@ $class-prefix: 'n';
 
 $colors: (
   "accent"     : #009CDA,
-  "background" : #FAFAF2,
+  "background" : #fff,
   "black"      : #262626,
   "dark"       : #4D4D4D,
   "mid"        : #737373,
@@ -15,21 +15,21 @@ $colors: (
 
 $fontBaseSizes: (
   // TODO: rename to BODY
-  normal: 16,
-  smallest: 12,
-  small: 14
+  normal: 18,
+  smallest: 12.5,
+  small: 15
 );
 
 // TODO: Maybe make this an array? maybe even use modular scales? first item is H1, second H2, etc…
 $headerBaseSizes: (
   h1: 26,
-  h2: 18
+  h2: 21.5
 );
 
 $spacingValues: (
   smallest: 5,
-  small: 10,
-  medium: 20,
+  small: 15,
+  medium: 30,
   large: 40
 );
 

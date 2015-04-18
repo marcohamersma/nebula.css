@@ -9,9 +9,21 @@
   @return map-get($colors, $name);
 };
 
+@function space($name) {
+  @return raw-space($name) + px;
+};
 
-.#{$class-prefix}-centered {
+@function raw-space($name) {
+  @return map-get($spacingValues, $name);
+};
+
+.#{$class-prefix}-text-centered {
   text-align: center;
+}
+
+.#{$class-prefix}-block-centered {
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .#{$class-prefix}-inline {

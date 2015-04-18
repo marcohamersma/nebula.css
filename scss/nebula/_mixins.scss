@@ -26,7 +26,7 @@
   }
 }
 
-@mixin typeRules($bodyTextScale: 1, $headerTextScale: 1) {
+@mixin typeRules($bodyTextScale: 1, $headerTextScale: 1, $spacingScale: 1) {
   body { @include font-rules(raw-font-size('normal') * $bodyTextScale); }
 
   @each $name, $value in $fontBaseSizes {
@@ -36,11 +36,13 @@
   @each $name, $value in $headerBaseSizes {
     #{$name}, .#{$class-prefix}-font-#{$name}  { @include font-rules($value * $headerTextScale); }
   }
+
+  p {  margin-bottom: #{$spacingScale * raw-space('medium')}px; }
 }
 
 @mixin scaledSpacingAndType($spacingScale, $bodyTextScale, $headerTextScale) {
   @include spacingRules($spacingScale);
-  @include typeRules($bodyTextScale, $headerTextScale);
+  @include typeRules($bodyTextScale, $headerTextScale, $spacingScale);
 }
 
 @mixin borderRules($scale: 1) {

@@ -26,20 +26,3 @@
   text-shadow: none;
 }
 
-/* Typography */
-
-.#{$class-prefix}-ul {
-  list-style: disc inside;
-}
-
-.#{$class-prefix}-ol {
-  list-style: decimal inside;
-  padding-left: 0;
-  margin-top: 0;
-}
-
-.#{$class-prefix}-ul {
-  padding-left: 0;
-  margin-top: 0;
-}
-

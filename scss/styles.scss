@@ -45,7 +45,7 @@ a {
 @media screen and (min-width: $breakpoint-widescreen) {
   $bodyTextScale: 1.4;
   $headerTextScale: 2;
-  $spacingScale: 2;
+  $spacingScale: 2.3;
   $borderScale: 2;
 
   @include scaledSpacingAndType($spacingScale, $bodyTextScale, $headerTextScale);
