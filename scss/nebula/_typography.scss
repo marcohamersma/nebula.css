@@ -1,25 +1,20 @@
 // http://blog.webtype.com/?p=4085
-$font-feature-settings: "calt", "liga", "clig", "kern", "onum";
-$font-feature-heading-settings: "dlig", "swsh";
+$font-feature-settings: calt liga clig kern onum;
+$font-feature-heading-settings: calt liga clig kern onum dlig swsh;
 
 html {
   font-size: 62.5%;
   text-rendering: optimizeLegibility;
 
-  -moz-font-feature-settings: $font-feature-settings;
-  -ms-font-feature-settings: $font-feature-settings;
-  -webkit-font-feature-settings: $font-feature-settings;
-  font-feature-settings: $font-feature-settings;
+  @include font-feature-settings($font-feature-settings);
 }
 
 /* Typography */
 h1, h2, h3, h4, h5, h6 {
   font-weight: bold;
   position: relative;
-  -moz-font-feature-settings: $font-feature-settings, $font-feature-heading-settings;
-  -ms-font-feature-settings: $font-feature-settings, $font-feature-heading-settings;
-  -webkit-font-feature-settings: $font-feature-settings, $font-feature-heading-settings;
-  font-feature-settings: $font-feature-settings, $font-feature-heading-settings;
+
+  @include font-feature-settings($font-feature-heading-settings);
 }
 
 h1, h2, h3 {
@@ -41,10 +36,8 @@ p:last-of-type {
   margin-bottom: 0;
 }
 
-abbr, .#{$class-prefix}-small-caps {
-  font-variant: small-caps;
-  text-transform: lowercase;
-  font-size: 1.2em; // TODO: this might be just a font thing
+.#{$class-prefix}-small-caps {
+  @include font-feature-settings(append($font-feature-settings, smcp));
   line-height: 1em;
 }
 
