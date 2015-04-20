@@ -1,28 +1,34 @@
-@import "config";
-@import "mixins";
-@import "reset";
-@import "helpers";
+@import 'config';
+@import 'mixins';
+@import 'reset';
+@import 'helpers';
 
 @each $name, $value in $colors {
-  .#{$class-prefix}-color-#{$name}          { color: $value; }
-  .#{$class-prefix}-background-#{$name}     { background-color: $value; }  
+  .#{$class-prefix}-color-#{$name} {
+    color: $value;
+  }
+
+  .#{$class-prefix}-background-#{$name} {
+    background-color: $value;
+  }
 }
 
+// Borders
 @include borderRules();
 
 // Spacing
 @include spacingRules();
 
-/* Typography */
-@import "typography";
+// Typography
+@import 'typography';
 
 ::-moz-selection {
-  background: rgba(color('accent'), .4);
+  background: rgba(color('accent'), 0.4);
   text-shadow: none;
 }
 
 ::selection {
-  background: rgba(color('accent'), .4);
+  background: rgba(color('accent'), 0.4);
   text-shadow: none;
 }
 
