@@ -1,13 +1,14 @@
 @function font-size($name) {
   @return raw-font-size($name) * 1px;
 }
+
 @function raw-font-size($name) {
   @return map-get($fontBaseSizes, $name);
 }
 
 @function color($name) {
   @return map-get($colors, $name);
-};
+}
 
 @function space($name) {
   @return raw-space($name) * 1px;
@@ -15,7 +16,7 @@
 
 @function raw-space($name) {
   @return map-get($spacingValues, $name);
-};
+}
 
 .#{$class-prefix}-text-centered {
   text-align: center;

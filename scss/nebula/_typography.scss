@@ -5,7 +5,7 @@ html {
   @include font-feature-settings($font-feature-settings);
 }
 
-/* Typography */
+// Typography
 h1, h2, h3, h4, h5, h6 {
   font-weight: bold;
   position: relative;
@@ -14,14 +14,16 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1, h2, h3 {
-  top: -.2em;
+  top: -0.2em;
   line-height: 1.2;
 }
 
 @include typeRules;
 
 @each $name, $value in $fontBaseSizes {
-  .#{$class-prefix}-font-#{$name} {  @include font-rules($value); }
+  .#{$class-prefix}-font-#{$name} {
+    @include font-rules($value);
+  }
 }
 
 p {
@@ -38,10 +40,10 @@ p:last-of-type {
 }
 
 code {
-  font-family: 'Fira Mono', Inconsolata, monospace;
-  background-color: rgba(128,128,128,.15);
+  font-family: 'Fira Mono', 'Inconsolata', monospace;
+  background-color: rgba(128, 128, 128, 0.15);
   white-space: nowrap;
-  padding: 0 .2em;
+  padding: 0 0.2em;
   font-size: 90%;
 }
 
@@ -74,6 +76,7 @@ sub {
 strong {
   font-weight: bold;
 }
+
 em {
   font-style: italic;
 }
