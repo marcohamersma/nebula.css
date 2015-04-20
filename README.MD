@@ -17,7 +17,7 @@ If you want to customise colors, spacing & other things, you need to use SASS to
   * run `[sudo] npm install` (first time users)
   * run `grunt` (to watch and compile sass files)
 
-I'm hoping that I can remove the dependency on Ruby at a later stage, but for now it's still required for using `grunt-contrib-sass`.
+I'm hoping that I can remove the dependency on soon, but for now it's still required for using `grunt-contrib-sass`.
 
 # About Nebula.css
 <p>Nebula.css is a work-in-progress CSS framework with the aim to quickly generate “building-block” classes for font sizes, colors, background colors and spacing. In addition to that, it also offers a nice typographic foundation + basic styles. It's inspired by <a href="https://en.bem.info" class="n-small-caps">BEM</a> and <a href="http://www.stubbornella.org/content/category/general/geek/css/oocss-css-geek-general/" class="n-small-caps">OOCSS</a>. It's a great starting kit for responsive websites, and allows you to easily scale type and spacing at different breakpoints.</p>
@@ -28,7 +28,7 @@ I'm hoping that I can remove the dependency on Ruby at a later stage, but for no
 <p>For most block elements, Nebula provides no margins. This is so that the amount of spacing can be explicitly defined depending on the context and surrounding elements. In my experience, this leads to more consistent spacing across a page, with less chance of padding + margin adding up to inconsistent amounts compared to other elements on the page.</p>
 
 ### Nebula generates help classes
-<p>The top of the framework's <code>styles.scss</code> file contains a number of variables/maps you can set, which will result in the generation of building-block class names:</p>
+<p>The <code>_config.scss</code> file contains a number of variables/maps you can set, which will result in the generation of building-block class names:</p>
 
 ### Colors &amp; Background
 ```scss
