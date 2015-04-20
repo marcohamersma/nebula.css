@@ -165,7 +165,7 @@ textarea { resize: vertical; }
 html { font-size: 62.5%; text-rendering: optimizeLegibility; -moz-font-feature-settings: "calt", "liga", "clig", "kern", "onum"; -ms-font-feature-settings: "calt", "liga", "clig", "kern", "onum"; -webkit-font-feature-settings: "calt", "liga", "clig", "kern", "onum"; font-feature-settings: "calt", "liga", "clig", "kern", "onum"; }
 
 /* Typography */
-h1, h2, h3, h4, h5, h6 { font-weight: bold; position: relative; -moz-font-feature-settings: "calt", "liga", "clig", "kern", "onum", "dlig", "swsh"; -ms-font-feature-settings: "calt", "liga", "clig", "kern", "onum", "dlig", "swsh"; -webkit-font-feature-settings: "calt", "liga", "clig", "kern", "onum", "dlig", "swsh"; font-feature-settings: "calt", "liga", "clig", "kern", "onum", "dlig", "swsh"; }
+h1, h2, h3, h4, h5, h6 { font-weight: bold; position: relative; -moz-font-feature-settings: calt, liga, clig, kern, onumdlig, swsh; -ms-font-feature-settings: calt, liga, clig, kern, onumdlig, swsh; -webkit-font-feature-settings: calt, liga, clig, kern, onumdlig, swsh; font-feature-settings: calt, liga, clig, kern, onumdlig, swsh; }
 
 h1, h2, h3 { top: -.2em; line-height: 1.2; }
 
@@ -181,17 +181,17 @@ h1, .n-font-h1 { font-size: 26px; font-size: 2.6rem; }
 
 h2, .n-font-h2 { font-size: 21.5px; font-size: 2.15rem; }
 
-p { margin-bottom: 30px; }
-
 .n-font-normal { font-size: 18px; font-size: 1.8rem; }
 
 .n-font-smallest { font-size: 12.5px; font-size: 1.25rem; }
 
 .n-font-small { font-size: 15px; font-size: 1.5rem; }
 
+p { margin-bottom: 1.3em; }
+
 p:last-of-type { margin-bottom: 0; }
 
-abbr, .n-small-caps { font-variant: small-caps; text-transform: lowercase; font-size: 1.2em; line-height: 1em; }
+.n-small-caps { -moz-font-feature-settings: calt, liga, clig, kern, onumsmcp; -ms-font-feature-settings: calt, liga, clig, kern, onumsmcp; -webkit-font-feature-settings: calt, liga, clig, kern, onumsmcp; font-feature-settings: calt, liga, clig, kern, onumsmcp; text-transform: lowercase; line-height: 1em; }
 
 code { font-family: 'Fira Mono', Inconsolata, monospace; background-color: rgba(128, 128, 128, 0.15); white-space: nowrap; padding: 0 .2em; font-size: 90%; }
 
