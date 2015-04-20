@@ -1,22 +1,22 @@
 @mixin font-rules($size) {
-  font-size: #{$size}px;
-  font-size: #{$size/10}rem;
+  font-size: $size * 1px;
+  font-size: $size / 10 * 1rem;
 };
 
-@mixin rulesForSpaceValue($name, $value) {    
-  .#{$class-prefix}-spacing-#{$name}          {  margin: #{$value}px; }
-  .#{$class-prefix}-vspacing-#{$name}         {  margin-top: #{$value}px; margin-bottom: #{$value}px; }
-  .#{$class-prefix}-hspacing-#{$name}         {  margin-left: #{$value}px; margin-right: #{$value}px; }
+@mixin rulesForSpaceValue($name, $value) {
+  .#{$class-prefix}-spacing-#{$name}          {  margin: $value * 1px; }
+  .#{$class-prefix}-vspacing-#{$name}         {  margin-top: $value * 1px; margin-bottom: $value * 1px; }
+  .#{$class-prefix}-hspacing-#{$name}         {  margin-left: $value * 1px; margin-right: $value * 1px; }
   @each $direction in $spacingDirections {
-    .#{$class-prefix}-spacing-#{$direction}-#{$name} {  margin-#{$direction}: #{$value}px; }
+    .#{$class-prefix}-spacing-#{$direction}-#{$name} {  margin-#{$direction}: $value * 1px; }
   }
-  
-  .#{$class-prefix}-padding-#{$name}          {  padding: #{$value}px; }
-  .#{$class-prefix}-vpadding-#{$name}         {  padding-top: #{$value}px; padding-bottom: #{$value}px; }
-  .#{$class-prefix}-hpadding-#{$name}         {  padding-left: #{$value}px; padding-right: #{$value}px; }
+
+  .#{$class-prefix}-padding-#{$name}          {  padding: $value * 1px; }
+  .#{$class-prefix}-vpadding-#{$name}         {  padding-top: $value * 1px; padding-bottom: $value * 1px; }
+  .#{$class-prefix}-hpadding-#{$name}         {  padding-left: $value * 1px; padding-right: $value * 1px; }
   @each $direction in $spacingDirections {
-    .#{$class-prefix}-padding-#{$direction}-#{$name} {  padding-#{$direction}: #{$value}px; }
-  }  
+    .#{$class-prefix}-padding-#{$direction}-#{$name} {  padding-#{$direction}: $value * 1px; }
+  }
 }
 
 @mixin spacingRules($spacingScale: 1) {
@@ -47,7 +47,7 @@
   @each $color in $bordersForColor {
     @each $propertyName in $borderProperties {
       .#{$class-prefix}-#{$propertyName}-#{$color} {
-        #{$propertyName}: #{$scale}px solid color($color);
+        #{$propertyName}: ($scale * 1px) solid color($color);
       }
     }
   }

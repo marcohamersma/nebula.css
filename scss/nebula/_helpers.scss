@@ -1,5 +1,5 @@
 @function font-size($name) {
-  @return raw-font-size($name) + px;
+  @return raw-font-size($name) * 1px;
 }
 @function raw-font-size($name) {
   @return map-get($fontBaseSizes, $name);
@@ -10,7 +10,7 @@
 };
 
 @function space($name) {
-  @return raw-space($name) + px;
+  @return raw-space($name) * 1px;
 };
 
 @function raw-space($name) {
