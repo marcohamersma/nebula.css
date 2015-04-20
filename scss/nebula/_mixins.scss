@@ -36,8 +36,6 @@
   @each $name, $value in $headerBaseSizes {
     #{$name}, .#{$class-prefix}-font-#{$name}  { @include font-rules($value * $headerTextScale); }
   }
-
-  p {  margin-bottom: #{$spacingScale * raw-space('medium')}px; }
 }
 
 @mixin scaledSpacingAndType($spacingScale, $bodyTextScale, $headerTextScale) {

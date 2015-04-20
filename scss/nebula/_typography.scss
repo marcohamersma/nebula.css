@@ -33,6 +33,10 @@ h1, h2, h3 {
   .#{$class-prefix}-font-#{$name} {  @include font-rules($value); }
 }
 
+p {
+  margin-bottom: 1.3em;
+}
+
 p:last-of-type {
   margin-bottom: 0;
 }
