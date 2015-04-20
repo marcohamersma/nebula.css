@@ -4,6 +4,9 @@ If you don't want to use Nebula in a SASS/SCSS workflow, just grab the `nebula.c
 
 If you want to customise colors, spacing & other things, you need to use SASS to recompile changes made in the `scss/nebula` directory, here's how:
 
+## Demo
+You can see the code in action at [marcohamersma.github.io/nebula.css/](http://marcohamersma.github.io/nebula.css/).
+
 ### Install Global Dependancies
   * [Node.js](http://nodejs.org)
   * [Ruby](https://www.ruby-lang.org/en/downloads/)
