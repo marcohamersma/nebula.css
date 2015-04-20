@@ -24,13 +24,13 @@ I'm hoping that I can remove the dependency on Ruby at a later stage, but for no
 
 <p>The framework is built with <a href="http://sass-lang.com" class="n-small-caps">SASS</a>, and probably requires tweaking before compiling. That said, it can be used outside of a <span class="n-small-caps">SASS</span> pipeline together with other stylesheets.</p>
 
-<h3>Nebula loves spacing</h3>
+### Nebula loves spacing
 <p>For most block elements, Nebula provides no margins. This is so that the amount of spacing can be explicitly defined depending on the context and surrounding elements. In my experience, this leads to more consistent spacing across a page, with less chance of padding + margin adding up to inconsistent amounts compared to other elements on the page.</p>
 
-<h2>Nebula generates help classes</h2>
+### Nebula generates help classes
 <p>The top of the framework's <code>styles.scss</code> file contains a number of variables/maps you can set, which will result in the generation of building-block class names:</p>
 
-### Colors &amp; Background 
+### Colors &amp; Background
 ```scss
 $colors: (
   accent: #009CDA,
@@ -42,7 +42,7 @@ $colors: (
 ```
 
 
-### Borders 
+### Borders
 <p>Border classnames are generated from two variables, first <code class="n-color-accent">$bordersForColor</code> defines what colors to generate borders for, and then <code class="n-color-accent">$borderProperties</code> defines what properties are styled:</p>
 ```scss
 $bordersForColor: 'accent', …
@@ -53,7 +53,7 @@ $borderProperties: 'border', 'border-bottom';
 ```
 
 
-### Font sizes 
+### Font sizes
 <p>Similarly, font size classes will be generated for <code class="n-color-accent">$fontBaseSizes</code> and <code class="n-color-accent">$headerBaseSizes</code>:</p>
 
 ```scss
@@ -72,7 +72,7 @@ h1, .n-font-h1 { font-size: 26px; font-size: 2.6rem; }
 ```
 <p>Since it's a header, we automatically create a <code>h1</code> element, but we also create a class for this in case you want to style an element as a header, but do not want to associate it a header element's tag (for semantic reasons, for example). </p>
 
-### Spacing 
+### Spacing
 <p>For every spacing value you define, the following classes get generated:</p>
 ```scss
 $spacingValue: (
@@ -102,8 +102,7 @@ $spacingDirections: 'top', 'bottom';
 .n-padding-bottom-smallest { padding-bottom: 5px; }
 ```
 
-
-## Responsiveness 
+## Responsiveness
 <p>At the moment, Nebula does not have any elements which require “reassembly” on certain screen sizes. That said, the framework is built to scale to different sizes easily.</p>
 <p>All sizes defined in the framework's configuration are regarded as <em>base sizes</em> that can be scaled for different media queries. Depending on the breakpoints your website requires, you define where you want font sizes or spacing to scale, and then call the media query to generate the rules again:</p>
 
@@ -134,7 +133,7 @@ $spacingDirections: 'top', 'bottom';
 ```
 <p>The original values defined in Nebula's configuration have now multiplied by the scaling values defined above. For example, because the <code class="n-color-accent">$spacingScale</code> was set to 2, <code>.n-spacing-smallest</code> changed from 5 to 10.</p>
 
-## Helpers 
+## Helpers
 <p>As a bonus, Nebula.css also offers a couple of helpers for common behaviour in the form of CSS classes or SASS functions:</p>
 
 ### Helper classes:
@@ -166,7 +165,7 @@ a {
 
 ```
 
-## Other elements &amp; lists 
+## Other elements &amp; lists
 <p>Besides a nice foundation type-wise, Nebula also has some basis styles for other html elements. You've been able to see the <code>pre</code> and <code>code</code> elements above, but there's lists as well.</p>
 
 ### Unordered List (<code>.n-ul</code>)
@@ -193,5 +192,5 @@ a {
   <li>You get it…</li>
 </ol>
 
-## License 
+## License
 Licensed under the MIT License.
