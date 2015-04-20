@@ -1,22 +1,48 @@
 @mixin font-rules($size) {
   font-size: #{$size}px;
   font-size: #{$size/10}rem;
-};
+}
 
-@mixin rulesForSpaceValue($name, $value) {    
-  .#{$class-prefix}-spacing-#{$name}          {  margin: #{$value}px; }
-  .#{$class-prefix}-vspacing-#{$name}         {  margin-top: #{$value}px; margin-bottom: #{$value}px; }
-  .#{$class-prefix}-hspacing-#{$name}         {  margin-left: #{$value}px; margin-right: #{$value}px; }
-  @each $direction in $spacingDirections {
-    .#{$class-prefix}-spacing-#{$direction}-#{$name} {  margin-#{$direction}: #{$value}px; }
+@mixin rulesForSpaceValue($name, $value) {
+  .#{$class-prefix}-spacing-#{$name} {
+    margin: #{$value}px;
   }
-  
-  .#{$class-prefix}-padding-#{$name}          {  padding: #{$value}px; }
-  .#{$class-prefix}-vpadding-#{$name}         {  padding-top: #{$value}px; padding-bottom: #{$value}px; }
-  .#{$class-prefix}-hpadding-#{$name}         {  padding-left: #{$value}px; padding-right: #{$value}px; }
+
+  .#{$class-prefix}-vspacing-#{$name} {
+    margin-top: #{$value}px;
+    margin-bottom: #{$value}px;
+  }
+
+  .#{$class-prefix}-hspacing-#{$name} {
+    margin-left: #{$value}px;
+    margin-right: #{$value}px;
+  }
+
   @each $direction in $spacingDirections {
-    .#{$class-prefix}-padding-#{$direction}-#{$name} {  padding-#{$direction}: #{$value}px; }
-  }  
+    .#{$class-prefix}-spacing-#{$direction}-#{$name} {
+      margin-#{$direction}: #{$value}px;
+    }
+  }
+
+  .#{$class-prefix}-padding-#{$name} {
+    padding: #{$value}px;
+  }
+
+  .#{$class-prefix}-vpadding-#{$name} {
+    padding-top: #{$value}px;
+    padding-bottom: #{$value}px;
+  }
+
+  .#{$class-prefix}-hpadding-#{$name} {
+    padding-left: #{$value}px;
+    padding-right: #{$value}px;
+  }
+
+  @each $direction in $spacingDirections {
+    .#{$class-prefix}-padding-#{$direction}-#{$name} {
+      padding-#{$direction}: #{$value}px;
+    }
+  }
 }
 
 @mixin spacingRules($spacingScale: 1) {
@@ -27,14 +53,21 @@
 }
 
 @mixin typeRules($bodyTextScale: 1, $headerTextScale: 1, $spacingScale: 1) {
-  body { @include font-rules(raw-font-size('normal') * $bodyTextScale); }
+  body {
+    @include font-rules(raw-font-size('normal') * $bodyTextScale);
+  }
 
   @each $name, $value in $fontBaseSizes {
-    .#{$class-prefix}-font-#{$name} {  @include font-rules($value * $bodyTextScale); }
+    .#{$class-prefix}-font-#{$name} {
+      @include font-rules($value * $bodyTextScale);
+    }
   }
 
   @each $name, $value in $headerBaseSizes {
-    #{$name}, .#{$class-prefix}-font-#{$name}  { @include font-rules($value * $headerTextScale); }
+    #{$name},
+    .#{$class-prefix}-font-#{$name} {
+      @include font-rules($value * $headerTextScale);
+    }
   }
 }
 
@@ -69,8 +102,8 @@
 
     // Add each listed feature to the standard and old Mozilla values
     @each $feature in $feature-list {
-      $standard: append( $standard, '#{$feature}' 1, comma );
-      $old-moz: append( $old-moz, '#{$feature}=1', comma );
+      $standard: append($standard, '#{$feature}' 1, 'comma');
+      $old-moz: append($old-moz, '#{$feature}=1', 'comma');
     }
 
     // Finally, print out the prefixed and non-prefixed code for all of the listed features
