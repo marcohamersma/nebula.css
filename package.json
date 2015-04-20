@@ -1,6 +1,17 @@
 {
   "name": "nebula-css",
   "version": "0.0.1",
+  "description": "A work-in-progress CSS framework with the aim to quickly generate “building-block” classes for font sizes, colors, background colors and spacing",
+  "scripts": {
+    "start": "grunt"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/marcohamersma/nebula.css"
+  },
+    "bugs": {
+    "url": "https://github.com/marcohamersma/nebula.css/issues"
+  },
   "devDependencies": {
     "grunt": "~0.4.5",
     "grunt-contrib-watch": "~0.6.1",

@@ -192,3 +192,6 @@ a {
   <li>List item</li>
   <li>You get it…</li>
 </ol>
+
+## License 
+Licensed under the MIT License.
