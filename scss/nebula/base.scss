@@ -1,7 +1,7 @@
 @import "config";
 @import "mixins";
-@import "helpers";
 @import "reset";
+@import "helpers";
 
 @each $name, $value in $colors {
   .#{$class-prefix}-color-#{$name}          { color: $value; }
