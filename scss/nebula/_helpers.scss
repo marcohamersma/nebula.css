@@ -44,6 +44,13 @@
   display: initial !important;
 }
 
+.#{$class-prefix}-heading-font-features {
+  -moz-font-feature-settings: $font-feature-settings, $font-feature-heading-settings;
+  -ms-font-feature-settings: $font-feature-settings, $font-feature-heading-settings;
+  -webkit-font-feature-settings: $font-feature-settings, $font-feature-heading-settings;
+  font-feature-settings: $font-feature-settings, $font-feature-heading-settings;
+}
+
 @media screen and (min-width: $breakpoint-hideOnMobile) {
   .#{$class-prefix}-hideOnMobile {
     display: block !important;
@@ -53,3 +60,4 @@
     display: none !important;
   }
 }
+

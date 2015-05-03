@@ -1,7 +1,3 @@
-// http://blog.webtype.com/?p=4085
-$font-feature-settings: calt liga clig kern onum;
-$font-feature-heading-settings: calt liga clig kern onum dlig swsh;
-
 html {
   font-size: 62.5%;
   text-rendering: optimizeLegibility;
@@ -57,7 +53,7 @@ pre > code {
 }
 
 // From normalize.css:
-// Prevent `sub` and `sup` affecting `line-height` in all browsers. 
+// Prevent `sub` and `sup` affecting `line-height` in all browsers.
 
 sub,
 sup {

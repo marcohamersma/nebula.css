@@ -33,10 +33,14 @@ $spacingValues: (
   large: 40
 );
 
+// http://blog.webtype.com/?p=4085
+$font-feature-settings: "kern", "onum", "liga";
+$font-feature-heading-settings: "calt", "dlig", "clig";
+
 // Generate border support classes for these colors
 $bordersForColor: 'accent', 'mid', 'black', 'white';
 $borderProperties: 'border', 'border-bottom';
-$spacingDirections: 'top', 'bottom'; 
+$spacingDirections: 'top', 'bottom';
 
 // Breakpoints
 $breakpoint-mobile: 400px;
