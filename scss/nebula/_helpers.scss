@@ -46,10 +46,7 @@
 }
 
 .#{$class-prefix}-heading-font-features {
-  -moz-font-feature-settings: $font-feature-settings, $font-feature-heading-settings;
-  -ms-font-feature-settings: $font-feature-settings, $font-feature-heading-settings;
-  -webkit-font-feature-settings: $font-feature-settings, $font-feature-heading-settings;
-  font-feature-settings: $font-feature-settings, $font-feature-heading-settings;
+  @include font-feature-settings(append($font-feature-heading-settings, $font-feature-heading-settings));
 }
 
 @media screen and (min-width: $breakpoint-hide-on-mobile) {

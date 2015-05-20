@@ -1,7 +1,7 @@
 @mixin font-rules($size) {
   font-size: $size * 1px;
   font-size: $size / 10 * 1rem;
-};
+}
 
 @mixin rules-for-space-value($name, $value) {
   .#{$class-prefix}-spacing-#{$name} {
@@ -42,6 +42,7 @@
     .#{$class-prefix}-padding-#{$direction}-#{$name} {
       padding-#{$direction}: $value * 1px;
     }
+  }
 }
 
 @mixin spacing-rules($spacingScale: 1) {
