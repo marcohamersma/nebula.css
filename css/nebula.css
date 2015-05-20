@@ -34,6 +34,8 @@ textarea { resize: vertical; }
 
 .n-show-on-mobile { display: initial !important; }
 
+.n-heading-font-features { -moz-font-feature-settings: "calt=1", "dlig=1", "clig=1", "calt, dlig, clig=1"; -moz-font-feature-settings: "calt" 1, "dlig" 1, "clig" 1, "calt, dlig, clig" 1; -ms-font-feature-settings: "calt" 1, "dlig" 1, "clig" 1, "calt, dlig, clig" 1; -o-font-feature-settings: "calt" 1, "dlig" 1, "clig" 1, "calt, dlig, clig" 1; -webkit-font-feature-settings: "calt" 1, "dlig" 1, "clig" 1, "calt, dlig, clig" 1; font-feature-settings: "calt" 1, "dlig" 1, "clig" 1, "calt, dlig, clig" 1; }
+
 @media screen and (min-width: 400px) { .n-hide-on-mobile { display: block !important; }
   .n-show-on-mobile { display: none !important; } }
 .n-color-accent { color: #009CDA; }
@@ -163,9 +165,9 @@ img { max-width: 100%; }
 
 .n-padding-bottom-large { padding-bottom: 40px; }
 
-html { font-size: 62.5%; text-rendering: optimizeLegibility; -moz-font-feature-settings: "calt=1", "liga=1", "clig=1", "kern=1", "onum=1"; -moz-font-feature-settings: "calt" 1, "liga" 1, "clig" 1, "kern" 1, "onum" 1; -ms-font-feature-settings: "calt" 1, "liga" 1, "clig" 1, "kern" 1, "onum" 1; -o-font-feature-settings: "calt" 1, "liga" 1, "clig" 1, "kern" 1, "onum" 1; -webkit-font-feature-settings: "calt" 1, "liga" 1, "clig" 1, "kern" 1, "onum" 1; font-feature-settings: "calt" 1, "liga" 1, "clig" 1, "kern" 1, "onum" 1; }
+html { font-size: 62.5%; text-rendering: optimizeLegibility; -moz-font-feature-settings: "kern=1", "onum=1", "liga=1"; -moz-font-feature-settings: "kern" 1, "onum" 1, "liga" 1; -ms-font-feature-settings: "kern" 1, "onum" 1, "liga" 1; -o-font-feature-settings: "kern" 1, "onum" 1, "liga" 1; -webkit-font-feature-settings: "kern" 1, "onum" 1, "liga" 1; font-feature-settings: "kern" 1, "onum" 1, "liga" 1; }
 
-h1, h2, h3, h4, h5, h6 { font-weight: bold; position: relative; -moz-font-feature-settings: "calt=1", "liga=1", "clig=1", "kern=1", "onum=1", "dlig=1", "swsh=1"; -moz-font-feature-settings: "calt" 1, "liga" 1, "clig" 1, "kern" 1, "onum" 1, "dlig" 1, "swsh" 1; -ms-font-feature-settings: "calt" 1, "liga" 1, "clig" 1, "kern" 1, "onum" 1, "dlig" 1, "swsh" 1; -o-font-feature-settings: "calt" 1, "liga" 1, "clig" 1, "kern" 1, "onum" 1, "dlig" 1, "swsh" 1; -webkit-font-feature-settings: "calt" 1, "liga" 1, "clig" 1, "kern" 1, "onum" 1, "dlig" 1, "swsh" 1; font-feature-settings: "calt" 1, "liga" 1, "clig" 1, "kern" 1, "onum" 1, "dlig" 1, "swsh" 1; }
+h1, h2, h3, h4, h5, h6 { font-weight: bold; position: relative; -moz-font-feature-settings: "calt=1", "dlig=1", "clig=1"; -moz-font-feature-settings: "calt" 1, "dlig" 1, "clig" 1; -ms-font-feature-settings: "calt" 1, "dlig" 1, "clig" 1; -o-font-feature-settings: "calt" 1, "dlig" 1, "clig" 1; -webkit-font-feature-settings: "calt" 1, "dlig" 1, "clig" 1; font-feature-settings: "calt" 1, "dlig" 1, "clig" 1; }
 
 h1, h2, h3 { top: -0.2em; line-height: 1.2; }
 
@@ -191,7 +193,7 @@ p { margin-bottom: 1.3em; }
 
 p:last-of-type { margin-bottom: 0; }
 
-.n-small-caps { -moz-font-feature-settings: "calt=1", "liga=1", "clig=1", "kern=1", "onum=1", "smcp=1"; -moz-font-feature-settings: "calt" 1, "liga" 1, "clig" 1, "kern" 1, "onum" 1, "smcp" 1; -ms-font-feature-settings: "calt" 1, "liga" 1, "clig" 1, "kern" 1, "onum" 1, "smcp" 1; -o-font-feature-settings: "calt" 1, "liga" 1, "clig" 1, "kern" 1, "onum" 1, "smcp" 1; -webkit-font-feature-settings: "calt" 1, "liga" 1, "clig" 1, "kern" 1, "onum" 1, "smcp" 1; font-feature-settings: "calt" 1, "liga" 1, "clig" 1, "kern" 1, "onum" 1, "smcp" 1; line-height: 1em; }
+.n-small-caps { -moz-font-feature-settings: "kern=1", "onum=1", "liga=1", "smcp=1"; -moz-font-feature-settings: "kern" 1, "onum" 1, "liga" 1, "smcp" 1; -ms-font-feature-settings: "kern" 1, "onum" 1, "liga" 1, "smcp" 1; -o-font-feature-settings: "kern" 1, "onum" 1, "liga" 1, "smcp" 1; -webkit-font-feature-settings: "kern" 1, "onum" 1, "liga" 1, "smcp" 1; font-feature-settings: "kern" 1, "onum" 1, "liga" 1, "smcp" 1; line-height: 1em; }
 
 code { font-family: 'Fira Mono', 'Inconsolata', monospace; background-color: rgba(128, 128, 128, 0.15); white-space: nowrap; padding: 0 0.2em; font-size: 90%; }
 
