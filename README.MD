@@ -1,8 +1,8 @@
 # Nebula CSS Framework
 ## Usage
-If you don't want to use Nebula in a SASS/SCSS workflow, just grab the `nebula.css` file from the `css` directory, and include that in your website. That's all.
+If you don't want to use Nebula in a Sass/SCSS workflow, just grab the `nebula.css` file from the `css` directory, and include that in your website. That's all.
 
-If you want to customise colors, spacing & other things, you need to use SASS to recompile changes made in the `scss/nebula` directory, here's how:
+If you want to customise colors, spacing & other things, you need to use Sass to recompile changes made in the `scss/nebula` directory, here's how:
 
 ## Demo
 You can see the code in action at [marcohamersma.github.io/nebula.css/](http://marcohamersma.github.io/nebula.css/).
@@ -18,14 +18,14 @@ You can see the code in action at [marcohamersma.github.io/nebula.css/](http://m
   * cd to project folder
   * run `bundle install` (first time users)
   * run `[sudo] npm install` (first time users)
-  * run `grunt` (to watch and compile sass files)
+  * run `grunt` (to watch and compile Sass files)
 
-I'm hoping that I can remove the dependency on soon, but for now it's still required for using `grunt-contrib-sass`.
+I'm hoping that I can remove the dependency on Ruby soon, but I haven't gotten to it yet, so for now it's still required for using `grunt-contrib-sass`.
 
 # About Nebula.css
 <p>Nebula.css is a work-in-progress CSS framework with the aim to quickly generate “building-block” classes for font sizes, colors, background colors and spacing. In addition to that, it also offers a nice typographic foundation + basic styles. It's inspired by <a href="https://en.bem.info" class="n-small-caps">BEM</a> and <a href="http://www.stubbornella.org/content/category/general/geek/css/oocss-css-geek-general/" class="n-small-caps">OOCSS</a>. It's a great starting kit for responsive websites, and allows you to easily scale type and spacing at different breakpoints.</p>
 
-<p>The framework is built with <a href="http://sass-lang.com" class="n-small-caps">SASS</a>, and probably requires tweaking before compiling. That said, it can be used outside of a <span class="n-small-caps">SASS</span> pipeline together with other stylesheets.</p>
+<p>The framework is built with <a href="http://sass-lang.com">Sass</a>, and probably requires tweaking before compiling. That said, it can be used outside of a Sass pipeline together with other stylesheets.</p>
 
 ### Nebula loves spacing
 <p>For most block elements, Nebula provides no margins. This is so that the amount of spacing can be explicitly defined depending on the context and surrounding elements. In my experience, this leads to more consistent spacing across a page, with less chance of padding + margin adding up to inconsistent amounts compared to other elements on the page.</p>
@@ -96,7 +96,7 @@ $spacingValue: (
 <p class="n-vspacing-small">As sometimes you might only want to give elements spacing on one side, any direction defined in <code class="n-color-accent">$spacingDirections</code> will generate additional directional classes for every <code class="n-color-accent">$spacingValue</code> defined:</p>
 
 ```scss
-$spacingDirections: 'top', 'bottom'; 
+$spacingDirections: 'top', 'bottom';
 
 .n-spacing-top-smallest    { margin-top: 5px; }
 .n-spacing-bottom-smallest { margin-bottom: 5px; }
@@ -130,14 +130,14 @@ $spacingDirections: 'top', 'bottom';
   .n-font-normal      { font-size: 18px; font-size: 1.8rem; }
   h1, .n-font-h1      { font-size: 46.8px; font-size: 4.68rem; }
   …
-  .n-border-accent     border: 2px solid #009CDA; 
+  .n-border-accent    { border: 2px solid #009CDA; }
 }
 
 ```
 <p>The original values defined in Nebula's configuration have now multiplied by the scaling values defined above. For example, because the <code class="n-color-accent">$spacingScale</code> was set to 2, <code>.n-spacing-smallest</code> changed from 5 to 10.</p>
 
 ## Helpers
-<p>As a bonus, Nebula.css also offers a couple of helpers for common behaviour in the form of CSS classes or SASS functions:</p>
+<p>As a bonus, Nebula.css also offers a couple of helpers for common behaviour in the form of CSS classes or Sass functions:</p>
 
 ### Helper classes:
 
@@ -153,7 +153,7 @@ $spacingDirections: 'top', 'bottom';
 
 ### Helper classes:
 
-<p>If you're including Nebula in a SASS pipeline, you get access to the <code>font-size()</code>, <code>color()</code>, and <code>space()</code> functions for accessing configured font-sizes, colors, and spacing values.</p>
+<p>If you're including Nebula in a Sass pipeline, you get access to the <code>font-size()</code>, <code>color()</code>, and <code>space()</code> functions for accessing configured font-sizes, colors, and spacing values.</p>
 ```scss
 // nebula/_config.scss
 $colors: (
