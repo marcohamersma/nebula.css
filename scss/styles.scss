@@ -30,6 +30,16 @@ a {
   }
 }
 
+::-moz-selection {
+  background: rgba(color('accent'), 0.4);
+  text-shadow: none;
+}
+
+::selection {
+  background: rgba(color('accent'), 0.4);
+  text-shadow: none;
+}
+
 // How to define breakpoints:
 // Set multipliers for body
 @media screen and (min-width: $breakpoint-tablet) {
