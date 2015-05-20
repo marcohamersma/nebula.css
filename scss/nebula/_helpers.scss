@@ -3,7 +3,7 @@
 }
 
 @function raw-font-size($name) {
-  @return map-get($fontBaseSizes, $name);
+  @return map-get($font-base-sizes, $name);
 }
 
 @function color($name) {
@@ -15,7 +15,7 @@
 };
 
 @function raw-space($name) {
-  @return map-get($spacingValues, $name);
+  @return map-get($spacing-values, $name);
 }
 
 .#{$class-prefix}-text-centered {
@@ -37,11 +37,11 @@
   clear:both;
 }
 
-.#{$class-prefix}-hideOnMobile {
+.#{$class-prefix}-hide-on-mobile {
   display: none !important;
 }
 
-.#{$class-prefix}-showOnMobile {
+.#{$class-prefix}-show-on-mobile {
   display: initial !important;
 }
 
@@ -52,12 +52,12 @@
   font-feature-settings: $font-feature-settings, $font-feature-heading-settings;
 }
 
-@media screen and (min-width: $breakpoint-hideOnMobile) {
-  .#{$class-prefix}-hideOnMobile {
+@media screen and (min-width: $breakpoint-hide-on-mobile) {
+  .#{$class-prefix}-hide-on-mobile {
     display: block !important;
   }
 
-  .#{$class-prefix}-showOnMobile {
+  .#{$class-prefix}-show-on-mobile {
     display: none !important;
   }
 }

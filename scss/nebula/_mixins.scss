@@ -3,7 +3,7 @@
   font-size: $size / 10 * 1rem;
 };
 
-@mixin rulesForSpaceValue($name, $value) {
+@mixin rules-for-space-value($name, $value) {
   .#{$class-prefix}-spacing-#{$name} {
     margin: $value * 1px;
   }
@@ -18,7 +18,7 @@
     margin-right: $value * 1px;
   }
 
-  @each $direction in $spacingDirections {
+  @each $direction in $spacing-directions {
     .#{$class-prefix}-spacing-#{$direction}-#{$name} {
       margin-#{$direction}: $value * 1px;
     }
@@ -38,32 +38,31 @@
     padding-right: $value * 1px;
   }
 
-  @each $direction in $spacingDirections {
+  @each $direction in $spacing-directions {
     .#{$class-prefix}-padding-#{$direction}-#{$name} {
       padding-#{$direction}: $value * 1px;
     }
 }
 
-
-@mixin spacingRules($spacingScale: 1) {
+@mixin spacing-rules($spacingScale: 1) {
   /* Spacing */
-  @each $name, $value in $spacingValues {
-    @include rulesForSpaceValue($name, $value * $spacingScale)
+  @each $name, $value in $spacing-values {
+    @include rules-for-space-value($name, $value * $spacingScale)
   }
 }
 
-@mixin typeRules($bodyTextScale: 1, $headerTextScale: 1, $spacingScale: 1) {
+@mixin type-rules($bodyTextScale: 1, $headerTextScale: 1, $spacingScale: 1) {
   body {
     @include font-rules(raw-font-size('normal') * $bodyTextScale);
   }
 
-  @each $name, $value in $fontBaseSizes {
+  @each $name, $value in $font-base-sizes {
     .#{$class-prefix}-font-#{$name} {
       @include font-rules($value * $bodyTextScale);
     }
   }
 
-  @each $name, $value in $headerBaseSizes {
+  @each $name, $value in $header-base-sizes {
     #{$name},
     .#{$class-prefix}-font-#{$name} {
       @include font-rules($value * $headerTextScale);
@@ -71,14 +70,14 @@
   }
 }
 
-@mixin scaledSpacingAndType($spacingScale, $bodyTextScale, $headerTextScale) {
-  @include spacingRules($spacingScale);
-  @include typeRules($bodyTextScale, $headerTextScale, $spacingScale);
+@mixin scaled-spacing-and-type($spacingScale, $bodyTextScale, $headerTextScale) {
+  @include spacing-rules($spacingScale);
+  @include type-rules($bodyTextScale, $headerTextScale, $spacingScale);
 }
 
-@mixin borderRules($scale: 1) {
-  @each $color in $bordersForColor {
-    @each $propertyName in $borderProperties {
+@mixin border-rules($scale: 1) {
+  @each $color in $borders-for-color {
+    @each $propertyName in $border-properties {
       .#{$class-prefix}-#{$propertyName}-#{$color} {
         #{$propertyName}: ($scale * 1px) solid color($color);
       }

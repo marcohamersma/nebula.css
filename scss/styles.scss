@@ -9,7 +9,6 @@
 // This import runs nebula and adds helper classes according to the configuration
 @import 'nebula/base';
 
-
 //-----------------------
 // This is where you can add your site-specific styles
 
@@ -48,8 +47,8 @@ a {
   $spacingScale: 2;
   $borderScale: 2;
 
-  @include scaledSpacingAndType($spacingScale, $bodyTextScale, $headerTextScale);
-  @include borderRules($borderScale);
+  @include scaled-spacing-and-type($spacingScale, $bodyTextScale, $headerTextScale);
+  @include border-rules($borderScale);
 }
 
 @media screen and (min-width: $breakpoint-widescreen) {
@@ -58,6 +57,6 @@ a {
   $spacingScale: 2.3;
   $borderScale: 2;
 
-  @include scaledSpacingAndType($spacingScale, $bodyTextScale, $headerTextScale);
-  @include borderRules($borderScale);
+  @include scaled-spacing-and-type($spacingScale, $bodyTextScale, $headerTextScale);
+  @include border-rules($borderScale);
 }

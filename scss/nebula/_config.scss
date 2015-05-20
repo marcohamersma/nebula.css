@@ -13,19 +13,19 @@ $colors: (
 );
 
 // TODO: rename to BODY
-$fontBaseSizes: (
+$font-base-sizes: (
   'normal': 18,
   'smallest': 12.5,
   'small': 15,
 );
 
 // TODO: Maybe make this an array? maybe even use modular scales? first item is H1, second H2, etc…
-$headerBaseSizes: (
+$header-base-sizes: (
   'h1': 26,
   'h2': 21.5,
 );
 
-$spacingValues: (
+$spacing-values: (
   'smallest': 5,
   'small': 15,
   'medium': 30,
@@ -37,13 +37,13 @@ $font-feature-settings: "kern", "onum", "liga";
 $font-feature-heading-settings: "calt", "dlig", "clig";
 
 // Generate border support classes for these colors
-$bordersForColor: ('accent', 'mid', 'black', 'white');
-$borderProperties: ('border', 'border-bottom');
-$spacingDirections: ('top', 'bottom');
+$borders-for-color: ('accent', 'mid', 'black', 'white');
+$border-properties: ('border', 'border-bottom');
+$spacing-directions: ('top', 'bottom');
 
 
 // Breakpoints
 $breakpoint-mobile: 400px;
 $breakpoint-tablet: 800px;
 $breakpoint-widescreen: 1200px;
-$breakpoint-hideOnMobile: $breakpoint-mobile;
+$breakpoint-hide-on-mobile: $breakpoint-mobile;

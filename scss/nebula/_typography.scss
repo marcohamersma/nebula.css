@@ -18,9 +18,9 @@ h1, h2, h3 {
   line-height: 1.2;
 }
 
-@include typeRules;
+@include type-rules;
 
-@each $name, $value in $fontBaseSizes {
+@each $name, $value in $font-base-sizes {
   .#{$class-prefix}-font-#{$name} {
     @include font-rules($value);
   }

@@ -18,10 +18,10 @@ img {
 }
 
 // Borders
-@include borderRules();
+@include border-rules();
 
 // Spacing
-@include spacingRules();
+@include spacing-rules();
 
 // Typography
 @import 'typography';
