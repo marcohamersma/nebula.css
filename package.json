@@ -1,20 +1,36 @@
 {
-  "name": "nebula-css",
-  "version": "0.0.1",
+  "name": "nebula.css",
+  "version": "1.0.0",
   "description": "A work-in-progress CSS framework with the aim to quickly generate “building-block” classes for font sizes, colors, background colors and spacing",
   "scripts": {
     "start": "grunt"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/marcohamersma/nebula.css"
+    "url": "git+https://github.com/marcohamersma/nebula.css.git"
   },
-    "bugs": {
+  "bugs": {
     "url": "https://github.com/marcohamersma/nebula.css/issues"
   },
+  "homepage": "https://github.com/marcohamersma/nebula.css#readme",
+  "main": "lib/nebula-builder.js",
   "devDependencies": {
-    "grunt": "~0.4.5",
-    "grunt-contrib-watch": "~0.6.1",
-    "grunt-contrib-sass": "~0.8.1"
+    "grunt": "^0.4.5",
+    "grunt-contrib-sass": "^0.8.1",
+    "grunt-contrib-watch": "^0.6.1",
+    "handlebars": "^3.0.1",
+    "slug": "^0.9.1",
+    "to-markdown": "^1.0.0-rc.4",
+    "underscore": "^1.8.3"
+  },
+  "keywords": [
+    "css",
+    "sass",
+    "framework"
+  ],
+  "author": "Marco Hamersma",
+  "license": "MIT",
+  "dependencies": {
+    "node-sass": "^3.2.0"
   }
 }

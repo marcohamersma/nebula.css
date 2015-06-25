@@ -1,20 +1,10 @@
+var builder = require('./lib/nebula-builder');
+var baseConfig = require('./lib/base-config');
+var configBuilder = require('./lib/config-builder');
+
 module.exports = function(grunt) {
   grunt.initConfig({
-    sass: {
-      dist: {
-        options: {
-          style: 'compact'
-        },
-        files: {
-          "css/styles.css": "scss/styles.scss",
-          "css/nebula.css": "scss/nebula/plain.scss"
-        }
-      }
-    },
     watch: {
-      options: {
-        livereload: false,
-      },
       styles: {
         files: ['scss/**/*.scss'], // which files to watch
         tasks: ['sass'],
@@ -25,7 +15,12 @@ module.exports = function(grunt) {
     }
   });
 
-  grunt.loadNpmTasks('grunt-contrib-sass');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.registerTask('default', ['sass', 'watch']);
+
+
+  grunt.registerTask('buildConfig' , function() {
+    var done = this.async()
+    configBuilder(baseConfig, './scss/nebula/_config.scss', done);
+  });
 };
