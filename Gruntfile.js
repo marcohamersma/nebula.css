@@ -25,6 +25,11 @@ module.exports = function(grunt) {
     builder(modules, './nebula.css', null, done);
   });
 
+  grunt.registerTask('sass' , function() {
+    var done = this.async();
+    builder(null, './css/styles.css', null, done);
+  });
+
   grunt.registerTask('buildConfig' , function() {
     fs.writeFileSync('./scss/nebula/_config.scss', configBuilder(baseConfig));
   });
