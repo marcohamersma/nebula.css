@@ -1,6 +1,7 @@
 var builder = require('./lib/nebula-builder');
 var baseConfig = require('./lib/base-config');
 var configBuilder = require('./lib/config-builder');
+var fs = require('fs');
 
 module.exports = function(grunt) {
   grunt.initConfig({
@@ -20,7 +21,6 @@ module.exports = function(grunt) {
 
 
   grunt.registerTask('buildConfig' , function() {
-    var done = this.async()
-    configBuilder(baseConfig, './scss/nebula/_config.scss', done);
+    fs.writeFileSync('./scss/nebula/_config.scss', configBuilder(baseConfig));
   });
 };
