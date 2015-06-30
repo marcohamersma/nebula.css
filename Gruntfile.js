@@ -19,6 +19,11 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.registerTask('default', ['sass', 'watch']);
 
+  grunt.registerTask('buildVanilla' , function() {
+    var modules = ['banner', 'config', 'mixins', 'reset', 'helpers', 'base'];
+    var done = this.async();
+    builder(modules, './nebula.css', null, done);
+  });
 
   grunt.registerTask('buildConfig' , function() {
     fs.writeFileSync('./scss/nebula/_config.scss', configBuilder(baseConfig));

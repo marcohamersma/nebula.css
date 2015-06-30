@@ -38,6 +38,7 @@ textarea { resize: vertical; }
 
 @media screen and (min-width: 400px) { .n-hide-on-mobile { display: block !important; }
   .n-show-on-mobile { display: none !important; } }
+
 .n-color-accent { color: #009CDA; }
 
 .n-background-accent { background-color: #009CDA; }
@@ -214,6 +215,7 @@ em { font-style: italic; }
 .n-ol { list-style: decimal outside; }
 
 .n-ul, .n-ol { padding-left: 1.4em; margin-top: 0; }
+
 .n-ul li, .n-ol li { margin-bottom: 5px; }
 
 /*# sourceMappingURL=nebula.css.map */
