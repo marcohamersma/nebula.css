@@ -1,26 +1,31 @@
 # Nebula CSS Framework
 
-## Usage
-If you don't want to use Nebula in a Sass/SCSS workflow, just grab the `nebula.css` file from the `css` directory, and include that in your website. That's all.
-
-If you want to customise colors, spacing & other things, you need to use Sass to recompile changes made in the `scss/nebula` directory, here's how:
-
 ## Demo
 You can see the code in action at [marcohamersma.github.io/nebula.css/](http://marcohamersma.github.io/nebula.css/).
 
-### Install Global Dependancies
-  * [Node.js](http://nodejs.org)
-  * [Ruby](https://www.ruby-lang.org/en/downloads/)
-  * [Sass](http://sass-lang.com)
-  * [grunt.js](http://grunt.js)
+## Usage
+There are a few ways of using Nebula:
+1. If you don't need any customisation, or want to include the file alongside other stylesheets, just pick out the `nebula.css` file in the root of this repository. Done!
+2. If you don't like the default configuration, clone the repository, run `npm install`, and customize the files in the `scss` folder. Running `grunt custom`will then generate a file called `nebula-custom.css` in the root.
+3. If you already have a Sass pipeline setup for your project, grab the `scss` folder and stick it's contents in there and include `styles.scss`.
+4. Include Nebula as a node module
 
-### Install Local Dependancies
-  * Download zip or clone the repo
-  * cd to project folder
-  * run `bundle install` (first time users)
-  * run `[sudo] npm install` (first time users)
-  * run `grunt` (to watch and compile Sass files)
+## Usage as an npm module.
+Install the package using `npm install nebula.css --save` and require it in your project.
 
-I'm hoping that I can remove the dependency on Ruby soon, but I haven't gotten to it yet, so for now it's still required for using `grunt-contrib-sass`.
+### arguments
+1. `modules`: An array of modules to render for this build. Defaults to `['banner', 'config', 'mixins', 'reset', 'helpers', 'base']`.
+2. `pathName`: The path that the end result needs to be written to. This _can be left blank_, it will cause the callback to return the css itself. Otherwise it returns the pathname.
+3. `config`: Allows you to overwrite the configuration variables found in `config.scss`. However, it will cause changes to that file and `styles.scss` to be ignored (since we're basically constructing a new base file). Expects an object, values will be combined with `lib/base-config.js`.
+4. `callback`: function to be executed after the output has been generated.
+
+```js
+    var nebula = require('nebula.css');
+
+
+    nebula(null, './nebula-custom.css', { 'use-reset': false }, function(fileName) {
+        console.log('output at ' + fileName);
+    });
+```
 
 # About Nebula.css

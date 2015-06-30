@@ -17,7 +17,7 @@ module.exports = function(grunt) {
   });
 
   grunt.loadNpmTasks('grunt-contrib-watch');
-  grunt.registerTask('default', ['sass', 'buildReadme', 'watch']);
+  grunt.registerTask('default', ['buildVanilla', 'buildReadme', 'watch']);
 
   grunt.registerTask('buildVanilla' , function() {
     var modules = baseConfig.defaultModules;
@@ -25,9 +25,9 @@ module.exports = function(grunt) {
     builder(modules, './nebula.css', null, done);
   });
 
-  grunt.registerTask('sass' , function() {
+  grunt.registerTask('custom' , function() {
     var done = this.async();
-    builder(null, './css/styles.css', null, done);
+    builder(null, './nebula-custom.css', null, done);
   });
 
   grunt.registerTask('buildConfig' , function() {
