@@ -1,0 +1,50 @@
+// This is where you can add your site-specific styles
+
+body {
+  line-height: 1.5;
+}
+
+// TIP: If you want to use some of the font sizes or colors you've defined
+// in the configuration, you can use helpers like color() and font-size().
+// For example:
+
+a {
+  color: color('accent');
+  text-decoration: none;
+
+  &:hover {
+    color: lighten(color('accent'), 10%);
+  }
+}
+
+::-moz-selection {
+  background: rgba(color('accent'), 0.4);
+  text-shadow: none;
+}
+
+::selection {
+  background: rgba(color('accent'), 0.4);
+  text-shadow: none;
+}
+
+// How to define breakpoints:
+// Set multipliers for body
+@media screen and (min-width: $breakpoint-tablet) {
+  $bodyTextScale: 1.125;
+  $headerTextScale: 1.8;
+  $spacingScale: 2;
+  $borderScale: 2;
+
+  @include scaled-spacing-and-type($spacingScale, $bodyTextScale, $headerTextScale);
+  @include border-rules($borderScale);
+}
+
+@media screen and (min-width: $breakpoint-widescreen) {
+  $bodyTextScale: 1.4;
+  $headerTextScale: 2;
+  $spacingScale: 2.3;
+  $borderScale: 2;
+
+  @include scaled-spacing-and-type($spacingScale, $bodyTextScale, $headerTextScale);
+  @include border-rules($borderScale);
+}
