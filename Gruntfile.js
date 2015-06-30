@@ -34,8 +34,23 @@ module.exports = function(grunt) {
     grunt.file.write('./scss/nebula/_config.scss', configBuilder(baseConfig));
   });
 
-  grunt.registerTask('buildReadme', 'Generate the readme from the HTML', function() {
-    grunt.file.write('./index.html', readmeBuilder.html());
-    grunt.file.write('./README.MD', readmeBuilder.markdown());
+  grunt.registerTask('buildReadme', ['readme-html', 'readme-markdown']);
+
+  grunt.registerTask('readme-html', 'Compile the index.html for Github Pages, plus generate styles', function() {
+    var done = this.async();
+    readmeBuilder.html(function(result) {
+      grunt.file.write('./index.html', result);
+      done();
+    });
   });
+
+  grunt.registerTask('readme-markdown', 'Generate the markdown from the from the HTML', function() {
+    var done = this.async();
+    readmeBuilder.markdown(function(result) {
+      grunt.file.write('./README.MD', result);
+      done();
+    });
+  });
+
+
 };
