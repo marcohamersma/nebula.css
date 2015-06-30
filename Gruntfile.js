@@ -1,14 +1,14 @@
 var builder = require('./lib/nebula-builder');
 var baseConfig = require('./lib/base-config');
 var configBuilder = require('./lib/config-builder');
-var fs = require('fs');
+var readmeBuilder = require('./lib/readme-builder');
 
 module.exports = function(grunt) {
   grunt.initConfig({
     watch: {
       styles: {
-        files: ['scss/**/*.scss'], // which files to watch
-        tasks: ['sass'],
+        files: ['scss/**/*.scss', 'readme-src/*', 'lib/*'], // which files to watch
+        tasks: ['sass', 'buildReadme'],
         options: {
           nospawn: true
         }
@@ -17,7 +17,7 @@ module.exports = function(grunt) {
   });
 
   grunt.loadNpmTasks('grunt-contrib-watch');
-  grunt.registerTask('default', ['sass', 'watch']);
+  grunt.registerTask('default', ['sass', 'buildReadme', 'watch']);
 
   grunt.registerTask('buildVanilla' , function() {
     var modules = ['banner', 'config', 'mixins', 'reset', 'helpers', 'base'];
@@ -31,6 +31,11 @@ module.exports = function(grunt) {
   });
 
   grunt.registerTask('buildConfig' , function() {
-    fs.writeFileSync('./scss/nebula/_config.scss', configBuilder(baseConfig));
+    grunt.file.write('./scss/nebula/_config.scss', configBuilder(baseConfig));
+  });
+
+  grunt.registerTask('buildReadme', 'Generate the readme from the HTML', function() {
+    grunt.file.write('./index.html', readmeBuilder.html());
+    grunt.file.write('./README.MD', readmeBuilder.markdown());
   });
 };
