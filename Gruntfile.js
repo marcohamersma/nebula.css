@@ -20,7 +20,7 @@ module.exports = function(grunt) {
   grunt.registerTask('default', ['sass', 'buildReadme', 'watch']);
 
   grunt.registerTask('buildVanilla' , function() {
-    var modules = ['banner', 'config', 'mixins', 'reset', 'helpers', 'base'];
+    var modules = baseConfig.defaultModules;
     var done = this.async();
     builder(modules, './nebula.css', null, done);
   });
@@ -31,7 +31,7 @@ module.exports = function(grunt) {
   });
 
   grunt.registerTask('buildConfig' , function() {
-    grunt.file.write('./scss/nebula/_config.scss', configBuilder(baseConfig));
+    grunt.file.write('./scss/nebula/_config.scss', configBuilder(baseConfig.variables));
   });
 
   grunt.registerTask('buildReadme', ['readme-html', 'readme-markdown']);

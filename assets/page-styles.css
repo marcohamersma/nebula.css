@@ -1,4 +1,4 @@
-/** Nebula CSS Framework Designed & Developed by Marco Hamersma */
+/** Nebula CSS Framework Created by Marco Hamersma (https://github.com/marcohamersma/) MIT License */
 /* Reset styles */
 html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video { margin: 0; padding: 0; border: 0; font-size: 100%; font: inherit; vertical-align: baseline; }
 
@@ -218,57 +218,54 @@ em { font-style: italic; }
 
 .n-ul li, .n-ol li { margin-bottom: 5px; }
 
-body { line-height: 1.5; }
+body { line-height: 1.5; max-width: 800px; width: 80%; margin: 0 auto; font-family: 'Helvetica', sans-serif; }
 
-a { color: #009CDA; text-decoration: none; }
+/* Links */
+.g-link, p > a { color: #009CDA; text-decoration: none; }
 
-a:hover { color: #0ebaff; }
-
-::-moz-selection { background: rgba(0, 156, 218, 0.4); text-shadow: none; }
-
-::selection { background: rgba(0, 156, 218, 0.4); text-shadow: none; }
+.g-link:hover, p > a:hover { color: #0ebaff; }
 
 @media screen and (min-width: 800px) { /* Spacing */
-  .n-spacing-smallest { margin: 10px; }
-  .n-vspacing-smallest { margin-top: 10px; margin-bottom: 10px; }
-  .n-hspacing-smallest { margin-left: 10px; margin-right: 10px; }
-  .n-spacing-top-smallest { margin-top: 10px; }
-  .n-spacing-bottom-smallest { margin-bottom: 10px; }
-  .n-padding-smallest { padding: 10px; }
-  .n-vpadding-smallest { padding-top: 10px; padding-bottom: 10px; }
-  .n-hpadding-smallest { padding-left: 10px; padding-right: 10px; }
-  .n-padding-top-smallest { padding-top: 10px; }
-  .n-padding-bottom-smallest { padding-bottom: 10px; }
-  .n-spacing-small { margin: 30px; }
-  .n-vspacing-small { margin-top: 30px; margin-bottom: 30px; }
-  .n-hspacing-small { margin-left: 30px; margin-right: 30px; }
-  .n-spacing-top-small { margin-top: 30px; }
-  .n-spacing-bottom-small { margin-bottom: 30px; }
-  .n-padding-small { padding: 30px; }
-  .n-vpadding-small { padding-top: 30px; padding-bottom: 30px; }
-  .n-hpadding-small { padding-left: 30px; padding-right: 30px; }
-  .n-padding-top-small { padding-top: 30px; }
-  .n-padding-bottom-small { padding-bottom: 30px; }
-  .n-spacing-medium { margin: 60px; }
-  .n-vspacing-medium { margin-top: 60px; margin-bottom: 60px; }
-  .n-hspacing-medium { margin-left: 60px; margin-right: 60px; }
-  .n-spacing-top-medium { margin-top: 60px; }
-  .n-spacing-bottom-medium { margin-bottom: 60px; }
-  .n-padding-medium { padding: 60px; }
-  .n-vpadding-medium { padding-top: 60px; padding-bottom: 60px; }
-  .n-hpadding-medium { padding-left: 60px; padding-right: 60px; }
-  .n-padding-top-medium { padding-top: 60px; }
-  .n-padding-bottom-medium { padding-bottom: 60px; }
-  .n-spacing-large { margin: 80px; }
-  .n-vspacing-large { margin-top: 80px; margin-bottom: 80px; }
-  .n-hspacing-large { margin-left: 80px; margin-right: 80px; }
-  .n-spacing-top-large { margin-top: 80px; }
-  .n-spacing-bottom-large { margin-bottom: 80px; }
-  .n-padding-large { padding: 80px; }
-  .n-vpadding-large { padding-top: 80px; padding-bottom: 80px; }
-  .n-hpadding-large { padding-left: 80px; padding-right: 80px; }
-  .n-padding-top-large { padding-top: 80px; }
-  .n-padding-bottom-large { padding-bottom: 80px; }
+  .n-spacing-smallest { margin: 6.5px; }
+  .n-vspacing-smallest { margin-top: 6.5px; margin-bottom: 6.5px; }
+  .n-hspacing-smallest { margin-left: 6.5px; margin-right: 6.5px; }
+  .n-spacing-top-smallest { margin-top: 6.5px; }
+  .n-spacing-bottom-smallest { margin-bottom: 6.5px; }
+  .n-padding-smallest { padding: 6.5px; }
+  .n-vpadding-smallest { padding-top: 6.5px; padding-bottom: 6.5px; }
+  .n-hpadding-smallest { padding-left: 6.5px; padding-right: 6.5px; }
+  .n-padding-top-smallest { padding-top: 6.5px; }
+  .n-padding-bottom-smallest { padding-bottom: 6.5px; }
+  .n-spacing-small { margin: 19.5px; }
+  .n-vspacing-small { margin-top: 19.5px; margin-bottom: 19.5px; }
+  .n-hspacing-small { margin-left: 19.5px; margin-right: 19.5px; }
+  .n-spacing-top-small { margin-top: 19.5px; }
+  .n-spacing-bottom-small { margin-bottom: 19.5px; }
+  .n-padding-small { padding: 19.5px; }
+  .n-vpadding-small { padding-top: 19.5px; padding-bottom: 19.5px; }
+  .n-hpadding-small { padding-left: 19.5px; padding-right: 19.5px; }
+  .n-padding-top-small { padding-top: 19.5px; }
+  .n-padding-bottom-small { padding-bottom: 19.5px; }
+  .n-spacing-medium { margin: 39px; }
+  .n-vspacing-medium { margin-top: 39px; margin-bottom: 39px; }
+  .n-hspacing-medium { margin-left: 39px; margin-right: 39px; }
+  .n-spacing-top-medium { margin-top: 39px; }
+  .n-spacing-bottom-medium { margin-bottom: 39px; }
+  .n-padding-medium { padding: 39px; }
+  .n-vpadding-medium { padding-top: 39px; padding-bottom: 39px; }
+  .n-hpadding-medium { padding-left: 39px; padding-right: 39px; }
+  .n-padding-top-medium { padding-top: 39px; }
+  .n-padding-bottom-medium { padding-bottom: 39px; }
+  .n-spacing-large { margin: 52px; }
+  .n-vspacing-large { margin-top: 52px; margin-bottom: 52px; }
+  .n-hspacing-large { margin-left: 52px; margin-right: 52px; }
+  .n-spacing-top-large { margin-top: 52px; }
+  .n-spacing-bottom-large { margin-bottom: 52px; }
+  .n-padding-large { padding: 52px; }
+  .n-vpadding-large { padding-top: 52px; padding-bottom: 52px; }
+  .n-hpadding-large { padding-left: 52px; padding-right: 52px; }
+  .n-padding-top-large { padding-top: 52px; }
+  .n-padding-bottom-large { padding-bottom: 52px; }
   body { font-size: 20.25px; font-size: 2.025rem; }
   .n-font-normal { font-size: 20.25px; font-size: 2.025rem; }
   .n-font-smallest { font-size: 14.0625px; font-size: 1.40625rem; }
@@ -284,7 +281,8 @@ a:hover { color: #0ebaff; }
   .n-border-white { border: 2px solid #FFFFFF; }
   .n-border-bottom-white { border-bottom: 2px solid #FFFFFF; } }
 
-@media screen and (min-width: 1200px) { /* Spacing */
+@media screen and (min-width: 1200px) { body { max-width: 900px; }
+  /* Spacing */
   .n-spacing-smallest { margin: 11.5px; }
   .n-vspacing-smallest { margin-top: 11.5px; margin-bottom: 11.5px; }
   .n-hspacing-smallest { margin-left: 11.5px; margin-right: 11.5px; }
@@ -325,10 +323,10 @@ a:hover { color: #0ebaff; }
   .n-hpadding-large { padding-left: 92px; padding-right: 92px; }
   .n-padding-top-large { padding-top: 92px; }
   .n-padding-bottom-large { padding-bottom: 92px; }
-  body { font-size: 25.2px; font-size: 2.52rem; }
-  .n-font-normal { font-size: 25.2px; font-size: 2.52rem; }
-  .n-font-smallest { font-size: 17.5px; font-size: 1.75rem; }
-  .n-font-small { font-size: 21px; font-size: 2.1rem; }
+  body { font-size: 23.4px; font-size: 2.34rem; }
+  .n-font-normal { font-size: 23.4px; font-size: 2.34rem; }
+  .n-font-smallest { font-size: 16.25px; font-size: 1.625rem; }
+  .n-font-small { font-size: 19.5px; font-size: 1.95rem; }
   h1, .n-font-h1 { font-size: 52px; font-size: 5.2rem; }
   h2, .n-font-h2 { font-size: 43px; font-size: 4.3rem; }
   .n-border-accent { border: 2px solid #009CDA; }
@@ -339,5 +337,21 @@ a:hover { color: #0ebaff; }
   .n-border-bottom-black { border-bottom: 2px solid #262626; }
   .n-border-white { border: 2px solid #FFFFFF; }
   .n-border-bottom-white { border-bottom: 2px solid #FFFFFF; } }
+
+.g-anchor { position: relative; }
+
+.g-anchor:hover:before { content: '#'; position: absolute; left: -1em; top: 0; color: #999999; }
+
+pre { font-size: 15px; }
+
+.hljs { display: block; overflow-x: auto; -webkit-text-size-adjust: none; }
+
+.hljs-keyword { color: #da009c; }
+
+.hljs-variable { color: #009CDA; }
+
+.hljs-comment { color: #999999; }
+
+.hljs-tag, .hljs-class { color: #da3e00; }
 
 /*# sourceMappingURL=page-styles.css.map */
