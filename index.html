@@ -28,20 +28,20 @@
 .n-color-accent      { color: #009CDA; }
 .n-background-accent { background-color: #009CDA; }</pre></code>
 </section>
-<section id="borders" class="n-vspacing-medium"><h3><a class="g-anchor" href="#borders">Borders</a></h3><p>Border classnames are generated from two variables, first <code class="n-color-accent">$bordersForColor</code> defines what colors to generate borders for, and then <code class="n-color-accent">$borderProperties</code> defines what properties are styled:</p>
-<pre class="scss n-spacing-top-small"><code>$bordersForColor: 'accent', …
-$borderProperties: 'border', 'border-bottom';
+<section id="borders" class="n-vspacing-medium"><h3><a class="g-anchor" href="#borders">Borders</a></h3><p>Border classnames are generated from two variables, first <code class="n-color-accent">$borders-for-color</code> defines what colors to generate borders for, and then <code class="n-color-accent">$border-properties</code> defines what properties are styled:</p>
+<pre class="scss n-spacing-top-small"><code>$borders-for-color: 'accent', …
+$border-properties: 'border', 'border-bottom';
 
 .n-border-accent        { border: 1px solid #009CDA; }
 .n-border-bottom-accent { border-bottom: 1px solid #009CDA; }</pre></code></section>
 
-<section id="font-sizes" class="n-vspacing-medium"><h3><a class="g-anchor" href="#font-sizes">Font sizes</a></h3><p>Similarly, font size classes will be generated for <code class="n-color-accent">$fontBaseSizes</code> and <code class="n-color-accent">$headerBaseSizes</code>:</p>
+<section id="font-sizes" class="n-vspacing-medium"><h3><a class="g-anchor" href="#font-sizes">Font sizes</a></h3><p>Similarly, font size classes will be generated for <code class="n-color-accent">$font-base-sizes</code> and <code class="n-color-accent">$header-base-sizes</code>:</p>
 
-<pre class="scss n-vspacing-small"><code>$fontBaseSizes: (
+<pre class="scss n-vspacing-small"><code>$font-base-sizes: (
   normal: 16,
   …
 );
-$headerBaseSizes: (
+$header-base-sizes: (
   h1: 26,
   …
 );
@@ -51,7 +51,7 @@ h1, .n-font-h1 { font-size: 26px; font-size: 2.6rem; }
 </pre></code><p>Since it's a header, we automatically create a <code>h1</code> element, but we also create a class for this in case you want to style an element as a header, but do not want to associate it a header element's tag (for semantic reasons, for example). </p>
 </section>
 <section id="spacing" class="n-vspacing-medium"><h3><a class="g-anchor" href="#spacing">Spacing</a></h3><p>For every spacing value you define, the following classes get generated:</p>
-<pre class="scss "><code>$spacingValue: (
+<pre class="scss "><code>$spacing-value: (
   smallest: 5,
   …
 );
@@ -64,9 +64,9 @@ h1, .n-font-h1 { font-size: 26px; font-size: 2.6rem; }
 .n-vpadding-smallest { padding-top: 5px;  padding-bottom: 5px; }
 .n-hpadding-smallest { padding-left: 5px; padding-right: 5px;  }</pre></code>
 
-<p class="n-vspacing-small">As sometimes you might only want to give elements spacing on one side, any direction defined in <code class="n-color-accent">$spacingDirections</code> will generate additional directional classes for every <code class="n-color-accent">$spacingValue</code> defined:</p>
+<p class="n-vspacing-small">As sometimes you might only want to give elements spacing on one side, any direction defined in <code class="n-color-accent">$spacing-directions</code> will generate additional directional classes for every <code class="n-color-accent">$spacing-value</code> defined:</p>
 
-<pre class="scss n-spacing-top-small"><code>$spacingDirections: 'top', 'bottom';
+<pre class="scss n-spacing-top-small"><code>$spacing-directions: 'top', 'bottom';
 
 .n-spacing-top-smallest    { margin-top: 5px; }
 .n-spacing-bottom-smallest { margin-bottom: 5px; }
@@ -78,12 +78,12 @@ h1, .n-font-h1 { font-size: 26px; font-size: 2.6rem; }
 
 <pre class="scss n-vspacing-small"><code>@media screen and (min-width: $breakpoint-tablet) {
   // Defining what size multiplier we use for the text and spacing for this breakpoint
-  $bodyScale: 1.125;
-  $headerScale: 1.8;
-  $spacingScale: 2;
-  $borderScale: 2;
-  @include scaledSpacingAndType($spacingScale, $bodyScale, $headerScale);
-  @include borderRules($borderScale);
+  $body-scale: 1.125;
+  $header-scale: 1.8;
+  $spacing-scale: 2;
+  $border-scale: 2;
+  @include scaledSpacingAndType($spacing-scale, $body-scale, $header-scale);
+  @include borderRules($border-scale);
 }</pre></code>
 <p class="n-vspacing-small">This then generates the code necessary:</p>
 <pre class="scss n-vspacing-small"><code>@media screen and (min-width: 800px) {
@@ -95,7 +95,7 @@ h1, .n-font-h1 { font-size: 26px; font-size: 2.6rem; }
   …
   .n-border-accent    { border: 2px solid #009CDA; }
 }
-</pre></code><p>The original values defined in Nebula's configuration have now multiplied by the scaling values defined above. For example, because the <code class="n-color-accent">$spacingScale</code> was set to 2, <code>.n-spacing-smallest</code> changed from 5 to 10.</p>
+</pre></code><p>The original values defined in Nebula's configuration have now multiplied by the scaling values defined above. For example, because the <code class="n-color-accent">$spacing-scale</code> was set to 2, <code>.n-spacing-smallest</code> changed from 5 to 10.</p>
 </section>
 <section id="helpers" class="n-vspacing-medium"><h2><a class="g-anchor" href="#helpers">Helpers</a></h2><p>As a bonus, Nebula.css also offers a couple of helpers for common behaviour in the form of CSS classes or Sass functions:</p>
 

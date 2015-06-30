@@ -47,10 +47,10 @@ $colors: (
 
 
 ### Borders
-<p>Border classnames are generated from two variables, first <code class="n-color-accent">$bordersForColor</code> defines what colors to generate borders for, and then <code class="n-color-accent">$borderProperties</code> defines what properties are styled:</p>
+<p>Border classnames are generated from two variables, first <code class="n-color-accent">$borders-for-color</code> defines what colors to generate borders for, and then <code class="n-color-accent">$border-properties</code> defines what properties are styled:</p>
 ```scss
-$bordersForColor: 'accent', …
-$borderProperties: 'border', 'border-bottom';
+$borders-for-color: 'accent', …
+$border-properties: 'border', 'border-bottom';
 
 .n-border-accent        { border: 1px solid #009CDA; }
 .n-border-bottom-accent { border-bottom: 1px solid #009CDA; }
@@ -58,14 +58,14 @@ $borderProperties: 'border', 'border-bottom';
 
 
 ### Font sizes
-<p>Similarly, font size classes will be generated for <code class="n-color-accent">$fontBaseSizes</code> and <code class="n-color-accent">$headerBaseSizes</code>:</p>
+<p>Similarly, font size classes will be generated for <code class="n-color-accent">$font-base-sizes</code> and <code class="n-color-accent">$header-base-sizes</code>:</p>
 
 ```scss
-$fontBaseSizes: (
+$font-base-sizes: (
   normal: 16,
   …
 );
-$headerBaseSizes: (
+$header-base-sizes: (
   h1: 26,
   …
 );
@@ -79,7 +79,7 @@ h1, .n-font-h1 { font-size: 26px; font-size: 2.6rem; }
 ### Spacing
 <p>For every spacing value you define, the following classes get generated:</p>
 ```scss
-$spacingValue: (
+$spacing-value: (
   smallest: 5,
   …
 );
@@ -94,10 +94,10 @@ $spacingValue: (
 ```
 
 
-<p class="n-vspacing-small">As sometimes you might only want to give elements spacing on one side, any direction defined in <code class="n-color-accent">$spacingDirections</code> will generate additional directional classes for every <code class="n-color-accent">$spacingValue</code> defined:</p>
+<p class="n-vspacing-small">As sometimes you might only want to give elements spacing on one side, any direction defined in <code class="n-color-accent">$spacing-directions</code> will generate additional directional classes for every <code class="n-color-accent">$spacing-value</code> defined:</p>
 
 ```scss
-$spacingDirections: 'top', 'bottom';
+$spacing-directions: 'top', 'bottom';
 
 .n-spacing-top-smallest    { margin-top: 5px; }
 .n-spacing-bottom-smallest { margin-bottom: 5px; }
@@ -113,12 +113,12 @@ $spacingDirections: 'top', 'bottom';
 ```scss
 @media screen and (min-width: $breakpoint-tablet) {
   // Defining what size multiplier we use for the text and spacing for this breakpoint
-  $bodyScale: 1.125;
-  $headerScale: 1.8;
-  $spacingScale: 2;
-  $borderScale: 2;
-  @include scaledSpacingAndType($spacingScale, $bodyScale, $headerScale);
-  @include borderRules($borderScale);
+  $body-scale: 1.125;
+  $header-scale: 1.8;
+  $spacing-scale: 2;
+  $border-scale: 2;
+  @include scaledSpacingAndType($spacing-scale, $body-scale, $header-scale);
+  @include borderRules($border-scale);
 }
 ```
 
@@ -135,7 +135,7 @@ $spacingDirections: 'top', 'bottom';
 }
 
 ```
-<p>The original values defined in Nebula's configuration have now multiplied by the scaling values defined above. For example, because the <code class="n-color-accent">$spacingScale</code> was set to 2, <code>.n-spacing-smallest</code> changed from 5 to 10.</p>
+<p>The original values defined in Nebula's configuration have now multiplied by the scaling values defined above. For example, because the <code class="n-color-accent">$spacing-scale</code> was set to 2, <code>.n-spacing-smallest</code> changed from 5 to 10.</p>
 
 ## Helpers
 <p>As a bonus, Nebula.css also offers a couple of helpers for common behaviour in the form of CSS classes or Sass functions:</p>
