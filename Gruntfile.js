@@ -31,7 +31,7 @@ module.exports = function(grunt) {
   });
 
   grunt.registerTask('buildConfig', function() {
-    grunt.file.write('./scss/nebula/_config.scss', configBuilder(baseConfig.variables));
+    grunt.file.write('./scss/nebula/config.scss', configBuilder(baseConfig.variables));
   });
 
   grunt.registerTask('buildReadme', ['readme-html', 'readme-markdown']);

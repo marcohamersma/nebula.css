@@ -7,7 +7,7 @@
 {{/section}}
 
 {{#section headerStyle=2 title="Nebula generates help classes" slug="intro-helpclasses" className="n-vspacing-medium"}}
-<p>The <code>_config.scss</code> file contains a number of variables/maps you can set, which will result in the generation of building-block class names:</p>
+<p>The <code>config.scss</code> file contains a number of variables/maps you can set, which will result in the generation of building-block class names:</p>
 
 {{#section title="Colors & Background" className="n-spacing-top-small g-spacing-bottom-medium"}}
 {{#code}}$colors: (
@@ -113,7 +113,7 @@ h1, .n-font-h1 { font-size: 26px; font-size: 2.6rem; }
 
 {{#heading}}Helper functions:{{/heading}}
 <p>If you're including Nebula in a Sass pipeline, you get access to the <code>font-size()</code>, <code>color()</code>, and <code>space()</code> functions for accessing configured font-sizes, colors, and spacing values.</p>
-{{#code className="n-vspacing-small"}}// nebula/_config.scss
+{{#code className="n-vspacing-small"}}// nebula/config.scss
 $colors: (
   accent: #009CDA,
   …
