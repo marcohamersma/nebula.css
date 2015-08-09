@@ -7,8 +7,8 @@ module.exports = function(grunt) {
   grunt.initConfig({
     watch: {
       styles: {
-        files: ['scss/**/*.scss', 'readme-src/*', 'lib/*'], // which files to watch
-        tasks: ['sass', 'buildReadme'],
+        files:   ['scss/**/*.scss', 'readme-src/*', 'lib/*'], // which files to watch
+        tasks:   ['custom', 'buildReadme'],
         options: {
           nospawn: true
         }
@@ -19,18 +19,18 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.registerTask('default', ['buildVanilla', 'buildReadme', 'watch']);
 
-  grunt.registerTask('buildVanilla' , function() {
+  grunt.registerTask('buildVanilla', function() {
     var modules = baseConfig.defaultModules;
     var done = this.async();
     builder(modules, './nebula.css', null, done);
   });
 
-  grunt.registerTask('custom' , function() {
+  grunt.registerTask('custom', function() {
     var done = this.async();
     builder(null, './nebula-custom.css', null, done);
   });
 
-  grunt.registerTask('buildConfig' , function() {
+  grunt.registerTask('buildConfig', function() {
     grunt.file.write('./scss/nebula/_config.scss', configBuilder(baseConfig.variables));
   });
 
