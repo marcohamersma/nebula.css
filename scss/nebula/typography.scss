@@ -13,8 +13,9 @@ h1, h2, h3, h4, h5, h6 {
   @include font-feature-settings($font-feature-heading-settings);
 }
 
-h1, h2, h3 {
-  top: -0.2em;
+h1, h2, h3, h4, h5, h6 {
+  // This has to go. It was added to align headings with adjacent elements, but looks bad in other situations. This seems purely a contextual thing and shouldn't be applied at a global level
+  // top: -0.2em;
   line-height: 1.2;
 }
 

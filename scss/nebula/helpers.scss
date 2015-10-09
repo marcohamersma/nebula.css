@@ -7,7 +7,8 @@
 }
 
 @function color($name) {
-  @return map-get($colors, $name);
+  // Make sure we're using a string, even if name is a color
+  @return map-get($colors, "#{$name}");
 }
 
 @function space($name) {

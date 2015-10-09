@@ -1,6 +1,7 @@
 @mixin font-rules($size) {
   font-size: $size * 1px;
-  font-size: $size / 10 * 1rem;
+  // This is somehow causing issues in chrome until it rerenders. But just doing pixel sizing is bad
+  // font-size: $size / 10 * 1rem;
 }
 
 @mixin rules-for-space-value($name, $value) {
@@ -20,6 +21,8 @@
 
 
   // Should work on any element, basically.
+  // this doesn't work at all, what if there's more than two columns?
+
   .#{$class-prefix}-column-#{$name} {
     @media screen and (max-width: $breakpoint-column) {
       &:last-child { margin-bottom: 0; }
@@ -29,6 +32,19 @@
     @media screen and (min-width: $breakpoint-column + 1) {
       &:last-child { margin-right: 0; }
       margin-right: $value * 1px;
+    }
+  }
+
+  .#{$class-prefix}-column-p-#{$name} {
+    box-sizing: border-box;
+    @media screen and (max-width: $breakpoint-column) {
+      &:last-child { padding-bottom: 0; }
+      padding-bottom: $value * 1px;
+    }
+
+    @media screen and (min-width: $breakpoint-column + 1) {
+      &:last-child { padding-right: 0; }
+      padding-right: $value * 1px;
     }
   }
 
