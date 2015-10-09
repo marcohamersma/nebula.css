@@ -1,7 +1,12 @@
-# Nebula CSS Framework
+# Nebula CSS Framework (DEVELOPMENT branch)
 
-## Demo
-You can see the code in action at [marcohamersma.github.io/nebula.css/](http://marcohamersma.github.io/nebula.css/).
+This is where I'm very slowly forming the next release of Nebula.css.
+
+The goal is to work towards a version of the framework that is a bit more universal, useful and modular. There is some new functionality ([usage as an npm module](#usage-as-an-npm-module), for example) as well.
+
+For now, though I'm trying out stuff and trying to use Nebula in real life projects, learning from that and applying that in this branch. Some of these ideas might not be considered "good ideas", but they'll vanish in time.
+
+Naturally, it's not advisable at all to use this.
 
 ## Usage
 There are a few ways of using Nebula:
@@ -11,7 +16,8 @@ There are a few ways of using Nebula:
 4. Include Nebula as a node module
 
 ## Usage as an npm module.
-Install the package using `npm install nebula.css --save` and require it in your project.
+~~Install the package using `npm install nebula.css --save` and require it in your project.~~
+As of now, the module is not yet done and published.
 
 ### arguments
 1. `modules`: An array of modules to render for this build. Defaults to `['banner', 'config', 'mixins', 'reset', 'helpers', 'base']`.
