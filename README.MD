@@ -128,7 +128,7 @@ $spacing-directions: 'top', 'bottom';
   $header-scale: 1.8;
   $spacing-scale: 2;
   $border-scale: 2;
-  @include scaledSpacingAndType($spacing-scale, $body-scale, $header-scale);
+  @include scaled-spacing-and-type($spacing-scale, $body-scale, $header-scale);
   @include borderRules($border-scale);
 }
 ```
