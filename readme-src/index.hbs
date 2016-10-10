@@ -80,7 +80,7 @@ h1, .n-font-h1 { font-size: 26px; font-size: 2.6rem; }
   $header-scale: 1.8;
   $spacing-scale: 2;
   $border-scale: 2;
-  @include scaledSpacingAndType($spacing-scale, $body-scale, $header-scale);
+  @include scaled-spacing-and-type($spacing-scale, $body-scale, $header-scale);
   @include borderRules($border-scale);
 }{{/code}}
 <p class="n-vspacing-small">This then generates the code necessary:</p>

@@ -20,7 +20,7 @@ There are a few ways of using Nebula:
 As of now, the module is not yet done and published.
 
 ### arguments
-1. `modules`: An array of modules to render for this build. Defaults to `['banner', 'config', 'mixins', 'reset', 'helpers', 'base']`.
+1. `modules`: An array of modules to render for this build. Defaults to `['banner', 'config', 'mixins', 'reset', 'helpers', 'base']`. This is also exported as `nebula.defaultModules`.
 2. `pathName`: The path that the end result needs to be written to. This _can be left blank_, it will cause the callback to return the css itself. Otherwise it returns the pathname.
 3. `config`: Allows you to overwrite the configuration variables found in `config.scss`. However, it will cause changes to that file and `styles.scss` to be ignored (since we're basically constructing a new base file). Expects an object, values will be combined with `lib/base-config.js`.
 4. `callback`: function to be executed after the output has been generated.
