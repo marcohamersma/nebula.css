@@ -21,12 +21,7 @@ module.exports = function(grunt) {
   grunt.registerTask('buildVanilla', function() {
     var modules = baseConfig.defaultModules;
     var done = this.async();
-    builder(modules, './nebula.css', null, done);
-  });
-
-  grunt.registerTask('custom', function() {
-    var done = this.async();
-    builder(null, './nebula-custom.css', null, done);
+    builder(modules, './dist/nebula.css', null, done);
   });
 
   grunt.registerTask('buildConfig', function() {
