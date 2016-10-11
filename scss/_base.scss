@@ -67,6 +67,10 @@
 
   p a {
     color: color('accent');
+
+    &:hover {
+      text-decoration: underline;
+    }
   }
 
 } // use-base conditional

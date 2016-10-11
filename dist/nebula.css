@@ -60,6 +60,8 @@ em, i { font-style: italic; }
 
 p a { color: #009CDA; }
 
+p a:hover { text-decoration: underline; }
+
 .n-color-accent { color: #009CDA; }
 
 .n-background-accent { background-color: #009CDA; }
