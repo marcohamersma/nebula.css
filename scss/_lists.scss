@@ -1,0 +1,19 @@
+@import 'helpers/helpers';
+
+.#{$class-prefix}-ul {
+  list-style: disc outside;
+}
+
+.#{$class-prefix}-ol {
+  list-style: decimal outside;
+}
+
+.#{$class-prefix}-ul,
+.#{$class-prefix}-ol {
+  padding-left: 1.4em;
+  margin-top: 0;
+
+  li {
+    margin-bottom: space('smallest');
+  }
+}

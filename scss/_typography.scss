@@ -1,84 +1,34 @@
-html {
-  font-size: 62.5%;
-  text-rendering: optimizeLegibility;
+@import 'helpers/helpers';
+/// Generates classes for the different $font-base-sizes and $header-base-sizes defined in nebula's config.
 
-  @include font-feature-settings($font-feature-settings);
+// Generate font size rule for specific size. Uses rems if possible.
+// Probably not used directly, only through @type-rules
+// TODO: Do we use rems? still good
+@mixin font-rules($size) {
+  font-size: $size * 1px;
+  // This is somehow causing issues in chrome until it rerenders. But just doing pixel sizing is bad
+  font-size: $size / 10 * 1rem;
 }
 
-body {
-  line-height: #{$body-line-height};
-}
+// Generates typography classes for a scale parameter. This looks up every font size and multiplies it with the scale value. Useful for adjusting font size at a breakpoint.
+@mixin type-rules($bodyTextScale: 1, $headerTextScale: 1) {
+  body {
+    @include font-rules(raw-font-size('normal') * $bodyTextScale);
+  }
 
-// Typography
-h1, h2, h3, h4, h5, h6 {
-  font-weight: $type-bold-weight;
-  position: relative;
+  @each $name, $value in $font-base-sizes {
+    .#{$class-prefix}-font-#{$name} {
+      @include font-rules($value * $bodyTextScale);
+    }
+  }
 
-  @include font-feature-settings($font-feature-heading-settings);
-}
-
-h1, h2, h3, h4, h5, h6 {
-  line-height: #{$header-line-height}em;
-}
-
-@include type-rules;
-
-@each $name, $value in $font-base-sizes {
-  .#{$class-prefix}-font-#{$name} {
-    @include font-rules($value);
+  @each $name, $value in $header-base-sizes {
+    #{$name},
+    .#{$class-prefix}-font-#{$name} {
+      @include font-rules($value * $headerTextScale);
+    }
   }
 }
 
-p {
-  margin-bottom: 1.3em;
-}
-
-p:last-of-type {
-  margin-bottom: 0;
-}
-
-.#{$class-prefix}-small-caps {
-  @include font-feature-settings(append($font-feature-settings, smcp));
-  line-height: 1em;
-}
-
-code {
-  font-family: monospace;
-  background-color: rgba(128, 128, 128, 0.15);
-  white-space: nowrap;
-  padding: 0 0.2em;
-  font-size: 90%;
-}
-
-pre > code {
-  padding: 1em;
-  overflow: auto;
-  display: block;
-  white-space: pre;
-}
-
-strong, b {
-  font-weight: $type-bold-weight;
-}
-
-em, i {
-  font-style: italic;
-}
-
-.#{$class-prefix}-ul {
-  list-style: disc outside;
-}
-
-.#{$class-prefix}-ol {
-  list-style: decimal outside;
-}
-
-.#{$class-prefix}-ul,
-.#{$class-prefix}-ol {
-  padding-left: 1.4em;
-  margin-top: 0;
-
-  li {
-    margin-bottom: space('smallest');
-  }
-}
+// On initial inclusion we print the classes for the initial scale.
+@include type-rules(1, 1);

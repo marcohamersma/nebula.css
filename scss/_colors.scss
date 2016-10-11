@@ -1,0 +1,14 @@
+// Prints out two CSS classes for every color in nebula's configuration. For example when 'red' is a color, it will print:
+// .n-color-red { color: #B5200F; }
+// .n-background-red { background-color: #B5200F; }
+
+@each $name, $value in $colors {
+  .#{$class-prefix}-color-#{$name} {
+    color: $value;
+  }
+
+  .#{$class-prefix}-background-#{$name} {
+    background-color: $value;
+  }
+}
+

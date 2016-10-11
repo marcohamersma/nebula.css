@@ -1,0 +1,70 @@
+// Mixin that prints out multiple CSS classes for managing spacing between and within elements. $value determines the amount of spacing/padding.
+
+// Classes generated
+// .n-spacing-$name (margin on all sides)
+// .n-vspacing-$name (vertical margins only)
+// .n-hspacing-$name (horizontal margins)
+// .n-padding-$name (padding on all sides)
+// .n-vpadding-$name (vertical padding only)
+// .n-hpadding-$name (horizontal padding)
+//
+// Then, depending on values in the $spacing-directions array, it will generate additional classes for specific directions. By default, it also generates spacing classes for only the top and bottom:
+// .n-spacing-top-$name
+// .n-spacing-bottom-$name
+// .n-padding-top-$name
+// .n-padding-bottom-$name
+@mixin rules-for-space-value($name, $value) {
+  .#{$class-prefix}-spacing-#{$name} {
+    margin: $value * 1px;
+  }
+
+  .#{$class-prefix}-vspacing-#{$name} {
+    margin-top: $value * 1px;
+    margin-bottom: $value * 1px;
+  }
+
+  .#{$class-prefix}-hspacing-#{$name} {
+    margin-left: $value * 1px;
+    margin-right: $value * 1px;
+  }
+
+
+  .#{$class-prefix}-padding-#{$name} {
+    padding: $value * 1px;
+  }
+
+  .#{$class-prefix}-vpadding-#{$name} {
+    padding-top: $value * 1px;
+    padding-bottom: $value * 1px;
+  }
+
+  .#{$class-prefix}-hpadding-#{$name} {
+    padding-left: $value * 1px;
+    padding-right: $value * 1px;
+  }
+
+  @each $direction in $spacing-directions {
+    .#{$class-prefix}-spacing-#{$direction}-#{$name} {
+      margin-#{$direction}: $value * 1px;
+    }
+  }
+
+  @each $direction in $spacing-directions {
+    .#{$class-prefix}-padding-#{$direction}-#{$name} {
+      padding-#{$direction}: $value * 1px;
+    }
+  }
+}
+
+// Generate spacing rules for a specific scale.
+// This will take the value defined for each item in $spacing-values, and multiply it by a number. Useful for adjusting spacing at different breakpoints.
+
+@mixin spacing-rules($spacingScale: 1) {
+  /* Spacing */
+  @each $name, $value in $spacing-values {
+    @include rules-for-space-value($name, $value * $spacingScale)
+  }
+}
+
+// On initial inclusion we also print the default scale classes.
+@include spacing-rules();

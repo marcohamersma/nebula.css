@@ -28,6 +28,11 @@ $colors: (
 @import 'nebula.css/nebula'
 ```
 
+You should also be able to import individual nebula modules, like
+```scss
+@import 'nebula.css/colors.scss'
+```
+
 ### Usage as CLI
 `$ nebulacss <entry point> <options>`
 

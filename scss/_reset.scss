@@ -100,4 +100,9 @@
     bottom: -0.25em;
   }
 
+  // Make sure images always fit in their containers
+  img {
+    max-width: 100%;
+  }
+
 } // end of $use-reset conditional

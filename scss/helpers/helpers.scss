@@ -1,0 +1,20 @@
+@function font-size($name) {
+  @return raw-font-size($name) * 1px;
+}
+
+@function raw-font-size($name) {
+  @return map-get($font-base-sizes, $name);
+}
+
+@function color($name) {
+  // Make sure we're using a string, even if name is a color
+  @return map-get($colors, "#{$name}");
+}
+
+@function space($name) {
+  @return raw-space($name) * 1px;
+};
+
+@function raw-space($name) {
+  @return map-get($spacing-values, $name);
+}
