@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "description": "A work-in-progress CSS framework with the aim to quickly generate “building-block” classes for font sizes, colors, background colors and spacing",
   "scripts": {
-    "start": "grunt"
+    "start": "grunt",
+    "build-sass": "node-sass scss/nebula.scss dist/nebula.css --output-style compact --source-map true"
   },
   "repository": {
     "type": "git",
