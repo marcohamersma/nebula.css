@@ -4,9 +4,6 @@
 // 2. $border-properties is an array of properties that should be generated. For example, assuming the existence of an 'accent' color, the default value ('border', 'border-bottom') will generate .n-border-accent, and .n-border-bottom-accent.
 // A scale parameter can be passed to this mixin, detemining the size (in pixels) of the border. This is useful if you want to scale border sizes at a breakpoint.
 
-$borders-for-color: ('accent', 'mid', black, white);
-$border-properties: ('border', 'border-bottom');
-
 @mixin border-rules($scale: 1) {
   @each $color in $borders-for-color {
     @each $propertyName in $border-properties {
