@@ -30,5 +30,7 @@
   }
 }
 
-// On initial inclusion we print the classes for the initial scale.
-@include type-rules(1, 1);
+@if ($use-typography) {
+  // On initial inclusion we print the classes for the initial scale.
+  @include type-rules(1, 1);
+}

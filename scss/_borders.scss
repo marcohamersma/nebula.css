@@ -14,5 +14,7 @@
   }
 }
 
-// On initial inclusion we also print the classes for 1px borders.
-@include border-rules();
+@if ($use-borders) {
+  // On initial inclusion we also print the classes for 1px borders.
+  @include border-rules();
+}

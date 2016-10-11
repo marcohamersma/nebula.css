@@ -2,13 +2,14 @@
 // .n-color-red { color: #B5200F; }
 // .n-background-red { background-color: #B5200F; }
 
-@each $name, $value in $colors {
-  .#{$class-prefix}-color-#{$name} {
-    color: $value;
-  }
+@if ($use-colors) {
+  @each $name, $value in $colors {
+    .#{$class-prefix}-color-#{$name} {
+      color: $value;
+    }
 
-  .#{$class-prefix}-background-#{$name} {
-    background-color: $value;
+    .#{$class-prefix}-background-#{$name} {
+      background-color: $value;
+    }
   }
 }
-

@@ -66,5 +66,7 @@
   }
 }
 
-// On initial inclusion we also print the default scale classes.
-@include spacing-rules();
+@if ($use-spacing) {
+  // On initial inclusion we also print the default scale classes.
+  @include spacing-rules();
+}

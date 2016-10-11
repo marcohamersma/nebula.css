@@ -1,37 +1,39 @@
-.#{$class-prefix}-text-centered {
-  text-align: center;
-}
+@if ($use-helper-classes) {
+  .#{$class-prefix}-text-centered {
+    text-align: center;
+  }
 
-.#{$class-prefix}-block-centered {
-  margin-left: auto;
-  margin-right: auto;
-}
+  .#{$class-prefix}-block-centered {
+    margin-left: auto;
+    margin-right: auto;
+  }
 
-.#{$class-prefix}-inline {
-  display: inline;
-}
+  .#{$class-prefix}-inline {
+    display: inline;
+  }
 
-.#{$class-prefix}-clear:after {
-  content:"";
-  display:table;
-  clear:both;
-}
+  .#{$class-prefix}-clear:after {
+    content:"";
+    display:table;
+    clear:both;
+  }
 
-.#{$class-prefix}-hide-on-mobile {
-  display: none !important;
-}
-
-.#{$class-prefix}-show-on-mobile {
-  display: initial !important;
-}
-
-@media screen and (min-width: $breakpoint-hide-on-mobile) {
   .#{$class-prefix}-hide-on-mobile {
-    display: block !important;
+    display: none !important;
   }
 
   .#{$class-prefix}-show-on-mobile {
-    display: none !important;
+    display: initial !important;
   }
-}
 
+  @media screen and (min-width: $breakpoint-hide-on-mobile) {
+    .#{$class-prefix}-hide-on-mobile {
+      display: block !important;
+    }
+
+    .#{$class-prefix}-show-on-mobile {
+      display: none !important;
+    }
+  }
+
+} // use-helper-classes conditional

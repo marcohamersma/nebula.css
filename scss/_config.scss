@@ -2,6 +2,13 @@
 
 $class-prefix: 'n';
 $use-reset: true;
+$use-base: true;
+$use-borders: true;
+$use-colors: true;
+$use-helper-classes: true;
+$use-lists: true;
+$use-spacing: true;
+$use-typography: true;
 
 $colors: (
   'accent'    : #009CDA,

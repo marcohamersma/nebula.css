@@ -1,64 +1,67 @@
 @import 'helpers/font-feature-settings';
 
-html {
-  font-size: 62.5%;
-  text-rendering: optimizeLegibility;
+@if ($use-base) {
+  html {
+    font-size: 62.5%;
+    text-rendering: optimizeLegibility;
 
-  @include font-feature-settings($font-feature-settings);
-}
+    @include font-feature-settings($font-feature-settings);
+  }
 
-body {
-  line-height: #{$body-line-height};
-}
+  body {
+    line-height: #{$body-line-height};
+  }
 
-h1, h2, h3, h4, h5, h6 {
-  font-weight: $type-bold-weight;
-  position: relative;
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: $type-bold-weight;
+    position: relative;
 
-  @include font-feature-settings($font-feature-heading-settings);
-}
+    @include font-feature-settings($font-feature-heading-settings);
+  }
 
-h1, h2, h3, h4, h5, h6 {
-  line-height: #{$header-line-height}em;
-}
+  h1, h2, h3, h4, h5, h6 {
+    line-height: #{$header-line-height}em;
+  }
 
 
-p {
-  margin-bottom: 1.3em;
-}
+  p {
+    margin-bottom: 1.3em;
+  }
 
-p:last-of-type {
-  margin-bottom: 0;
-}
+  p:last-of-type {
+    margin-bottom: 0;
+  }
 
-code {
-  font-family: monospace;
-  background-color: rgba(128, 128, 128, 0.07);
-  white-space: nowrap;
-  padding: 0 0.2em;
-  font-size: 90%;
-}
+  code {
+    font-family: monospace;
+    background-color: rgba(128, 128, 128, 0.07);
+    white-space: nowrap;
+    padding: 0 0.2em;
+    font-size: 90%;
+  }
 
-pre > code {
-  padding: 1em;
-  overflow: auto;
-  display: block;
-  white-space: pre;
-}
+  pre > code {
+    padding: 1em;
+    overflow: auto;
+    display: block;
+    white-space: pre;
+  }
 
-strong, b {
-  font-weight: $type-bold-weight;
-}
+  strong, b {
+    font-weight: $type-bold-weight;
+  }
 
-em, i {
-  font-style: italic;
-}
+  em, i {
+    font-style: italic;
+  }
 
-.#{$class-prefix}-small-caps {
-  @include font-feature-settings(append($font-feature-settings, smcp));
-  line-height: 1em;
-}
+  .#{$class-prefix}-small-caps {
+    @include font-feature-settings(append($font-feature-settings, smcp));
+    line-height: 1em;
+  }
 
-.#{$class-prefix}-heading-font-features {
-  @include font-feature-settings(append($font-feature-heading-settings, $font-feature-heading-settings));
-}
+  .#{$class-prefix}-heading-font-features {
+    @include font-feature-settings(append($font-feature-heading-settings, $font-feature-heading-settings));
+  }
+
+} // use-base conditional
