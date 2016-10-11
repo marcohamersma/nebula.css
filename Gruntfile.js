@@ -7,10 +7,14 @@ module.exports = function(grunt) {
     watch: {
       styles: {
         files:   ['scss/**/*.scss', 'lib/*'], // which files to watch
-        tasks:   ['custom'],
+        tasks:   ['buildVanilla'],
         options: {
           nospawn: true
         }
+      },
+      config: {
+        files:   ['lib/base-config.js'],
+        tasks:   ['buildConfig']
       }
     }
   });
