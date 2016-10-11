@@ -167,21 +167,21 @@ em, i { font-style: italic; }
 
 .n-padding-bottom-large { padding-bottom: 70px; }
 
-.n-border-accent { border: 1px solid color("accent"); }
+.n-border-accent { border: 1px solid #009CDA; }
 
-.n-border-bottom-accent { border-bottom: 1px solid color("accent"); }
+.n-border-bottom-accent { border-bottom: 1px solid #009CDA; }
 
-.n-border-mid { border: 1px solid color("mid"); }
+.n-border-mid { border: 1px solid #737373; }
 
-.n-border-bottom-mid { border-bottom: 1px solid color("mid"); }
+.n-border-bottom-mid { border-bottom: 1px solid #737373; }
 
-.n-border-black { border: 1px solid color(black); }
+.n-border-black { border: 1px solid #262626; }
 
-.n-border-bottom-black { border-bottom: 1px solid color(black); }
+.n-border-bottom-black { border-bottom: 1px solid #262626; }
 
-.n-border-white { border: 1px solid color(white); }
+.n-border-white { border: 1px solid #FFFFFF; }
 
-.n-border-bottom-white { border-bottom: 1px solid color(white); }
+.n-border-bottom-white { border-bottom: 1px solid #FFFFFF; }
 
 body { font-size: 18px; font-size: 1.8rem; }
 
