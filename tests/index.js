@@ -1,5 +1,6 @@
 var test = require('blue-tape');
 var nebula = require('../index');
+var sass = require('node-sass');
 
 function noop() {};
 
@@ -22,5 +23,19 @@ test('modularity', t => {
     nebula.build([m], null, options, result => {
       t.ok(result.length === 0, `Module '${m}' should be empty when $${'use-' + m} is false`);
     });
+  });
+})
+
+test('consistency', t => {
+  t.plan(1);
+
+  var libSassOutput = sass.renderSync({
+    file: require('path').join(__dirname, '../scss/nebula.scss'),
+    outputStyle: 'compact',
+    sourceMap: true
+  }).css.toString();
+
+  nebula.build(null, null, {}, buildOutput => {
+    t.equal(buildOutput, libSassOutput);
   });
 })
