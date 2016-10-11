@@ -3,7 +3,7 @@ var nebula = require('../index');
 
 function noop() {};
 
-test('modularity', t => {
+test('isolation', t => {
   t.plan(nebula.defaultModules.length);
 
   nebula.defaultModules.forEach( m => nebula.build([m], null, {}, result => {
