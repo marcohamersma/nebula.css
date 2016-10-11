@@ -11,14 +11,14 @@ body {
 
 // Typography
 h1, h2, h3, h4, h5, h6 {
-  font-weight: bold;
+  font-weight: $type-bold-weight;
   position: relative;
 
   @include font-feature-settings($font-feature-heading-settings);
 }
 
 h1, h2, h3, h4, h5, h6 {
-  line-height: #{$header-line-height};
+  line-height: #{$header-line-height}em;
 }
 
 @include type-rules;
@@ -58,7 +58,7 @@ pre > code {
 }
 
 strong, b {
-  font-weight: bold;
+  font-weight: $type-bold-weight;
 }
 
 em, i {

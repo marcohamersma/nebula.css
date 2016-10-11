@@ -12,7 +12,8 @@ $colors: (
   'light'     : #999999,
   'white'     : #FFFFFF,
 );
-$body-line-height: 1.35;
+$type-bold-weight: 700;
+$body-line-height: 1.4;
 
 $font-base-sizes: (
   'normal'  : 18,
@@ -22,17 +23,18 @@ $font-base-sizes: (
 $header-line-height: 1.2;
 
 $header-base-sizes: (
-  'h1': 26,
-  'h2': 21.5,
+  'h1': 31,
+  'h2': 26,
+  'h3': 21.5,
 );
 
 $spacing-values: (
   'smallest': 5,
-  'small'   : 15,
-  'medium'  : 30,
-  'large'   : 40,
+  'small'   : 20,
+  'medium'  : 40,
+  'large'   : 70,
 );
-$font-feature-settings: ('kern', 'onum', 'liga');
+$font-feature-settings: ('kern', 'onum', 'liga', 'frac');
 $font-feature-heading-settings: ('calt', 'dlig', 'clig');
 $borders-for-color: ('accent', 'mid', black, white);
 $border-properties: ('border', 'border-bottom');
