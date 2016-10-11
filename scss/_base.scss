@@ -1,4 +1,5 @@
 @import 'helpers/font-feature-settings';
+@import 'helpers/helpers';
 
 @if ($use-base) {
   html {
@@ -62,6 +63,10 @@
 
   .#{$class-prefix}-heading-font-features {
     @include font-feature-settings(append($font-feature-heading-settings, $font-feature-heading-settings));
+  }
+
+  p a {
+    color: color('accent');
   }
 
 } // use-base conditional
