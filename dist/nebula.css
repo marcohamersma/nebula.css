@@ -46,7 +46,7 @@ p { margin-bottom: 1.3em; }
 
 p:last-of-type { margin-bottom: 0; }
 
-code { font-family: monospace; background-color: rgba(128, 128, 128, 0.15); white-space: nowrap; padding: 0 0.2em; font-size: 90%; }
+code { font-family: monospace; background-color: rgba(128, 128, 128, 0.07); white-space: nowrap; padding: 0 0.2em; font-size: 90%; }
 
 pre > code { padding: 1em; overflow: auto; display: block; white-space: pre; }
 
