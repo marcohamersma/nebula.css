@@ -43,7 +43,7 @@ p:last-of-type {
 }
 
 code {
-  font-family: 'Fira Mono', 'Inconsolata', monospace;
+  font-family: monospace;
   background-color: rgba(128, 128, 128, 0.15);
   white-space: nowrap;
   padding: 0 0.2em;
@@ -57,30 +57,11 @@ pre > code {
   white-space: pre;
 }
 
-// From normalize.css:
-// Prevent `sub` and `sup` affecting `line-height` in all browsers.
-
-sub,
-sup {
-  font-size: 75%;
-  line-height: 0;
-  position: relative;
-  vertical-align: baseline;
-}
-
-sup {
-  top: -0.5em;
-}
-
-sub {
-  bottom: -0.25em;
-}
-
-strong {
+strong, b {
   font-weight: bold;
 }
 
-em {
+em, i {
   font-style: italic;
 }
 

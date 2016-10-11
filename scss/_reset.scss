@@ -1,9 +1,9 @@
 @if ($use-reset) {
-  // Eric Meyer's Reset CSS v2.0 (http://meyerweb.com/eric/tools/css/reset/)
-  // http://cssreset.com
-  // Adjusted for Nebula.css
-  /* Reset styles */
+  // Based on Eric Meyer's Reset CSS v2.0
+  // http://meyerweb.com/eric/tools/css/reset/  |  http://cssreset.com
+  // With adjustments and additions for Nebula.css
 
+  /* Reset styles */
   html, body, div, span, applet, object, iframe,
   h1, h2, h3, h4, h5, h6, p, blockquote, pre,
   a, abbr, acronym, address, big, cite, code,
@@ -54,7 +54,6 @@
     color: inherit;
   }
 
-
   /*
    * Remove the gap between audio, canvas, iframes,
    * images, videos and the bottom of their containers:
@@ -72,4 +71,33 @@
   textarea {
     resize: vertical;
   }
-}
+
+  // Making border-box the default
+  // From: https://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/
+  html {
+    box-sizing: border-box;
+  }
+
+  *, *:before, *:after {
+    box-sizing: inherit;
+  }
+
+  // Prevent `sub` and `sup` affecting `line-height` in all browsers.
+  // From normalize.css
+  sub,
+  sup {
+    font-size: 75%;
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline;
+  }
+
+  sup {
+    top: -0.5em;
+  }
+
+  sub {
+    bottom: -0.25em;
+  }
+
+} // end of $use-reset conditional

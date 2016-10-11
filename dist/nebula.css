@@ -22,6 +22,16 @@ audio, canvas, iframe, img, svg, video { vertical-align: middle; }
 
 textarea { resize: vertical; }
 
+html { box-sizing: border-box; }
+
+*, *:before, *:after { box-sizing: inherit; }
+
+sub, sup { font-size: 75%; line-height: 0; position: relative; vertical-align: baseline; }
+
+sup { top: -0.5em; }
+
+sub { bottom: -0.25em; }
+
 .n-text-centered { text-align: center; }
 
 .n-block-centered { margin-left: auto; margin-right: auto; }
@@ -198,19 +208,13 @@ p:last-of-type { margin-bottom: 0; }
 
 .n-small-caps { -moz-font-feature-settings: "kern=1", "onum=1", "liga=1", "smcp=1"; -moz-font-feature-settings: "kern" 1, "onum" 1, "liga" 1, "smcp" 1; -ms-font-feature-settings: "kern" 1, "onum" 1, "liga" 1, "smcp" 1; -o-font-feature-settings: "kern" 1, "onum" 1, "liga" 1, "smcp" 1; -webkit-font-feature-settings: "kern" 1, "onum" 1, "liga" 1, "smcp" 1; font-feature-settings: "kern" 1, "onum" 1, "liga" 1, "smcp" 1; line-height: 1em; }
 
-code { font-family: 'Fira Mono', 'Inconsolata', monospace; background-color: rgba(128, 128, 128, 0.15); white-space: nowrap; padding: 0 0.2em; font-size: 90%; }
+code { font-family: monospace; background-color: rgba(128, 128, 128, 0.15); white-space: nowrap; padding: 0 0.2em; font-size: 90%; }
 
 pre > code { padding: 1em; overflow: auto; display: block; white-space: pre; }
 
-sub, sup { font-size: 75%; line-height: 0; position: relative; vertical-align: baseline; }
+strong, b { font-weight: bold; }
 
-sup { top: -0.5em; }
-
-sub { bottom: -0.25em; }
-
-strong { font-weight: bold; }
-
-em { font-style: italic; }
+em, i { font-style: italic; }
 
 .n-ul { list-style: disc outside; }
 
