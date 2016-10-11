@@ -17,14 +17,14 @@
   }
 
   @each $name, $value in $font-base-sizes {
-    .#{$class-prefix}-font-#{$name} {
+    .#{$class-prefix}-type-#{$name} {
       @include font-rules($value * $bodyTextScale);
     }
   }
 
   @each $name, $value in $header-base-sizes {
     #{$name},
-    .#{$class-prefix}-font-#{$name} {
+    .#{$class-prefix}-type-#{$name} {
       @include font-rules($value * $headerTextScale);
     }
   }
