@@ -19,35 +19,6 @@
     margin-right: $value * 1px;
   }
 
-
-  // Should work on any element, basically.
-  // this doesn't work at all, what if there's more than two columns?
-
-  .#{$class-prefix}-column-#{$name} {
-    @media screen and (max-width: $breakpoint-column) {
-      &:last-child { margin-bottom: 0; }
-      margin-bottom: $value * 1px;
-    }
-
-    @media screen and (min-width: $breakpoint-column + 1) {
-      &:last-child { margin-right: 0; }
-      margin-right: $value * 1px;
-    }
-  }
-
-  .#{$class-prefix}-column-p-#{$name} {
-    box-sizing: border-box;
-    @media screen and (max-width: $breakpoint-column) {
-      &:last-child { padding-bottom: 0; }
-      padding-bottom: $value * 1px;
-    }
-
-    @media screen and (min-width: $breakpoint-column + 1) {
-      &:last-child { padding-right: 0; }
-      padding-right: $value * 1px;
-    }
-  }
-
   @each $direction in $spacing-directions {
     .#{$class-prefix}-spacing-#{$direction}-#{$name} {
       margin-#{$direction}: $value * 1px;
