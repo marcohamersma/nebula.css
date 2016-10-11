@@ -5,6 +5,7 @@
   "scripts": {
     "start": "grunt",
     "build-sass": "node-sass scss/nebula.scss dist/nebula.css --output-style compact --source-map true",
+    "build-sass-custom": "node-sass tests/custom.scss dist/nebula.css --output-style compact --source-map true",
     "test": "node tests/index.js | faucet"
   },
   "repository": {

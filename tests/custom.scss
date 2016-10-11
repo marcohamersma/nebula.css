@@ -1,0 +1,12 @@
+// This file can be used to see if configuration variables are overridden properly.
+// It can be built with `npm run build-sass-custom`, and will
+// export to dist/nebula.css` for easy diffing.
+
+$header-base-sizes: (
+  'h1': 50,
+  'h2': 20,
+);
+
+$use-reset: false;
+
+@import '../scss/nebula.scss';
