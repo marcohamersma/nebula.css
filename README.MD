@@ -88,8 +88,8 @@ $header-base-sizes: (
   …
 );
 
-.n-font-normal { font-size: 16px; font-size: 1.6rem; }
-h1, .n-font-h1 { font-size: 26px; font-size: 2.6rem; }
+.n-type-normal { font-size: 16px; font-size: 1.6rem; }
+h1, .n-type-h1 { font-size: 26px; font-size: 2.6rem; }
 
 ```
 <p>Since it's a header, we automatically create a <code>h1</code> element, but we also create a class for this in case you want to style an element as a header, but do not want to associate it a header element's tag (for semantic reasons, for example). </p>
@@ -146,8 +146,8 @@ $spacing-directions: 'top', 'bottom';
   .n-spacing-smallest { margin: 10px; }
   …
   body                { font-size: 18px; font-size: 1.8rem; }
-  .n-font-normal      { font-size: 18px; font-size: 1.8rem; }
-  h1, .n-font-h1      { font-size: 46.8px; font-size: 4.68rem; }
+  .n-type-normal      { font-size: 18px; font-size: 1.8rem; }
+  h1, .n-type-h1      { font-size: 46.8px; font-size: 4.68rem; }
   …
   .n-border-accent    { border: 2px solid #009CDA; }
 }
