@@ -12,12 +12,14 @@ $colors: (
   'light'     : #999999,
   'white'     : #FFFFFF,
 );
+$body-line-height: 1.35;
 
 $font-base-sizes: (
   'normal'  : 18,
   'smallest': 12.5,
   'small'   : 15,
 );
+$header-line-height: 1.2;
 
 $header-base-sizes: (
   'h1': 26,
