@@ -2,7 +2,7 @@
 /// Generates classes for the different $font-base-sizes and $header-base-sizes defined in nebula's config.
 
 // Generate font size rule for specific size. Uses rems if possible.
-// Probably not used directly, only through @type-rules
+// Probably not used directly, only through @scale-type
 // TODO: Do we use rems? still good
 @mixin font-rules($size) {
   font-size: $size * 1px;
@@ -11,7 +11,7 @@
 }
 
 // Generates typography classes for a scale parameter. This looks up every font size and multiplies it with the scale value. Useful for adjusting font size at a breakpoint.
-@mixin type-rules($bodyTextScale: 1, $headerTextScale: 1) {
+@mixin scale-type($bodyTextScale: 1, $headerTextScale: 1) {
   body {
     @include font-rules(raw-font-size('normal') * $bodyTextScale);
   }
@@ -32,5 +32,5 @@
 
 @if ($use-typography) {
   // On initial inclusion we print the classes for the initial scale.
-  @include type-rules(1, 1);
+  @include scale-type(1, 1);
 }

@@ -59,7 +59,7 @@
 // Generate spacing rules for a specific scale.
 // This will take the value defined for each item in $spacing-values, and multiply it by a number. Useful for adjusting spacing at different breakpoints.
 
-@mixin spacing-rules($spacingScale: 1) {
+@mixin scale-spacing($spacingScale: 1) {
   /* Spacing */
   @each $name, $value in $spacing-values {
     @include rules-for-space-value($name, $value * $spacingScale)
@@ -68,5 +68,5 @@
 
 @if ($use-spacing) {
   // On initial inclusion we also print the default scale classes.
-  @include spacing-rules();
+  @include scale-spacing();
 }
