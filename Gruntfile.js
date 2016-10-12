@@ -20,7 +20,7 @@ module.exports = function(grunt) {
   });
 
   grunt.loadNpmTasks('grunt-contrib-watch');
-  grunt.registerTask('default', ['buildVanilla', 'watch']);
+  grunt.registerTask('default', ['buildVanilla', 'buildConfig', 'watch']);
 
   grunt.registerTask('buildVanilla', function() {
     var modules = baseConfig.defaultModules;
