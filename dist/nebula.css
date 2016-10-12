@@ -50,6 +50,7 @@ strong, b { font-weight: bolder; }
 
 em, i { font-style: italic; }
 
+.n-small-caps { font-variant-caps: small-caps; line-height: 1em; }
 
 p a { color: #009CDA; }
 
