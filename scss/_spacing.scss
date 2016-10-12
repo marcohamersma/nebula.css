@@ -13,43 +13,49 @@
 // .n-spacing-bottom-$name
 // .n-padding-top-$name
 // .n-padding-bottom-$name
-@mixin rules-for-space-value($name, $value) {
+@mixin rules-for-space-value($name, $vvalue, $hvalue:$vvalue) {
   .#{$class-prefix}-spacing-#{$name} {
-    margin: $value * 1px;
+    margin: $vvalue * 1px $hvalue * 1px;
   }
 
   .#{$class-prefix}-vspacing-#{$name} {
-    margin-top: $value * 1px;
-    margin-bottom: $value * 1px;
+    margin-top: $vvalue * 1px;
+    margin-bottom: $vvalue * 1px;
   }
 
   .#{$class-prefix}-hspacing-#{$name} {
-    margin-left: $value * 1px;
-    margin-right: $value * 1px;
+    margin-left: $hvalue * 1px;
+    margin-right: $hvalue * 1px;
   }
 
 
   .#{$class-prefix}-padding-#{$name} {
-    padding: $value * 1px;
+    padding: $vvalue * 1px $hvalue * 1px;
   }
 
   .#{$class-prefix}-vpadding-#{$name} {
-    padding-top: $value * 1px;
-    padding-bottom: $value * 1px;
+    padding-top: $vvalue * 1px;
+    padding-bottom: $vvalue * 1px;
   }
 
   .#{$class-prefix}-hpadding-#{$name} {
-    padding-left: $value * 1px;
-    padding-right: $value * 1px;
+    padding-left: $hvalue * 1px;
+    padding-right: $hvalue * 1px;
   }
 
   @each $direction in $spacing-directions {
     .#{$class-prefix}-spacing-#{$direction}-#{$name} {
-      margin-#{$direction}: $value * 1px;
+      margin-#{$direction}: $vvalue * 1px;
     }
   }
 
   @each $direction in $spacing-directions {
+    $value: $hvalue;
+
+    @if $direction == 'left' or $direction == 'right' {
+      $value: $vvalue;
+    }
+
     .#{$class-prefix}-padding-#{$direction}-#{$name} {
       padding-#{$direction}: $value * 1px;
     }
@@ -59,10 +65,10 @@
 // Generate spacing rules for a specific scale.
 // This will take the value defined for each item in $spacing-values, and multiply it by a number. Useful for adjusting spacing at different breakpoints.
 
-@mixin scale-spacing($spacingScale: 1) {
+@mixin scale-spacing($vSpacingScale: 1, $hSpacingScale: $vSpacingScale) {
   /* Spacing */
   @each $name, $value in $spacing-values {
-    @include rules-for-space-value($name, $value * $spacingScale)
+    @include rules-for-space-value($name, $value * $vSpacingScale, $value * $hSpacingScale)
   }
 }
 
