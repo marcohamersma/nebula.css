@@ -2,26 +2,24 @@
 @import 'helpers/helpers';
 
 @if ($use-base) {
-  html {
-    font-size: 62.5%;
-    text-rendering: optimizeLegibility;
-
-    @include font-feature-settings($font-feature-settings);
-  }
-
   body {
     line-height: #{$body-line-height};
+    text-rendering: optimizeLegibility;
+    @include font-feature-settings(('kern'));
+    @include font-variants($font-variants);
   }
 
   h1, h2, h3, h4, h5, h6 {
     font-weight: $type-bold-weight;
     position: relative;
-
-    @include font-feature-settings($font-feature-heading-settings);
+    line-height: #{$header-line-height}em;
   }
 
-  h1, h2, h3, h4, h5, h6 {
-    line-height: #{$header-line-height}em;
+  @if $fancy-ligatures-in-headings {
+    h1, h2, h3, h4, h5, h6,
+    .#{$class-prefix}-heading-font-features {
+      @include font-variants(('discretionary-ligatures'));
+    }
   }
 
 
@@ -57,13 +55,10 @@
   }
 
   .#{$class-prefix}-small-caps {
-    @include font-feature-settings(append($font-feature-settings, smcp));
+    font-variant-caps: small-caps;
     line-height: 1em;
   }
 
-  .#{$class-prefix}-heading-font-features {
-    @include font-feature-settings(append($font-feature-heading-settings, $font-feature-heading-settings));
-  }
 
   p a {
     color: color('accent');

@@ -37,8 +37,8 @@ $spacing-values: (
   'medium'  : 40,
   'large'   : 70,
 ) !default;
-$font-feature-settings: ('kern', 'onum', 'liga', 'frac') !default;
-$font-feature-heading-settings: ('calt', 'dlig', 'clig') !default;
+$font-variants: ('common-ligatures', 'ordinal', 'oldstyle-nums', 'contextual') !default;
+$fancy-ligatures-in-headings: false !default;
 $borders-for-color: ('accent', black) !default;
 $border-properties: ('border', 'border-bottom') !default;
 $spacing-directions: ('top', 'bottom') !default;

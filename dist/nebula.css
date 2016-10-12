@@ -34,13 +34,9 @@ sub { bottom: -0.25em; }
 
 img { max-width: 100%; }
 
-html { font-size: 62.5%; text-rendering: optimizeLegibility; -moz-font-feature-settings: "kern=1", "onum=1", "liga=1", "frac=1"; -moz-font-feature-settings: "kern" 1, "onum" 1, "liga" 1, "frac" 1; -ms-font-feature-settings: "kern" 1, "onum" 1, "liga" 1, "frac" 1; -o-font-feature-settings: "kern" 1, "onum" 1, "liga" 1, "frac" 1; -webkit-font-feature-settings: "kern" 1, "onum" 1, "liga" 1, "frac" 1; font-feature-settings: "kern" 1, "onum" 1, "liga" 1, "frac" 1; }
+body { line-height: 1.4; text-rendering: optimizeLegibility; -moz-font-feature-settings: "kern=1"; -moz-font-feature-settings: "kern" 1; -ms-font-feature-settings: "kern" 1; -o-font-feature-settings: "kern" 1; -webkit-font-feature-settings: "kern" 1; font-feature-settings: "kern" 1; font-variant: common-ligatures ordinal oldstyle-nums contextual; }
 
-body { line-height: 1.4; }
-
-h1, h2, h3, h4, h5, h6 { font-weight: bolder; position: relative; -moz-font-feature-settings: "calt=1", "dlig=1", "clig=1"; -moz-font-feature-settings: "calt" 1, "dlig" 1, "clig" 1; -ms-font-feature-settings: "calt" 1, "dlig" 1, "clig" 1; -o-font-feature-settings: "calt" 1, "dlig" 1, "clig" 1; -webkit-font-feature-settings: "calt" 1, "dlig" 1, "clig" 1; font-feature-settings: "calt" 1, "dlig" 1, "clig" 1; }
-
-h1, h2, h3, h4, h5, h6 { line-height: 1.2em; }
+h1, h2, h3, h4, h5, h6 { font-weight: bolder; position: relative; line-height: 1.2em; }
 
 p { margin-bottom: 1.3em; }
 
@@ -54,13 +50,12 @@ strong, b { font-weight: bolder; }
 
 em, i { font-style: italic; }
 
-.n-small-caps { -moz-font-feature-settings: "kern=1", "onum=1", "liga=1", "frac=1", "smcp=1"; -moz-font-feature-settings: "kern" 1, "onum" 1, "liga" 1, "frac" 1, "smcp" 1; -ms-font-feature-settings: "kern" 1, "onum" 1, "liga" 1, "frac" 1, "smcp" 1; -o-font-feature-settings: "kern" 1, "onum" 1, "liga" 1, "frac" 1, "smcp" 1; -webkit-font-feature-settings: "kern" 1, "onum" 1, "liga" 1, "frac" 1, "smcp" 1; font-feature-settings: "kern" 1, "onum" 1, "liga" 1, "frac" 1, "smcp" 1; line-height: 1em; }
-
-.n-heading-font-features { -moz-font-feature-settings: "calt=1", "dlig=1", "clig=1", "calt, dlig, clig=1"; -moz-font-feature-settings: "calt" 1, "dlig" 1, "clig" 1, "calt, dlig, clig" 1; -ms-font-feature-settings: "calt" 1, "dlig" 1, "clig" 1, "calt, dlig, clig" 1; -o-font-feature-settings: "calt" 1, "dlig" 1, "clig" 1, "calt, dlig, clig" 1; -webkit-font-feature-settings: "calt" 1, "dlig" 1, "clig" 1, "calt, dlig, clig" 1; font-feature-settings: "calt" 1, "dlig" 1, "clig" 1, "calt, dlig, clig" 1; }
 
 p a { color: #009CDA; }
 
 p a:hover { text-decoration: underline; }
+
+td { font-variant-numeric: tabular-nums; }
 
 .n-color-accent { color: #009CDA; }
 

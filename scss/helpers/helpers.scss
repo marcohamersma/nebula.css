@@ -1,3 +1,5 @@
+@import './array-to-string';
+
 @function font-size($name) {
   @return raw-font-size($name) * 1px;
 }
@@ -17,4 +19,8 @@
 
 @function raw-space($name) {
   @return map-get($spacing-values, $name);
+}
+
+@mixin font-variants($variants) {
+  font-variant: array-to-string($variants, ' ');
 }
