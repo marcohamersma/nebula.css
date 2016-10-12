@@ -39,7 +39,7 @@ $spacing-values: (
 ) !default;
 $font-feature-settings: ('kern', 'onum', 'liga', 'frac') !default;
 $font-feature-heading-settings: ('calt', 'dlig', 'clig') !default;
-$borders-for-color: ('accent', 'mid', black, white) !default;
+$borders-for-color: ('accent', black) !default;
 $border-properties: ('border', 'border-bottom') !default;
 $spacing-directions: ('top', 'bottom') !default;
 $breakpoint-mobile: 400px !default;

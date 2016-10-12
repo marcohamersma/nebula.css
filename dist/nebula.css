@@ -159,17 +159,9 @@ p a:hover { text-decoration: underline; }
 
 .n-border-bottom-accent { border-bottom: 1px solid #009CDA; }
 
-.n-border-mid { border: 1px solid; }
-
-.n-border-bottom-mid { border-bottom: 1px solid; }
-
 .n-border-black { border: 1px solid #262626; }
 
 .n-border-bottom-black { border-bottom: 1px solid #262626; }
-
-.n-border-white { border: 1px solid; }
-
-.n-border-bottom-white { border-bottom: 1px solid; }
 
 body { font-size: 18px; }
 
