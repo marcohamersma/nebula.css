@@ -3,29 +3,26 @@
 
 // Generate font size rule for specific size. Uses rems if possible.
 // Probably not used directly, only through @scale-type
-// TODO: Do we use rems? still good
-@mixin font-rules($size) {
+@mixin font-size($size) {
   font-size: $size * 1px;
-  // This is somehow causing issues in chrome until it rerenders. But just doing pixel sizing is bad
-  font-size: $size / 10 * 1rem;
 }
 
 // Generates typography classes for a scale parameter. This looks up every font size and multiplies it with the scale value. Useful for adjusting font size at a breakpoint.
 @mixin scale-type($bodyTextScale: 1, $headerTextScale: 1) {
   body {
-    @include font-rules(raw-font-size('normal') * $bodyTextScale);
+    @include font-size(raw-font-size('normal') * $bodyTextScale);
   }
 
   @each $name, $value in $font-base-sizes {
     .#{$class-prefix}-type-#{$name} {
-      @include font-rules($value * $bodyTextScale);
+      @include font-size($value * $bodyTextScale);
     }
   }
 
   @each $name, $value in $header-base-sizes {
     #{$name},
     .#{$class-prefix}-type-#{$name} {
-      @include font-rules($value * $headerTextScale);
+      @include font-size($value * $headerTextScale);
     }
   }
 }

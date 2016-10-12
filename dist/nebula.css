@@ -171,19 +171,19 @@ p a:hover { text-decoration: underline; }
 
 .n-border-bottom-white { border-bottom: 1px solid; }
 
-body { font-size: 18px; font-size: 1.8rem; }
+body { font-size: 18px; }
 
-.n-type-normal { font-size: 18px; font-size: 1.8rem; }
+.n-type-normal { font-size: 18px; }
 
-.n-type-smallest { font-size: 12.5px; font-size: 1.25rem; }
+.n-type-smallest { font-size: 12.5px; }
 
-.n-type-small { font-size: 15px; font-size: 1.5rem; }
+.n-type-small { font-size: 15px; }
 
-h1, .n-type-h1 { font-size: 31px; font-size: 3.1rem; }
+h1, .n-type-h1 { font-size: 31px; }
 
-h2, .n-type-h2 { font-size: 26px; font-size: 2.6rem; }
+h2, .n-type-h2 { font-size: 26px; }
 
-h3, .n-type-h3 { font-size: 21.5px; font-size: 2.15rem; }
+h3, .n-type-h3 { font-size: 21.5px; }
 
 .n-ul { list-style: disc outside; }
 
