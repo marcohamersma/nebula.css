@@ -2,3 +2,4 @@ node_modules
 .sass-cache
 *.css.map
 NOTES.MD
+tests/*.scss

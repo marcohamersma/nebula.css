@@ -1,8 +1,28 @@
 var test = require('blue-tape');
 var nebula = require('../index');
 var sass = require('node-sass');
+var fs = require('mz/fs');
+const path = require('path');
+const testFile = path.join(__dirname, 'userfile.scss');
 
 function noop() {};
+
+test('API', t => {
+  t.plan(1);
+  nebula.build(testFile, {
+    useReset: false
+  }).then( t.ok )
+    .catch( t.fail );
+});
+
+test('API with outfile', t => {
+  t.plan(1);
+  nebula.build(testFile, {
+    outFile: path.join(__dirname, 'output.scss')
+  }).then( filename => fs.readFile(filename, 'utf8') )
+    .then( contents => t.ok(contents) )
+    .catch( t.fail );
+});
 
 test('isolation', t => {
   t.plan(nebula.defaultModules.length);
@@ -38,4 +58,4 @@ test('consistency', t => {
   nebula.build(null, null, {}, buildOutput => {
     t.equal(buildOutput, libSassOutput);
   });
-})
+});
