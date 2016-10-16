@@ -1,24 +1,13 @@
-var test = require('blue-tape');
+var test = require('tape');
 var nebula = require('../index');
 var camelize = require('camelize');
 var sass = require('node-sass');
 var fs = require('mz/fs');
 const path = require('path');
-const testFile = path.join(__dirname, 'userfile.scss');
 
-function noop() {};
-
-test('API', t => {
+test('Outfile option should generate an actual file', t => {
   t.plan(1);
-  nebula.build(testFile, {
-    useReset: false
-  }).then( t.ok )
-    .catch( t.fail );
-});
-
-test('API with outfile', t => {
-  t.plan(1);
-  nebula.build(testFile, {
+  nebula.build(null, {
     outFile: path.join(__dirname, 'output.scss'),
     useSourceMap: false
   }).then( filename => fs.readFile(filename, 'utf8') )
@@ -26,17 +15,17 @@ test('API with outfile', t => {
     .catch( t.fail );
 });
 
-test('isolation', t => {
+test('module isolation', t => {
   t.plan(nebula.defaultModules.length);
 
   nebula.defaultModules.forEach( m => {
     nebula.build(null, { modules: [m] }).then(result => {
-      t.ok(result, `Module '${m}' should work in isolation`);
-    });
+      t.ok(result, `Module '${m}' should be able to render in isolation`);
+    }).catch( t.fail );
   });
 });
 
-test('modularity', t => {
+test('`use-module` options', t => {
   const testModules = nebula.defaultModules.filter( n => n !== 'banner');
   t.plan(testModules.length);
 
@@ -49,11 +38,11 @@ test('modularity', t => {
 
     nebula.build(null, options).then(result => {
       t.ok(result.length === 0, `Module '${m}' should be empty when $${optionName} is false`);
-    });
+    }).catch( t.fail );
   });
 });
 
-test('consistency', t => {
+test('consistency between default sass version and javascript version', t => {
   t.plan(1);
 
   var libSassOutput = sass.renderSync({

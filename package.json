@@ -26,7 +26,6 @@
     "underscore": "^1.8.3"
   },
   "devDependencies": {
-    "blue-tape": "^1.0.0",
     "camelize": "^1.0.0",
     "eslint": "1.4.1",
     "faucet": "0.0.1",
@@ -35,6 +34,7 @@
     "grunt-contrib-watch": "^0.6.1",
     "handlebars": "^3.0.1",
     "slug": "^0.9.1",
+    "tape": "^4.6.2",
     "to-markdown": "^1.0.0-rc.4"
   },
   "keywords": [
