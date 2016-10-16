@@ -27,6 +27,7 @@
   },
   "devDependencies": {
     "blue-tape": "^1.0.0",
+    "camelize": "^1.0.0",
     "eslint": "1.4.1",
     "faucet": "0.0.1",
     "grunt": "^0.4.5",

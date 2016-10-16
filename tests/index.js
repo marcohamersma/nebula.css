@@ -1,5 +1,6 @@
 var test = require('blue-tape');
 var nebula = require('../index');
+var camelize = require('camelize');
 var sass = require('node-sass');
 var fs = require('mz/fs');
 const path = require('path');
@@ -18,7 +19,8 @@ test('API', t => {
 test('API with outfile', t => {
   t.plan(1);
   nebula.build(testFile, {
-    outFile: path.join(__dirname, 'output.scss')
+    outFile: path.join(__dirname, 'output.scss'),
+    useSourceMap: false
   }).then( filename => fs.readFile(filename, 'utf8') )
     .then( contents => t.ok(contents) )
     .catch( t.fail );
@@ -27,9 +29,11 @@ test('API with outfile', t => {
 test('isolation', t => {
   t.plan(nebula.defaultModules.length);
 
-  nebula.defaultModules.forEach( m => nebula.build([m], null, {}, result => {
-    t.ok(result, `Module '${m}' should work in isolation`);
-  }));
+  nebula.defaultModules.forEach( m => {
+    nebula.build(null, { modules: [m] }).then(result => {
+      t.ok(result, `Module '${m}' should work in isolation`);
+    });
+  });
 });
 
 test('modularity', t => {
@@ -37,14 +41,17 @@ test('modularity', t => {
   t.plan(testModules.length);
 
   testModules.forEach( m => {
-    const options = {};
-    options['use-' + m] = false;
+    const options = {
+      modules: [m]
+    };
+    const optionName = camelize('use-' + m);
+    options[optionName] = false;
 
-    nebula.build([m], null, options, result => {
-      t.ok(result.length === 0, `Module '${m}' should be empty when $${'use-' + m} is false`);
+    nebula.build(null, options).then(result => {
+      t.ok(result.length === 0, `Module '${m}' should be empty when $${optionName} is false`);
     });
   });
-})
+});
 
 test('consistency', t => {
   t.plan(1);
@@ -55,7 +62,7 @@ test('consistency', t => {
     sourceMap: true
   }).css.toString();
 
-  nebula.build(null, null, {}, buildOutput => {
+  nebula.build().then(buildOutput => {
     t.equal(buildOutput, libSassOutput);
-  });
+  }).catch(t.fail);
 });
