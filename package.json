@@ -2,6 +2,9 @@
   "name": "nebula.css",
   "version": "1.0.0",
   "description": "A work-in-progress CSS framework with the aim to quickly generate “building-block” classes for font sizes, colors, background colors and spacing",
+  "bin": {
+    "nebula": "./cli.js"
+  },
   "scripts": {
     "start": "grunt",
     "build-sass": "node-sass scss/nebula.scss dist/nebula.css --output-style compact --source-map true",
@@ -18,6 +21,7 @@
   "homepage": "https://github.com/marcohamersma/nebula.css#readme",
   "main": "index.js",
   "dependencies": {
+    "commander": "^2.9.0",
     "css-color-names": "0.0.1",
     "decamelize": "^1.2.0",
     "lodash.reduce": "^4.6.0",
