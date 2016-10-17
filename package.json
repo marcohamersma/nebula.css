@@ -1,15 +1,27 @@
 {
   "name": "nebula.css",
   "version": "1.0.0",
-  "description": "A work-in-progress CSS framework with the aim to quickly generate “building-block” classes for font sizes, colors, background colors and spacing",
+  "description": "A CSS framework that quickly generates “building-block”/atomic classes for font sizes, colors, background colors and spacing, with easy scaling for responsive websitesgru",
   "bin": {
     "nebula": "./cli.js"
   },
   "scripts": {
-    "start": "grunt",
-    "build-sass": "node-sass scss/nebula.scss dist/nebula.css --output-style compact --source-map true",
-    "build-sass-custom": "node-sass tests/custom.scss dist/nebula.css --output-style compact --source-map true",
-    "test": "node tests/index.js | faucet"
+    "start": "npm-watch",
+    "buildConfig": "node tools/convert-config.js > ./scss/_config.scss",
+    "buildVanilla": "node cli.js -o ./dist/nebula.css",
+    "buildSass": "node-sass scss/nebula.scss dist/nebula.css --output-style compact --source-map true",
+    "buildSassCustom": "node-sass tests/custom.scss dist/nebula.css --output-style compact --source-map true",
+    "test": "node tests/index.js | faucet && eslint . --quiet"
+  },
+  "watch": {
+    "buildVanilla": {
+      "patterns": [
+        "scss",
+        "lib"
+      ],
+      "extensions": "scss,js"
+    },
+    "buildConfig": "lib/base-config.js"
   },
   "repository": {
     "type": "git",
@@ -33,17 +45,13 @@
     "camelize": "^1.0.0",
     "eslint": "1.4.1",
     "faucet": "0.0.1",
-    "grunt": "^0.4.5",
-    "grunt-contrib-sass": "^0.8.1",
-    "grunt-contrib-watch": "^0.6.1",
-    "handlebars": "^3.0.1",
-    "slug": "^0.9.1",
-    "tape": "^4.6.2",
-    "to-markdown": "^1.0.0-rc.4"
+    "npm-watch": "^0.1.6",
+    "tape": "^4.6.2"
   },
   "keywords": [
     "css",
     "sass",
+    "atomic classes",
     "framework"
   ],
   "author": "Marco Hamersma",

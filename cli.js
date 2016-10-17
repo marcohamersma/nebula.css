@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+/* eslint no-console:0 */
 var program = require('commander');
 var camelize = require('camelize');
 var nebula = require('./index');
