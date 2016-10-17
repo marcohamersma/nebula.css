@@ -21,7 +21,7 @@
       ],
       "extensions": "scss,js"
     },
-    "buildConfig": "lib/base-config.js"
+    "buildConfig": "{lib/base-config.js, lib/config-builder.js}"
   },
   "repository": {
     "type": "git",
@@ -36,10 +36,15 @@
     "commander": "^2.9.0",
     "css-color-names": "0.0.1",
     "decamelize": "^1.2.0",
+    "lodash.foreach": "^4.5.0",
+    "lodash.isarray": "^4.0.0",
+    "lodash.isboolean": "^3.0.3",
+    "lodash.isnumber": "^3.0.3",
+    "lodash.isobject": "^3.0.2",
+    "lodash.map": "^4.6.0",
     "lodash.reduce": "^4.6.0",
     "mz": "^2.4.0",
-    "node-sass": "3.10.1",
-    "underscore": "^1.8.3"
+    "node-sass": "3.10.1"
   },
   "devDependencies": {
     "camelize": "^1.0.0",
