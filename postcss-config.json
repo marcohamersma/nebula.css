@@ -1,0 +1,8 @@
+{
+  "use": ["autoprefixer"],
+  "input": "dist/nebula.css",
+  "output": "dist/nebula.css",
+  "autoprefixer": {
+    "browsers": "> 10%, last 2 versions"
+  }
+}
