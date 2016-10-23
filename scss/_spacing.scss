@@ -84,6 +84,11 @@
 ///   // results in:
 ///   @include rules-for-space-value('medium', 30, 20);
 ///   @include rules-for-space-value('large', 60, 40);
+///
+///   @include scale-spacing(.5);
+///   // results in:
+///   @include rules-for-space-value('medium', 10, 10);
+///   @include rules-for-space-value('large', 20, 20);
 /// ```
 @mixin scale-spacing($vSpacingScale: 1, $hSpacingScale: $vSpacingScale) {
   /* Spacing */
