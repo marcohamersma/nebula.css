@@ -57,6 +57,6 @@ nebula.build(program.entryFile, nebulaConfig)
       console.log(output);
     }
   }).catch( err => {
-    console.log(err);
+    console.log(err, err.stack);
     process.exit(1);
   });
