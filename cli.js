@@ -26,6 +26,7 @@ modules.forEach( moduleName => {
 // Add other options
 program
   .option('-m, --modules [modules]', 'comma separated list of nebula modules to use', list)
+  .option('--minify', 'Compress CSS output using CleanCSS')
   .option('--noBanner', 'Hide the “Powered by nebula.css…” banner from output css')
   .action(function(entryFile) {
     // Make sure we save the entryFile somewhere if it's passed
@@ -34,6 +35,7 @@ program
   .parse(process.argv);
 
 const nebulaConfig = {
+  minify: !!program.minify,
   outFile: program.output,
   modules: program.modules
 };

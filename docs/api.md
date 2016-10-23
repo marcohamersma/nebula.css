@@ -39,6 +39,9 @@ You can turn off specific modules in Nebula if you don't need them. This can be 
 }
 ```
 
+### `minify:Boolean`
+Compresses the CSS output using [`CleanCSS`](https://github.com/jakubpawlowicz/clean-css).
+
 ### `classPrefix:String`
 Determines what is prefixed to all the classes that Nebula generates. Defaults to `n`, and will output classes like `.n-spacing-smallest`.
 
