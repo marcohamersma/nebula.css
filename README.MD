@@ -14,7 +14,7 @@ to be added…
 Nebula.css can be used in a variety of ways, first as a simple css file, inside a traditional SASS setup, or as a build process by itself (as a CLI or NPM module).
 
 ### Usage with basic/vanilla css file
-The compiled version of Nebula can be found in `dist/nebula.css`. You can include this into your HTML file and add your own styles in other files, make modifications, etc.
+The compiled version of Nebula can be found in `dist/nebula.css`. A minified version is also available. You can include this into your HTML file and add your own styles in other files, make modifications, etc.
 
 ### Usage with SASS pipeline
 Download the SCSS folder and place it somewhere in your project. overwrite any configuration variable you want, and then import nebula.css

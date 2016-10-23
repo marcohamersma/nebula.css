@@ -8,7 +8,7 @@
   "scripts": {
     "start": "npm-watch",
     "buildConfig": "node tools/convert-config.js > ./scss/_config.scss",
-    "buildVanilla": "node cli.js -o ./dist/nebula.css",
+    "buildVanilla": "node cli.js -o ./dist/nebula.css && node cli.js --minify -o ./dist/nebula.min.css",
     "buildSass": "node-sass scss/nebula.scss dist/nebula.css --output-style compact --source-map true",
     "buildSassCustom": "node-sass tests/custom.scss dist/nebula.css --output-style compact --source-map true",
     "postcss": "postcss -c ./postcss-config.json",
