@@ -19,7 +19,10 @@
     }
   }
 
-  @each $name, $value in $header-base-sizes {
+  @for $i from 1 through length($header-base-sizes) {
+    $value: nth($header-base-sizes, $i);
+    $name: 'h#{$i}';
+
     #{$name},
     .#{$class-prefix}-type-#{$name} {
       @include font-size($value * $headerTextScale);

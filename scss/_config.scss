@@ -24,12 +24,7 @@ $font-base-sizes: (
   'smallest': 12.5,
 ) !default;
 $header-line-height: 1.2 !default;
-
-$header-base-sizes: (
-  'h1': 31,
-  'h2': 26,
-  'h3': 21.5,
-) !default;
+$header-base-sizes: (31, 26, 21.5) !default;
 
 $spacing-values: (
   'smallest': 5,
