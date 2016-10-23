@@ -5,7 +5,7 @@
 // A scale parameter can be passed to this mixin, detemining the size (in pixels) of the border. This is useful if you want to scale border sizes at a breakpoint.
 
 @mixin border-rules($scale: 1) {
-  @each $color in $borders-for-color {
+  @each $color in $border-colors {
     @each $propertyName in $border-properties {
       @if not color($color) {
         @error "Can't generate #{$propertyName} class for color '#{$color}', because it was not found in the $colors variable.";

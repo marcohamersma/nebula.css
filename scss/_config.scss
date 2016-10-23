@@ -34,7 +34,7 @@ $spacing-values: (
 ) !default;
 $font-variants: ('common-ligatures', 'ordinal', 'oldstyle-nums', 'contextual') !default;
 $fancy-ligatures-in-headings: false !default;
-$borders-for-color: ('accent', black) !default;
+$border-colors: ('accent', black) !default;
 $border-properties: ('border', 'border-bottom') !default;
 $spacing-directions: ('top', 'bottom') !default;
 $breakpoint-mobile: 400px !default;

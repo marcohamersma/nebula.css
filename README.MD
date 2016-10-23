@@ -65,9 +65,9 @@ $colors: (
 
 
 ### Borders
-<p>Border classnames are generated from two variables, first <code class="n-color-accent">$borders-for-color</code> defines what colors to generate borders for, and then <code class="n-color-accent">$border-properties</code> defines what properties are styled:</p>
+<p>Border classnames are generated from two variables, first <code class="n-color-accent">$border-colors</code> defines what colors to generate borders for, and then <code class="n-color-accent">$border-properties</code> defines what properties are styled:</p>
 ```scss
-$borders-for-color: 'accent', …
+$border-colors: 'accent', …
 $border-properties: 'border', 'border-bottom';
 
 .n-border-accent        { border: 1px solid #009CDA; }
