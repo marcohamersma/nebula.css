@@ -1,14 +1,22 @@
 @import 'helpers/helpers';
-/// Generates classes for the different $font-base-sizes and $header-base-sizes defined in nebula's config.
+////
+/// @group Typography
+////
 
-// Generate font size rule for specific size.
-// Probably not used directly, only through @scale-type
+/// Generate font size rule for specific size.
+/// Probably not used directly, only through @scale-type
+/// @param {Number} $size
+/// @access private
 @mixin font-size($size) {
   font-size: $size * 1px;
 }
 
-// Generates typography classes for a scale parameter. This looks up every font size and multiplies it with the scale value. Useful for adjusting font size at a breakpoint.
-@mixin scale-type($bodyTextScale: 1, $headerTextScale: 1) {
+/// Generates typography classes for a scale parameter.
+/// This looks up every font size and multiplies it with the scale value.
+/// Useful for adjusting font size at a breakpoint.
+/// @param {Number} $bodyTextScale [1] - Scale multiplier for body text (based on `$font-base-sizes`)
+/// @param {Number} $headerTextScale [$bodyTextScale]- Scale multiplier for header texts (based on `$header-base-sizes`)
+@mixin scale-type($bodyTextScale: 1, $headerTextScale: $bodyTextScale) {
   body {
     @include font-size(raw-font-size('normal') * $bodyTextScale);
   }

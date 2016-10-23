@@ -1,6 +1,18 @@
 @import 'helpers/helpers';
 
-@if ($use-lists) {
+/// By default, Nebula's reset stylesheet removes any styling of lists. This
+/// allows you to use semantic lists for non-text elements.
+///
+/// To use traditional list, you can use the `.n-ul` and `.n-ol` classes created
+/// by this mixin.
+/// *If `$use-lists` is true, the result of this mixin is included in the default nebula.css output*.
+/// @group lists
+/// @output
+/// ```css
+/// .n-ul { list-style: disc outside; }
+/// .n-ol { list-style: decimal outside; }
+/// ```
+@mixin list-classes() {
   .#{$class-prefix}-ul {
     list-style: disc outside;
   }
@@ -18,5 +30,8 @@
       margin-bottom: space('smallest');
     }
   }
+}
 
-} // use-lists conditional
+@if ($use-lists) {
+  @include list-classes();
+}

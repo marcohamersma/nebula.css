@@ -12,6 +12,7 @@
     "buildSass": "node-sass scss/nebula.scss dist/nebula.css --output-style compact --source-map true",
     "buildSassCustom": "node-sass tests/custom.scss dist/nebula.css --output-style compact --source-map true",
     "postcss": "postcss -c ./postcss-config.json",
+    "sassdoc": "sassdoc scss",
     "test": "node tests/index.js | faucet && eslint . --quiet"
   },
   "watch": {
@@ -21,6 +22,10 @@
         "lib"
       ],
       "extensions": "scss,js"
+    },
+    "sassdoc": {
+      "patterns": ["scss"],
+      "extensions": "scss"
     },
     "buildConfig": "{lib/base-config.js, lib/config-builder.js}"
   },
@@ -55,6 +60,7 @@
     "faucet": "0.0.1",
     "npm-watch": "^0.1.6",
     "postcss-cli": "^2.6.0",
+    "sassdoc": "^2.1.20",
     "tape": "^4.6.2"
   },
   "keywords": [

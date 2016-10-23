@@ -1,4 +1,17 @@
-@if ($use-helper-classes) {
+/// Exports some basic helper classes to aid in development.
+/// *If `$use-helper-classes` is true, the result of this mixin is included in the default nebula.css output*.
+/// @group helpers
+/// @requires $breakpoint-hide-on-mobile - Determines what viewport width the `hide-on-mobile` and `show-on-mobile` classes kick in.
+/// @output
+/// ```scss
+/// .n-text-centered {}  // Centers text
+/// .n-block-centered {} // Centers a block element
+/// .n-inline {}         // Turns a block element into an inline element
+/// .n-clear {}          // Applies a clearfix to the element
+/// .n-hide-on-mobile {} // Hides element if viewport width < `$breakpoint-hide-on-mobile`
+/// .n-show-on-mobile {} // Shows element only if viewport width < `$breakpoint-hide-on-mobile`
+/// ```
+@mixin helper-classes() {
   .#{$class-prefix}-text-centered {
     text-align: center;
   }
@@ -35,5 +48,8 @@
       display: none !important;
     }
   }
+}
 
-} // use-helper-classes conditional
+@if ($use-helper-classes) {
+  @include helper-classes();
+}

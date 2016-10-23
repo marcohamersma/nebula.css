@@ -1,0 +1,14 @@
+display:
+  access:
+    - public
+dest: 'docs/sassdoc'
+# descriptionPath: ../README.md
+basePath: https://github.com/marcohamersma/nebula.css/blob/master/scss/
+groups:
+  typography: Typography
+  base: Basic Styles
+  lists: List
+  spacing: Spacing
+  borders: Borders
+  colors: Colors
+  helpers: Helper Classes

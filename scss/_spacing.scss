@@ -1,18 +1,27 @@
-// Mixin that prints out multiple CSS classes for managing spacing between and within elements. $value determines the amount of spacing/padding.
+////
+/// @group spacing
+////
 
-// Classes generated
-// .n-spacing-$name (margin on all sides)
-// .n-vspacing-$name (vertical margins only)
-// .n-hspacing-$name (horizontal margins)
-// .n-padding-$name (padding on all sides)
-// .n-vpadding-$name (vertical padding only)
-// .n-hpadding-$name (horizontal padding)
-//
-// Then, depending on values in the $spacing-directions array, it will generate additional classes for specific directions. By default, it also generates spacing classes for only the top and bottom:
-// .n-spacing-top-$name
-// .n-spacing-bottom-$name
-// .n-padding-top-$name
-// .n-padding-bottom-$name
+/// Mixin that prints out multiple CSS classes for managing spacing between and within elements. Depending on values in the `$spacing-directions` list, it will generate additional classes for specific directions. By default this adds spacing classes for the top and bottom.
+/// @param {String} $name - The size's 'name', will be represented in the classname generated
+/// @param {Number} $vvalue - Amount of _vertical_ spacing applied
+/// @param {Number} $hvalue [$vvalue] - Amount of _horizontal_ spacing applied
+/// @see scale-spacing
+/// @output
+/// ```scss
+/// .n-spacing-$name {}  // (margin on all sides)
+/// .n-vspacing-$name {} // (vertical margins only)
+/// .n-hspacing-$name {} // (horizontal margins)
+/// .n-padding-$name {}  // (padding on all sides)
+/// .n-vpadding-$name {} // (vertical padding only)
+/// .n-hpadding-$name {} // (horizontal padding)
+///
+/// // Additionally, based on $spacing-directions:
+/// .n-spacing-top-$name {}
+/// .n-spacing-bottom-$name {}
+/// .n-padding-top-$name {}
+/// .n-padding-bottom-$name {}
+/// ```
 @mixin rules-for-space-value($name, $vvalue, $hvalue:$vvalue) {
   .#{$class-prefix}-spacing-#{$name} {
     margin: $vvalue * 1px $hvalue * 1px;
@@ -27,7 +36,6 @@
     margin-left: $hvalue * 1px;
     margin-right: $hvalue * 1px;
   }
-
 
   .#{$class-prefix}-padding-#{$name} {
     padding: $vvalue * 1px $hvalue * 1px;
@@ -62,9 +70,21 @@
   }
 }
 
-// Generate spacing rules for a specific scale.
-// This will take the value defined for each item in $spacing-values, and multiply it by a number. Useful for adjusting spacing at different breakpoints.
-
+/// Generate spacing rules for a specific scale.
+/// This will take the value defined for each item in `$spacing-values`, and multiply it by a number. Useful for adjusting spacing at different breakpoints.
+/// *If `$use-spacing` is true, the result of this mixin is included in the default nebula.css output*.
+/// @param {Number} $vSpacingScale [1] - Multiplier for the _vertical_ spacing that is generated
+/// @param {Number} $hSpacingScale [$vSpacingScale] - Multiplier for the _horizontal_ spacing that is generated
+/// @output
+/// ```scss
+///   // Assuming, and the example above:
+///   $spacing-values: ('medium': 20, 'large': 40);
+///
+///   @include scale-spacing(1.5, 1);
+///   // results in:
+///   @include rules-for-space-value('medium', 30, 20);
+///   @include rules-for-space-value('large', 60, 40);
+/// ```
 @mixin scale-spacing($vSpacingScale: 1, $hSpacingScale: $vSpacingScale) {
   /* Spacing */
   @each $name, $value in $spacing-values {

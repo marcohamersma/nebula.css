@@ -1,14 +1,24 @@
-// Mixin that prints out multiple CSS classes that add borders in different colours to an element
-// Two variables determine what gets generated
-// 1. $borders-for-color is an array of color names that should get border classes. Nebula will then look up that color in the $colors map and use that.
-// 2. $border-properties is an array of properties that should be generated. For example, assuming the existence of an 'accent' color, the default value ('border', 'border-bottom') will generate .n-border-accent, and .n-border-bottom-accent.
-// A scale parameter can be passed to this mixin, detemining the size (in pixels) of the border. This is useful if you want to scale border sizes at a breakpoint.
+////
+/// @group Borders
+////
 
+/// Prints out multiple CSS classes for each `$border-properties` and `$border-colors`.
+/// *If `$use-borders` is true, the result of this mixin is included in the default nebula.css output*.
+/// @param {Number} $scale [1] - Determines the size (in pixels) of the border. This is useful if you want to scale border sizes at a breakpoint.
+/// @output
+/// ```scss
+/// // Assuming default settings
+/// .n-border-accent { border: 1px solid #009CDA; }
+/// .n-border-bottom-accent { border-bottom: 1px solid #009CDA; }
+///
+/// .n-border-black { border: 1px solid #000000; }
+/// .n-border-bottom-black { border-bottom: 1px solid #000000; }
+/// ```
 @mixin border-rules($scale: 1) {
   @each $color in $border-colors {
     @each $propertyName in $border-properties {
       @if not color($color) {
-        @error "Can't generate #{$propertyName} class for color '#{$color}', because it was not found in the $colors variable.";
+        @error "Can not generate #{$propertyName} class for color “#{$color}”, because it was not found in the $colors variable.";
       }
 
       .#{$class-prefix}-#{$propertyName}-#{$color} {
@@ -19,6 +29,6 @@
 }
 
 @if ($use-borders) {
-  // On initial inclusion we also print the classes for 1px borders.
+  /// On initial inclusion we also print the classes for 1px borders.
   @include border-rules();
 }

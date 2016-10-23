@@ -1,9 +1,16 @@
 @import 'helpers/helpers';
-// Prints out two CSS classes for every color in nebula's configuration. For example when 'red' is a color, it will print:
-// .n-color-red { color: #B5200F; }
-// .n-background-red { background-color: #B5200F; }
 
-@if ($use-colors) {
+/// Prints out text-color and background-color classes for every `$colors` in Nebula's configuration.
+/// *If `$use-colors` is true, the result of this mixin is included in the default nebula.css output*.
+/// @group colors
+/// @require $colors
+/// @output
+/// ```scss
+/// // For every color, e.g. red:
+/// .n-color-red { color: #B5200F; }
+/// .n-background-red { background-color: #B5200F; }
+/// ```
+@mixin color-rules() {
   @each $name, $value in $colors {
     .#{$class-prefix}-color-#{$name} {
       color: $value;
@@ -13,4 +20,8 @@
       background-color: $value;
     }
   }
+}
+
+@if ($use-colors) {
+  @include color-rules();
 }

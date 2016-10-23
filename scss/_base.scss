@@ -1,7 +1,11 @@
 @import 'helpers/font-feature-settings';
 @import 'helpers/helpers';
 
-@if ($use-base) {
+/// Outputs some basic typographic styles
+/// *If `$use-base` is true, the result of this mixin is included in the default nebula.css output*.
+/// @group base
+///
+@mixin base-styles() {
   body {
     line-height: #{$body-line-height};
     text-rendering: optimizeLegibility;
@@ -21,7 +25,6 @@
       @include font-variants(('discretionary-ligatures'));
     }
   }
-
 
   p {
     margin-bottom: 1.3em;
@@ -71,5 +74,8 @@
   td {
     font-variant-numeric: tabular-nums;
   }
+}
 
-} // use-base conditional
+@if ($use-base) {
+  @include base-styles();
+}
