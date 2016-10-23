@@ -1,7 +1,7 @@
 @import 'helpers/helpers';
 /// Generates classes for the different $font-base-sizes and $header-base-sizes defined in nebula's config.
 
-// Generate font size rule for specific size. Uses rems if possible.
+// Generate font size rule for specific size.
 // Probably not used directly, only through @scale-type
 @mixin font-size($size) {
   font-size: $size * 1px;
