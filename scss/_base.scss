@@ -56,12 +56,6 @@
     font-style: italic;
   }
 
-  .#{$class-prefix}-small-caps {
-    font-variant-caps: small-caps;
-    line-height: 1em;
-  }
-
-
   p a {
     color: color('accent');
 

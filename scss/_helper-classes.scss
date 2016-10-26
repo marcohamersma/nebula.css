@@ -8,6 +8,7 @@
 /// .n-block-centered {} // Centers a block element
 /// .n-inline {}         // Turns a block element into an inline element
 /// .n-clear {}          // Applies a clearfix to the element
+/// .n--small-caps {}    // Uses small-capitals, or synthesises them if not supported by font.
 /// .n-hide-on-mobile {} // Hides element if viewport width < `$breakpoint-hide-on-mobile`
 /// .n-show-on-mobile {} // Shows element only if viewport width < `$breakpoint-hide-on-mobile`
 /// ```
@@ -37,6 +38,10 @@
 
   .#{$class-prefix}-show-on-mobile {
     display: initial !important;
+  }
+
+  .#{$class-prefix}-small-caps {
+    font-variant-caps: small-caps;
   }
 
   @media screen and (min-width: $breakpoint-hide-on-mobile) {
