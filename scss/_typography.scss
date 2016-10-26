@@ -16,6 +16,20 @@
 /// Useful for adjusting font size at a breakpoint.
 /// @param {Number} $bodyTextScale [1] - Scale multiplier for body text (based on `$font-base-sizes`)
 /// @param {Number} $headerTextScale [$bodyTextScale]- Scale multiplier for header texts (based on `$header-base-sizes`)
+/// @example
+///   @media screen and (min-width: $breakpoint-widescreen) {
+///     @include scale-type($bodyTextScale: 1.2);
+///   }
+/// @output
+/// ```scss
+/// body { font-size: 21.6px; }
+/// .n-type-normal { font-size: 21.6px; }
+/// .n-type-small { font-size: 18px; }
+/// .n-type-smallest { font-size:  12.52px; }
+/// h1, .n-type-h1 { font-size: 37.2px; }
+/// h2, .n-type-h2 { font-size: 31.2px; }
+/// h3, .n-type-h3 { font-size: 25.2px; }
+/// ```
 @mixin scale-type($bodyTextScale: 1, $headerTextScale: $bodyTextScale) {
   body {
     @include font-size(raw-font-size('normal') * $bodyTextScale);

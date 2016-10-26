@@ -50,8 +50,6 @@ strong, b { font-weight: bolder; }
 
 em, i { font-style: italic; }
 
-.n-small-caps { font-variant-caps: small-caps; line-height: 1em; }
-
 p a { color: #009CDA; }
 
 p a:hover { text-decoration: underline; }
@@ -192,6 +190,8 @@ h3, .n-type-h3 { font-size: 21.5px; }
 .n-hide-on-mobile { display: none !important; }
 
 .n-show-on-mobile { display: initial !important; }
+
+.n-small-caps { font-variant-caps: small-caps; }
 
 @media screen and (min-width: 400px) { .n-hide-on-mobile { display: block !important; }
   .n-show-on-mobile { display: none !important; } }

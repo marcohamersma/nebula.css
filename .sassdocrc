@@ -1,6 +1,12 @@
 display:
   access:
     - public
+  annotations:
+    # Here I placed example before output
+    mixin: [description, parameter, content, example, output, throw, require, usedby, since, see, todo, link, author]
+    function: [description, parameter, return, example, throw, require, usedby, since, see, todo, link, author]
+    placeholder: [description, example, throw, require, usedby, since, see, todo, link, author]
+    variable: [description, type, property, require, example, usedby, since, see, todo, link, author]
 dest: 'docs/sassdoc'
 # descriptionPath: ../README.md
 basePath: https://github.com/marcohamersma/nebula.css/blob/master/scss/

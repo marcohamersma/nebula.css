@@ -1,12 +1,12 @@
 @import 'helpers/helpers';
 
 /// Prints out text-color and background-color classes for every `$colors` in Nebula's configuration.
-/// *If `$use-colors` is true, the result of this mixin is included in the default nebula.css output*.
+/// You probably only need to use this once, and *If `$use-colors` is true, the result of this mixin is included in the default nebula.css output*.
 /// @group colors
 /// @require $colors
 /// @output
 /// ```scss
-/// // For every color, e.g. red:
+/// // For every $color, e.g. red:
 /// .n-color-red { color: #B5200F; }
 /// .n-background-red { background-color: #B5200F; }
 /// ```

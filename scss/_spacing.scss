@@ -2,6 +2,34 @@
 /// @group spacing
 ////
 
+/// Generate spacing rules for a specific scale.
+/// This will take the value defined for each item in `$spacing-values`, and multiply it by a number. Useful for adjusting spacing at different breakpoints.
+/// *If `$use-spacing` is true, the result of this mixin is included in the default nebula.css output*.
+/// @param {Number} $vSpacingScale [1] - Multiplier for the _vertical_ spacing that is generated
+/// @param {Number} $hSpacingScale [$vSpacingScale] - Multiplier for the _horizontal_ spacing that is generated
+/// @output
+/// ```scss
+///   // Assuming, and the example above:
+///   $spacing-values: ('medium': 20, 'large': 40);
+///
+///   @include scale-spacing(1.5, 1);
+///   // results in:
+///   @include rules-for-space-value('medium', 30, 20);
+///   @include rules-for-space-value('large', 60, 40);
+///
+///   @include scale-spacing(.5);
+///   // results in:
+///   @include rules-for-space-value('medium', 10, 10);
+///   @include rules-for-space-value('large', 20, 20);
+/// ```
+@mixin scale-spacing($vSpacingScale: 1, $hSpacingScale: $vSpacingScale) {
+  /* Spacing */
+  @each $name, $value in $spacing-values {
+    @include rules-for-space-value($name, $value * $vSpacingScale, $value * $hSpacingScale)
+  }
+}
+
+
 /// Mixin that prints out multiple CSS classes for managing spacing between and within elements. Depending on values in the `$spacing-directions` list, it will generate additional classes for specific directions. By default this adds spacing classes for the top and bottom.
 /// @param {String} $name - The size's 'name', will be represented in the classname generated
 /// @param {Number} $vvalue - Amount of _vertical_ spacing applied
@@ -70,32 +98,6 @@
   }
 }
 
-/// Generate spacing rules for a specific scale.
-/// This will take the value defined for each item in `$spacing-values`, and multiply it by a number. Useful for adjusting spacing at different breakpoints.
-/// *If `$use-spacing` is true, the result of this mixin is included in the default nebula.css output*.
-/// @param {Number} $vSpacingScale [1] - Multiplier for the _vertical_ spacing that is generated
-/// @param {Number} $hSpacingScale [$vSpacingScale] - Multiplier for the _horizontal_ spacing that is generated
-/// @output
-/// ```scss
-///   // Assuming, and the example above:
-///   $spacing-values: ('medium': 20, 'large': 40);
-///
-///   @include scale-spacing(1.5, 1);
-///   // results in:
-///   @include rules-for-space-value('medium', 30, 20);
-///   @include rules-for-space-value('large', 60, 40);
-///
-///   @include scale-spacing(.5);
-///   // results in:
-///   @include rules-for-space-value('medium', 10, 10);
-///   @include rules-for-space-value('large', 20, 20);
-/// ```
-@mixin scale-spacing($vSpacingScale: 1, $hSpacingScale: $vSpacingScale) {
-  /* Spacing */
-  @each $name, $value in $spacing-values {
-    @include rules-for-space-value($name, $value * $vSpacingScale, $value * $hSpacingScale)
-  }
-}
 
 @if ($use-spacing) {
   // On initial inclusion we also print the default scale classes.
