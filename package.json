@@ -1,7 +1,7 @@
 {
   "name": "nebula.css",
-  "version": "1.0.0",
-  "description": "A CSS framework that quickly generates “building-block”/atomic classes for font sizes, colors, background colors and spacing, with easy scaling for responsive websitesgru",
+  "version": "1.0.0-rc1",
+  "description": "a CSS toolkit that generates utility classes for font sizes, colors, background colors and spacing, while having responsiveness in mind.",
   "bin": {
     "nebula.css": "./cli.js"
   },
