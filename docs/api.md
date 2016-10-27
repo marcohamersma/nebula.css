@@ -1,3 +1,7 @@
+---
+title: Nebula.css - JavaScript API & CLI
+---
+
 # JavaScript API
 ## Basic usage:
 ```js
