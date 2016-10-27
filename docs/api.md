@@ -119,15 +119,19 @@ Determines which extra “directions” to generate spacing classes for (besides
 spacingDirections: ['top', 'bottom']
 ```
 
-## CLI
+# CLI
 You can use nebula.css as a build tool by itself, by using the CLI:
 
-`$ nebula.css <entry point> <options>`;
+`$ nebula.css <entry point> <options>`
 
 The most important features of the JavaScript API are present in the CLI. For a list of options, type `nebula.css -h`.
 
 ### Output
-By default, the CLI outputs to stdout, so you could use `nebula.css > styles.css` or something. You can also add an `-o` or `--output` option:
+By default, the CLI outputs to stdout, so you can do:
+
+`$ nebula.css > public/styles.css`
+
+You can also pass an `-o` or `--output` option:
 
 `$ nebula.css <entry point> -o public/styles.css`
 
