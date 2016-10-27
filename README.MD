@@ -1,6 +1,8 @@
 # Nebula CSS Framework
 [![npm version](https://badge.fury.io/js/nebula.css.svg)](http://badge.fury.io/js/nebula.css)
 
+**pre-release**
+
 Nebula.css is a CSS toolkit based on SASS that generates utility classes for font sizes, colors, background colors and spacing, while having responsiveness in mind. By default, it also includes a reset stylesheet and a number of basic typographic styles.
 
 [Demo & Documentation](http://marcohamersma.github.io/nebula.css/) | [SassDoc](http://marcohamersma.github.io/nebula.css/sassdoc)
