@@ -1,20 +1,64 @@
-# Nebula CSS Framework (DEVELOPMENT branch)
+# Nebula CSS Framework
+Nebula.css is a CSS toolkit based on SASS that generates utility classes for font sizes, colors, background colors and spacing, while having responsiveness in mind. By default, it also includes a reset stylesheet and a number of basic typographic styles.
 
-This is where I'm very slowly forming the next release of Nebula.css.
-Naturally, it's not advisable at all to use this.
+[Demo & Documentation](http://marcohamersma.github.io/nebula.css/) | [SassDoc](http://marcohamersma.github.io/nebula.css/sassdoc)
 
-Nebula.css is a work-in-progress CSS toolkit based on SASS that easily generates “building-block” classes for font sizes, colors, background colors and spacing.
+## What does it do
+You define a base set of colors, font sizes, and spacing amounts, from which Nebula creates a set of CSS classes that you can use for building your website. You might want to increase things like font size or spacing when the viewport size allows it, so by applying one of Nebula's mixins at certain breakpoints _you can scale up/down font sizes and spacing amounts_ for this breakpoint.
 
-In addition to that, it also offers a nice typographic foundation + basic styles. It's inspired by <a href="https://en.bem.info">BEM</a> and <a href="http://www.stubbornella.org/content/category/general/geek/css/oocss-css-geek-general/">OOCSS</a>. It's a great starting kit for responsive websites, and allows you to easily scale type and spacing at different breakpoints.
+A basic Nebula installation generates classes like this:
 
-## Features
-to be added…
+```scss
+// For every color you define in your website
+.n-color-accent { color: #009CDA; }
+.n-background-accent { background-color: #009CDA; }
+// If you want, border colors can be generated for colors as well
+.n-border-accent { border: 1px solid #009CDA; }
+
+// You define a set of body and heading sizes
+.n-type-normal { font-size: 18px; }
+.n-type-smaller { font-size: 15px; }
+h1, .n-type-h1 { font-size: 31px; }
+
+// You can define a number of spacing values, it generates margin and padding classes
+.n-spacing-medium { margin: 40px 40px; }
+.n-vspacing-medium { margin-top: 40px; margin-bottom: 40px; }
+.n-hspacing-medium { margin-left: 40px; margin-right: 40px; }
+
+.n-padding-medium { padding: 40px 40px; }
+.n-vpadding-medium { padding-top: 40px; padding-bottom: 40px; }
+.n-hpadding-medium { padding-left: 40px; padding-right: 40px; }
+```
+
+Using a mixin then scales these items, for example with font-sizes:
+
+```scss
+@media screen and (min-width: $breakpoint-widescreen) {
+  @include scale-type($bodyTextScale: 1.2);
+}
+
+// Outputs:
+body { font-size: 21.6px; }
+.n-type-normal  { font-size: 21.6px; }
+.n-type-smaller { font-size: 18px; }
+h1, .n-type-h1  { font-size: 37.2px; }
+h2, .n-type-h2  { font-size: 31.2px; }
+h3, .n-type-h3  { font-size: 25.2px; }
+```
+
+Nebula is very modular, so you can disable certain modules if you don't want to have them in your output.
+
+## Where does it work well
+- Quick building of simple websites.
+- Your design system specifies colors, font sizes, and spacing amounts, and you want to quickly start building something.
+- You want to use consistent amounts of spacing between elements, that can change on different breakpoints.
+- You want to have a couple of predefined font sizes, that can scale on different breakpoints
 
 ## How to add Nebula to your project
 Nebula.css can be used in a variety of ways, first as a simple css file, inside a traditional SASS setup, or as a build process by itself (as a CLI or NPM module).
 
 ### Usage with basic/vanilla css file
-The compiled version of Nebula can be found in `dist/nebula.css`. A minified version is also available. You can include this into your HTML file and add your own styles in other files, make modifications, etc.
+The compiled version of Nebula can be found in `dist/nebula.css`. A minified version is also available there. You can include this into your HTML file and add your own styles in other files, make modifications, etc.
 
 ### Usage with SASS pipeline
 Download the SCSS folder and place it somewhere in your project. overwrite any configuration variable you want, and then import nebula.css
@@ -25,20 +69,27 @@ $colors: (
   'white' : #FFFFFF
 );
 
+// Disable/enable individual modules through configuration variables
+$use-reset: false;
+
 @import 'nebula.css/nebula'
 ```
 
-You should also be able to import individual nebula modules, like
+You can also import individual nebula modules, like
 ```scss
+@import 'nebula.css/config'
 @import 'nebula.css/colors'
 ```
 
 ### Usage as CLI
-`$ nebulacss <entry point> <options>`
+Install the npm package using `npm install -g nebula.css`, or install it as a dependency for your project with the `--save` flag. Then use the CLI like this:
+
+`$ nebula.css <entry point> <options>`
+
+For a list of options, go to the [JavaScript API documentation](docs/api.md#CLI).
 
 ### Usage as an npm module.
-~~Install the package using `npm install nebula.css --save` and require it in your project.~~
-As of now, the module is not yet done and published.
+Install the npm package using `npm install nebula.css --save` and require it in your project.
 
 ```js
     var nebula = require('nebula.css');
@@ -46,173 +97,9 @@ As of now, the module is not yet done and published.
     nebula.build('mystyles.css', options);
 ```
 
-### Nebula loves spacing
-<p>For most block elements, Nebula provides no margins. This is so that the amount of spacing can be explicitly defined depending on the context and surrounding elements. In my experience, this leads to more consistent spacing across a page, with less chance of padding + margin adding up to inconsistent amounts compared to other elements on the page.</p>
+`nebula.build` returns a Promise, which will be passed the contents of the Sass file when done. If the `outFile` option is set, it will return the path to the file generated.
 
-### Nebula generates help classes
-<p>The <code>_config.scss</code> file contains a number of variables/maps you can set, which will result in the generation of building-block class names:</p>
-
-### Colors &amp; Background
-```scss
-$colors: (
-  accent: #009CDA,
-  …
-);
-
-.n-color-accent      { color: #009CDA; }
-.n-background-accent { background-color: #009CDA; }
-```
-
-
-### Borders
-<p>Border classnames are generated from two variables, first <code class="n-color-accent">$border-colors</code> defines what colors to generate borders for, and then <code class="n-color-accent">$border-properties</code> defines what properties are styled:</p>
-```scss
-$border-colors: 'accent', …
-$border-properties: 'border', 'border-bottom';
-
-.n-border-accent        { border: 1px solid #009CDA; }
-.n-border-bottom-accent { border-bottom: 1px solid #009CDA; }
-```
-
-
-### Font sizes
-<p>Similarly, font size classes will be generated for <code class="n-color-accent">$font-base-sizes</code> and <code class="n-color-accent">$header-base-sizes</code>:</p>
-
-```scss
-$font-base-sizes: (
-  normal: 16,
-  …
-);
-$header-base-sizes: (
-  h1: 26,
-  …
-);
-
-.n-type-normal { font-size: 16px; font-size: 1.6rem; }
-h1, .n-type-h1 { font-size: 26px; font-size: 2.6rem; }
-
-```
-<p>Since it's a header, we automatically create a <code>h1</code> element, but we also create a class for this in case you want to style an element as a header, but do not want to associate it a header element's tag (for semantic reasons, for example). </p>
-
-### Spacing
-<p>For every spacing value you define, the following classes get generated:</p>
-```scss
-$spacing-value: (
-  smallest: 5,
-  …
-);
-
-.n-spacing-smallest  { margin: 5px;  }
-.n-vspacing-smallest { margin-top: 5px;   margin-bottom: 5px;  }
-.n-hspacing-smallest { margin-left: 5px;  margin-right: 5px;   }
-
-.n-padding-smallest  { padding: 5px; }
-.n-vpadding-smallest { padding-top: 5px;  padding-bottom: 5px; }
-.n-hpadding-smallest { padding-left: 5px; padding-right: 5px;  }
-```
-
-
-<p class="n-vspacing-small">As sometimes you might only want to give elements spacing on one side, any direction defined in <code class="n-color-accent">$spacing-directions</code> will generate additional directional classes for every <code class="n-color-accent">$spacing-value</code> defined:</p>
-
-```scss
-$spacing-directions: 'top', 'bottom';
-
-.n-spacing-top-smallest    { margin-top: 5px; }
-.n-spacing-bottom-smallest { margin-bottom: 5px; }
-
-.n-padding-top-smallest    { padding-top: 5px; }
-.n-padding-bottom-smallest { padding-bottom: 5px; }
-```
-
-## Responsiveness
-<p>At the moment, Nebula does not have any elements which require “reassembly” on certain screen sizes. That said, the framework is built to scale to different sizes easily.</p>
-<p>All sizes defined in the framework's configuration are regarded as <em>base sizes</em> that can be scaled for different media queries. Depending on the breakpoints your website requires, you define where you want font sizes or spacing to scale, and then call the media query to generate the rules again:</p>
-
-```scss
-@media screen and (min-width: $breakpoint-tablet) {
-  // Defining what size multiplier we use for the text and spacing for this breakpoint
-  $body-scale: 1.125;
-  $header-scale: 1.8;
-  $spacing-scale: 2;
-  $border-scale: 2;
-  @include scaled-spacing-and-type($spacing-scale, $body-scale, $header-scale);
-  @include borderRules($border-scale);
-}
-```
-
-<p class="n-vspacing-small">This then generates the code necessary:</p>
-```scss
-@media screen and (min-width: 800px) {
-  .n-spacing-smallest { margin: 10px; }
-  …
-  body                { font-size: 18px; font-size: 1.8rem; }
-  .n-type-normal      { font-size: 18px; font-size: 1.8rem; }
-  h1, .n-type-h1      { font-size: 46.8px; font-size: 4.68rem; }
-  …
-  .n-border-accent    { border: 2px solid #009CDA; }
-}
-
-```
-<p>The original values defined in Nebula's configuration have now multiplied by the scaling values defined above. For example, because the <code class="n-color-accent">$spacing-scale</code> was set to 2, <code>.n-spacing-smallest</code> changed from 5 to 10.</p>
-
-## Helpers
-<p>As a bonus, Nebula.css also offers a couple of helpers for common behaviour in the form of CSS classes or Sass functions:</p>
-
-### Helper classes:
-
-<ul class="n-ul n-spacing-bottom-medium">
-  <li class="><code>.n-small-caps</code><br/> uses small-caps for the text affected by this class.</li>
-  <li class="><code>.n-hideOnMobile</code> &amp; <code>.n-showOnMobile</code><br/> Allow you to hide and show components depending on available screen real estate. The breakpoint (“mobile”) for this is 400 by default, but can be changed in the configuration file.</li>
-  <li class="><code>.n-text-centered</code><br/> speaks for itself, I'd say…</li>
-  <li class="><code>.n-block-centered</code><br/> centers a block, basically sets auto margins on left+right.</li>
-  <li class="><code>.n-inline</code><br/> basically <code>display: inline</code>.</li>
-  <li class="><code>.n-clear</code><br/>Clears any floats after this element.</li>
-
-</ul>
-
-### Helper functions:
-
-<p>If you're including Nebula in a Sass pipeline, you get access to the <code>font-size()</code>, <code>color()</code>, and <code>space()</code> functions for accessing configured font-sizes, colors, and spacing values.</p>
-```scss
-// nebula/_config.scss
-$colors: (
-  accent: #009CDA,
-  …
-);
-
-// Your site styles
-a {
-  color: color('accent');
-}
-
-```
-
-## Other elements &amp; lists
-<p>Besides a nice foundation type-wise, Nebula also has some basis styles for other html elements. You've been able to see the <code>pre</code> and <code>code</code> elements above, but there's lists as well.</p>
-
-### Unordered List (<code>.n-ul</code>)
-
-<ul class="n-ul n-vspacing-smallest">
-  <li>List item</li>
-  <li>List item</li>
-  <li>List item</li>
-</ul>
-
-### Ordered list (<code>.n-ol</code>)
-
-<ol class="n-ol n-vspacing-smallest">
-  <li>List item</li>
-  <li>List item</li>
-  <li>List item</li>
-</ol>
-
-### Unstyled List
-
-<ol class="n-vspacing-smallest">
-  <li>List item</li>
-  <li>List item</li>
-  <li>You get it…</li>
-</ol>
+For information about configuration options, check the [JavaScript API documentation](docs/api.md).
 
 ## License
 Licensed under the MIT License.
