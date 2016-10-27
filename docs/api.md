@@ -1,10 +1,14 @@
-# Javascript API
+# JavaScript API
 ## Basic usage:
-    var nebula = require('nebula.css');
+```js
+var nebula = require('nebula.css');
 
-    nebula.build(<entry file>, <options>);
+nebula.build(<entry file>, <options>);
+```
 
 `nebula.build` returns a Promise, which will be passed the contents of the Sass file when done. If the `outFile` option is set, it will return the path to the file generated.
+
+_Most of these variables are camelCase variations of the variables found in Sass (they are converted to dash-case before being passed along), for a more detailed (and maybe current) description of the configuration, check out [SassDoc](http://marcohamersma.github.io/nebula.css/sassdoc), or the [list of default options](../lib/base-config.js).
 
 ### Entry File `optional`.
 This is the file that contains the styles for your application. This has to be sass/scss file. It will be included by Nebula's Sass pipeline, and therefore will give you access to all Sass's features (including importing), plus Nebula's helper mixins and functions.
@@ -48,7 +52,7 @@ Determines what is prefixed to all the classes that Nebula generates. Defaults t
 ### `colors:Object`
 Object with a list of colors. The `key` here refers to the colors name, and the value it's value. For example:
 ```js
-{
+colors: {
   accent: '#B5200F'
 }
 ```
@@ -70,23 +74,49 @@ Object with a list of font-sizes. The `key` here refers to the size name, and th
 ### `headerLineHeight:Object`
 Line height for headings text.
 
-### `headerBaseSizes:Object`
-
+### `headerBaseSizes:Array`
+Array of font sizes to use for header sizes, first item is H1, second H2, etc…
 
 ### `spacingValues:Object`
+Object with a list of spacing sizes. The `key` here refers to the size name, and the value the size at 1x scale.
 
+```js
+spacing-values: {
+  smallest: 5,
+  small:    20,
+  medium:   40,
+  large:    70
+}
+```
 
 ### `fontVariants:Object`
-
+Array of `font-variants` to use for body text, see [this MDN documentation] (https://developer.mozilla.org/en-US/docs/Web/CSS/font-variant) for a list of supported values.
 
 ### `fancyLigaturesInHeadings:Object`
+Use discretionary(fancier) ligatures for headings, this might be a bit too much for certain fonts, and is therefore off by default.
 
-
-### `bordersForColor:Object`
-
+### `borderColors:Object`
+an array of color names that should get border classes. Nebula will then look up that color in the $colors map and use that.
 
 ### `borderProperties:Object`
+List of properties that should be generated. For example, assuming the existence of an 'accent' color:
 
+```js
+borderProperties: ['border', 'border-bottom']
+```
+
+Will output:
+
+```css
+.n-border-accent {…}
+.n-border-bottom-accent {…}
+```
 
 ### `spacingDirections:Object`
+Determines which extra “directions” to generate spacing classes for (besides “all”, vertical, and horizontal)
 
+```js
+spacingDirections: ['top', 'bottom']
+```
+
+## CLI
