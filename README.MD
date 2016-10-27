@@ -48,9 +48,9 @@ Using a mixin then scales these items, for example with font-sizes:
 
 // Outputs:
 body { font-size: 21.6px; }
-h1, .n-type-h1  { font-size: 37.2px; }
-.n-type-normal  { font-size: 21.6px; }
-.n-type-large   { font-size: 26.4px; }
+.n-type-h1, h1 { font-size: 37.2px; }
+.n-type-normal { font-size: 21.6px; }
+.n-type-large  { font-size: 26.4px; }
 ```
 
 Nebula is very modular, so you can disable certain modules if you don't want to have them in your output.

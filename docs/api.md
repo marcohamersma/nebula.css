@@ -120,3 +120,26 @@ spacingDirections: ['top', 'bottom']
 ```
 
 ## CLI
+You can use nebula.css as a build tool by itself, by using the CLI:
+
+`$ nebula.css <entry point> <options>`;
+
+The most important features of the JavaScript API are present in the CLI. For a list of options, type `nebula.css -h`.
+
+### Output
+By default, the CLI outputs to stdout, so you could use `nebula.css > styles.css` or something. You can also add an `-o` or `--output` option:
+
+`$ nebula.css <entry point> -o public/styles.css`
+
+### Modularity
+Individual modules can be disabled by adding a `--noX` flag, where `x` is the module name, for example `--noBase`.
+
+You can also supply a comma-separated list of modules:
+
+`$ nebula.css <entry point> --modules reset,base,spacing,typography`
+
+### `--minify`
+Compresses the CSS output using [`CleanCSS`](https://github.com/jakubpawlowicz/clean-css).
+
+### `--noBanner`
+Hide the “Powered by nebula.css…” banner from output css
