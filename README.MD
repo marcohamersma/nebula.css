@@ -89,7 +89,7 @@ Install the npm package using `npm install -g nebula.css`, or install it as a de
 
 `$ nebula.css <entry point> <options>`
 
-For a list of options, go to the [JavaScript API documentation](docs/api.md#CLI).
+For a list of options, go to the [JavaScript API documentation](docs/api.md#cli).
 
 ### Usage as an npm module.
 Install the npm package using `npm install nebula.css --save` and require it in your project.
