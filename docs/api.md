@@ -124,7 +124,19 @@ You can use nebula.css as a build tool by itself, by using the CLI:
 
 `$ nebula.css <entry point> <options>`
 
-The most important features of the JavaScript API are present in the CLI. For a list of options, type `nebula.css -h`.
+## Usage as a build tool with NPM
+Combined with NPM and a package like [watch](https://www.npmjs.com/package/watch#cli), it's really easy to set up a basic CSS pipeline:
+
+```json
+"scripts": {
+  "start": "watch 'nebula.css css/styles.scss -o public/styles.css' css"
+}
+```
+
+Running `npm start` will automatically build your css through Nebula, and watch for changes to your css folder.
+
+## CLI options
+The most important features of the JavaScript API are present in the CLI. For a quick reminder, type `nebula.css -h`.
 
 ### Output
 By default, the CLI outputs to stdout, so you can do:
