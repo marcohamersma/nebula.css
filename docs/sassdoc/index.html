@@ -263,8 +263,8 @@
     $value: nth($header-base-sizes, $i);
     $name: &#39;h#{$i}&#39;;
 
-    #{$name},
-    .#{$class-prefix}-type-#{$name} {
+    .#{$class-prefix}-type-#{$name},
+    #{$name} {
       @include font-size($value * $headerTextScale);
     }
   }
