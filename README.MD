@@ -25,9 +25,9 @@ A basic Nebula installation generates classes like this:
 .n-border-accent { border: 1px solid #009CDA; }
 
 // You define a set of body and heading sizes
-.n-type-normal  { font-size: 18px; }
-.n-type-smaller { font-size: 15px; }
 .n-type-h1, h1  { font-size: 31px; }
+.n-type-normal  { font-size: 18px; }
+.n-type-large   { font-size: 22px; }
 
 // You can define a number of spacing values, it generates margin and padding classes
 .n-spacing-medium  { margin: 40px 40px; }
@@ -48,11 +48,9 @@ Using a mixin then scales these items, for example with font-sizes:
 
 // Outputs:
 body { font-size: 21.6px; }
-.n-type-normal  { font-size: 21.6px; }
-.n-type-smaller { font-size: 18px; }
 h1, .n-type-h1  { font-size: 37.2px; }
-h2, .n-type-h2  { font-size: 31.2px; }
-h3, .n-type-h3  { font-size: 25.2px; }
+.n-type-normal  { font-size: 21.6px; }
+.n-type-large   { font-size: 26.4px; }
 ```
 
 Nebula is very modular, so you can disable certain modules if you don't want to have them in your output.

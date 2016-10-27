@@ -35,12 +35,6 @@
     @include font-size(raw-font-size('normal') * $bodyTextScale);
   }
 
-  @each $name, $value in $font-base-sizes {
-    .#{$class-prefix}-type-#{$name} {
-      @include font-size($value * $bodyTextScale);
-    }
-  }
-
   @for $i from 1 through length($header-base-sizes) {
     $value: nth($header-base-sizes, $i);
     $name: 'h#{$i}';
@@ -48,6 +42,12 @@
     .#{$class-prefix}-type-#{$name},
     #{$name} {
       @include font-size($value * $headerTextScale);
+    }
+  }
+
+  @each $name, $value in $font-base-sizes {
+    .#{$class-prefix}-type-#{$name} {
+      @include font-size($value * $bodyTextScale);
     }
   }
 }
