@@ -9,7 +9,7 @@ display:
     variable: [description, type, property, require, example, since, see, usedby, todo, link, author]
 dest: 'docs/sassdoc'
 # descriptionPath: ../README.md
-basePath: https://github.com/marcohamersma/nebula.css/blob/master/scss/
+basePath: https://github.com/marcohamersma/nebula.css/blob/master/scss
 groups:
   typography: Typography
   modularity: Modularity
