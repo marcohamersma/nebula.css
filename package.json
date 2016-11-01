@@ -12,6 +12,7 @@
     "buildSass": "node-sass scss/nebula.scss dist/nebula.css --output-style compact --source-map true",
     "buildSassCustom": "node-sass tests/custom.scss dist/nebula.css --output-style compact --source-map true",
     "postcss": "postcss -c ./postcss-config.json",
+    "buildDocsCss": "node cli.js ./docs/scss/styles.scss -o ./docs/styles.css",
     "sassdoc": "sassdoc scss",
     "test": "node tests/index.js | faucet && eslint . --quiet"
   },
@@ -27,7 +28,11 @@
       "patterns": ["scss"],
       "extensions": "scss"
     },
-    "buildConfig": "{lib/base-config.js, lib/config-builder.js}"
+    "buildConfig": "{lib/base-config.js, lib/config-builder.js}",
+    "buildDocsCss": {
+      "patterns": ["docs/scss"],
+      "extensions": "scss"
+    }
   },
   "repository": {
     "type": "git",
