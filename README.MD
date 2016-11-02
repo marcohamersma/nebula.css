@@ -5,7 +5,7 @@
 
 Nebula.css is a CSS toolkit based on SASS that generates utility classes for font sizes, colors, background colors and spacing, while having responsiveness in mind. By default, it also includes a reset stylesheet and a number of basic typographic styles.
 
-[Demo & Documentation](http://marcohamersma.github.io/nebula.css/) | [SassDoc](http://marcohamersma.github.io/nebula.css/sassdoc)
+[Demo & Documentation](http://marcohamersma.github.io/nebula.css/) | [Usage](#how-to-add-nebula-to-your-project) | [SassDoc](http://marcohamersma.github.io/nebula.css/sassdoc)
 
 ## Where does it work well
 - Quick assembly of simple websites.
@@ -71,7 +71,7 @@ For when you want to use Nebula.css and programmatically generate a stylesheet w
 ### 3. [Command Line Interface](docs/api.md#command-line)
 You want to use Nebula.css, but don't have a Sass pipeline or other build process for your stylesheets.
 
-### [4. basic/vanilla css file](dist)
+### 4. [Basic CSS](dist)
 A compiled version of Nebula can be found in `dist/nebula.css`. A minified version is also available there. You can include this into your HTML file and add your own styles in other files, make modifications, etc.
 
 ## License

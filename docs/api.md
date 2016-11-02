@@ -9,12 +9,12 @@ Install the npm package using `npm install nebula.css --save` and require it in 
 ```js
 var nebula = require('nebula.css');
 
-nebula.build(<entry file>, <options>);
+nebula.build(<entry file>, <options>).then(…);
 ```
 
 `nebula.build` returns a Promise, which will be passed the contents of the Sass file when done. If the `outFile` option is set, it will return the path to the file generated.
 
-_Most of these variables are camelCase variations of the variables found in Sass_ (they are converted to dash-case before being passed along), for a more detailed (and maybe current) description of the configuration, check out [SassDoc](http://marcohamersma.github.io/nebula.css/sassdoc), or the [list of default options](../lib/base-config.js).
+_Most of the configuration variables are camelCase variations of the variables found in Sass_ (they are converted to dash-case before being passed along), for a more detailed (and maybe current) documentation of these variables, check out [SassDoc](http://marcohamersma.github.io/nebula.css/sassdoc), or the [list of default options](../lib/base-config.js).
 
 ### Entry File `optional`.
 This is the file that contains the styles for your application. This has to be sass/scss file. It will be included by Nebula's Sass pipeline, and therefore will give you access to all Sass's features (including importing), plus Nebula's helper mixins and functions.
@@ -23,6 +23,48 @@ You can leave this blank, and no file will be included.
 
 ### Options `optional`
 You can pass an options object to Nebula to determine which modules to include, and where the output will go.
+
+### `colors:Object`
+Object with a list of colors. The `key` here refers to the colors name, and the value it's value. For example:
+```js
+colors: {
+  accent: '#B5200F'
+}
+```
+will generate:
+```css
+ .n-color-accent { color: #B5200F; }
+ .n-background-accent { background: #B5200F; }
+```
+
+### `fontBaseSizes:Object`
+Object with a list of font-sizes. The `key` here refers to the size name, and the value the size at 1x scale.
+
+```js
+fontBaseSizes: {
+  normal:   18,
+  small:    15,
+  smallest: 12,
+}
+```
+will generate:
+```css
+.n-type-normal   { font-size: 18px; }
+.n-type-small    { font-size: 15px; }
+.n-type-smallest { font-size: 12px; }
+```
+
+### `spacingValues:Object`
+Object with a list of spacing sizes. The `key` here refers to the size name, and the value the size at 1x scale.
+
+```js
+spacingValues: {
+  smallest: 5,
+  small:    20,
+  medium:   40,
+  large:    70
+}
+```
 
 #### `modules:Array`
 An array of modules to be used. This will default to `nebula.defaultModules.concat([entryFile])`. If you're looking to disable a few modules, you might not want to use this. See below for the `useX` options.
@@ -55,45 +97,17 @@ Compresses the CSS output using [`CleanCSS`](https://github.com/jakubpawlowicz/c
 ### `classPrefix:String`
 Determines what is prefixed to all the classes that Nebula generates. Defaults to `n`, and will output classes like `.n-spacing-smallest`.
 
-### `colors:Object`
-Object with a list of colors. The `key` here refers to the colors name, and the value it's value. For example:
-```js
-colors: {
-  accent: '#B5200F'
-}
-```
-will generate:
-```css
- .n-color-accent { color: #B5200F; }
- .n-background-accent { background: #B5200F; }
-```
-
 ### `typeBoldWeight:Number`
 Sets the weight of bold text and headings. Defaults to `bolder`, which takes the next available heavier font weight.
 
 ### `bodyLineHeight:Number`
 Line height for body text.
 
-### `fontBaseSizes:Object`
-Object with a list of font-sizes. The `key` here refers to the size name, and the value the size at 1x scale.
-
 ### `headerLineHeight:Object`
 Line height for headings text.
 
 ### `headerBaseSizes:Array`
 Array of font sizes to use for header sizes, first item is H1, second H2, etc…
-
-### `spacingValues:Object`
-Object with a list of spacing sizes. The `key` here refers to the size name, and the value the size at 1x scale.
-
-```js
-spacing-values: {
-  smallest: 5,
-  small:    20,
-  medium:   40,
-  large:    70
-}
-```
 
 ### `fontVariants:Object`
 Array of `font-variants` to use for body text, see [this MDN documentation] (https://developer.mozilla.org/en-US/docs/Web/CSS/font-variant) for a list of supported values.
@@ -130,10 +144,10 @@ Install the npm package using `npm install -g nebula.css`, or install it as a de
 
 `$ nebula.css <entry point> <options>`
 
-**Nebula as a build tool with NPM**
 Combined with NPM and a package like [watch](https://www.npmjs.com/package/watch#cli), it's really easy to set up a basic CSS pipeline:
 
 ```json
+// package.json
 "scripts": {
   "start": "watch 'nebula.css css/styles.scss -o public/styles.css' css"
 }
