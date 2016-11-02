@@ -60,53 +60,19 @@ Using a mixin then scales these items, for example with font-sizes:
 Nebula is very modular, so you can disable certain modules if you don't want to have them in your output.
 
 ## How to add Nebula to your project
-Nebula.css can be used in a variety of ways, first as a simple css file, inside a traditional SASS setup, or as a build process by itself (as a CLI or NPM module).
+Nebula.css can be used in a variety of ways:
 
-### Usage with SASS pipeline
-Download the SCSS folder and place it somewhere in your project. overwrite any configuration variable you want, and then import nebula.css
+### 1. [Sass setup](docs/sass)
+For when you already have a Sass setup or build pipeline, and want to add Nebula to it.
 
-```scss
-$colors: (
-  'black' : #262626,
-  'white' : #FFFFFF
-);
+### 2. [Javascript API](docs/api)
+For when you want to use Nebula.css and programmatically generate a stylesheet with certain properties.
 
-// Disable/enable individual modules through configuration variables
-$use-reset: false;
+### 3. [Command Line Interface](docs/api#command-line)
+You want to use Nebula.css, but don't have a Sass pipeline or other build process for your stylesheets.
 
-@import 'nebula.css/nebula';
-```
-
-You can also import individual nebula modules, like
-```scss
-@import 'nebula.css/config';
-@import 'nebula.css/colors';
-```
-
-For more information on how to use Nebula in a Sass pipeline, check out the [Sassdoc](http://marcohamersma.github.io/nebula.css/sassdoc).
-
-### Usage with basic/vanilla css file
-The compiled version of Nebula can be found in `dist/nebula.css`. A minified version is also available there. You can include this into your HTML file and add your own styles in other files, make modifications, etc.
-
-### Usage as CLI
-Install the npm package using `npm install -g nebula.css`, or install it as a dependency for your project with the `--save` flag. Then use the CLI like this:
-
-`$ nebula.css <entry point> <options>`
-
-For a list of options, go to the [JavaScript API documentation](docs/api.md#command-line).
-
-### Usage as an npm module.
-Install the npm package using `npm install nebula.css --save` and require it in your project.
-
-```js
-var nebula = require('nebula.css');
-
-nebula.build('mystyles.css', options).then(…);
-```
-
-`nebula.build` returns a Promise, which will be passed the contents of the Sass file when done, or a file path if `outFile` option is set.
-
-For information about configuration options, check the [JavaScript API documentation](docs/api.md).
+### 4. basic/vanilla css file
+A compiled version of Nebula can be found in `dist/nebula.css`. A minified version is also available there. You can include this into your HTML file and add your own styles in other files, make modifications, etc.
 
 ## License
 Licensed under the MIT License.

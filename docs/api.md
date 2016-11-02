@@ -4,6 +4,8 @@ title: Nebula.css - JavaScript API & CLI
 
 # JavaScript API
 ## Basic usage:
+Install the npm package using `npm install nebula.css --save` and require it in your project.
+
 ```js
 var nebula = require('nebula.css');
 
@@ -124,7 +126,7 @@ spacingDirections: ['top', 'bottom']
 ```
 
 # Command Line
-You can use nebula.css as a build tool by itself, by using the CLI:
+Install the npm package using `npm install -g nebula.css`, or install it as a dependency for your project with the `--save` flag. Then you can use nebula.css as a build tool by itself, by using the CLI:
 
 `$ nebula.css <entry point> <options>`
 
