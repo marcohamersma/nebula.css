@@ -12,7 +12,7 @@ nebula.build(<entry file>, <options>);
 
 `nebula.build` returns a Promise, which will be passed the contents of the Sass file when done. If the `outFile` option is set, it will return the path to the file generated.
 
-_Most of these variables are camelCase variations of the variables found in Sass (they are converted to dash-case before being passed along), for a more detailed (and maybe current) description of the configuration, check out [SassDoc](http://marcohamersma.github.io/nebula.css/sassdoc), or the [list of default options](../lib/base-config.js).
+_Most of these variables are camelCase variations of the variables found in Sass_ (they are converted to dash-case before being passed along), for a more detailed (and maybe current) description of the configuration, check out [SassDoc](http://marcohamersma.github.io/nebula.css/sassdoc), or the [list of default options](../lib/base-config.js).
 
 ### Entry File `optional`.
 This is the file that contains the styles for your application. This has to be sass/scss file. It will be included by Nebula's Sass pipeline, and therefore will give you access to all Sass's features (including importing), plus Nebula's helper mixins and functions.
@@ -123,12 +123,12 @@ Determines which extra “directions” to generate spacing classes for (besides
 spacingDirections: ['top', 'bottom']
 ```
 
-# CLI
+# Command Line
 You can use nebula.css as a build tool by itself, by using the CLI:
 
 `$ nebula.css <entry point> <options>`
 
-## Usage as a build tool with NPM
+**Nebula as a build tool with NPM**
 Combined with NPM and a package like [watch](https://www.npmjs.com/package/watch#cli), it's really easy to set up a basic CSS pipeline:
 
 ```json

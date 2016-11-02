@@ -93,7 +93,7 @@ Install the npm package using `npm install -g nebula.css`, or install it as a de
 
 `$ nebula.css <entry point> <options>`
 
-For a list of options, go to the [JavaScript API documentation](docs/api.md#cli).
+For a list of options, go to the [JavaScript API documentation](docs/api.md#command-line).
 
 ### Usage as an npm module.
 Install the npm package using `npm install nebula.css --save` and require it in your project.
@@ -101,7 +101,7 @@ Install the npm package using `npm install nebula.css --save` and require it in 
 ```js
 var nebula = require('nebula.css');
 
-nebula.build('mystyles.css', options);
+nebula.build('mystyles.css', options).then(…);
 ```
 
 `nebula.build` returns a Promise, which will be passed the contents of the Sass file when done, or a file path if `outFile` option is set.
