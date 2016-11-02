@@ -108,6 +108,7 @@ $spacing-directions: ('top', 'bottom') !default;
 /// @link https://developer.mozilla.org/en-US/docs/Web/CSS/font-variant
 $font-variants: ('common-ligatures', 'ordinal', 'oldstyle-nums', 'contextual') !default;
 
+/// Use discretionary(fancier) ligatures for headings, this might be a bit too much for certain fonts, and is therefore off by default.
 /// @type boolean
 /// @group base
 $fancy-ligatures-in-headings: false !default;
