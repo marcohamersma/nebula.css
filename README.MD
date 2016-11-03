@@ -62,13 +62,13 @@ Nebula is very modular, so you can disable certain modules if you don't want to 
 ## How to add Nebula to your project
 Nebula.css can be used in a variety of ways:
 
-### 1. [Sass setup](docs/sass.md)
+### 1. [Sass only](docs/sass.md)
 For when you already have a Sass setup or build pipeline, and want to add Nebula to it.
 
 ### 2. [Javascript API](docs/api.md)
 For when you want to use Nebula.css and programmatically generate a stylesheet with certain properties.
 
-### 3. [Command Line Interface](docs/api.md#command-line)
+### 3. [Command Line Interface](docs/api.md#command-line-interface)
 You want to use Nebula.css, but don't have a Sass pipeline or other build process for your stylesheets.
 
 ### 4. [Basic CSS](dist)

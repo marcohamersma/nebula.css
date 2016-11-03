@@ -1,5 +1,7 @@
 #!/usr/bin/env node
 /* eslint no-console:0 */
+var fs = require('fs');
+var path = require('path');
 var program = require('commander');
 var camelize = require('camelize');
 var nebula = require('./index');
@@ -11,9 +13,10 @@ function list(val) {
 
 program
   .usage('<entryFile> [options]')
-  .arguments('<entryFile>')
+  .description('http://marcohamersma.github.io/nebula.css/')
+  .option('-c --config <path>', 'Path to JSON configuration file, defaults to .nebularc')
   .option('-o, --output <path>', 'Path to output file, stdout will be used otherwise')
-  .option('--noSourceMap', 'Do not generate a sourcemap file alongside the file defined in --output');
+  .option('-m, --modules [modules]', 'comma separated list of nebula modules to use', list);
 
 // Add an option for all Nebula's default modules
 modules.forEach( moduleName => {
@@ -25,20 +28,31 @@ modules.forEach( moduleName => {
 
 // Add other options
 program
-  .option('-m, --modules [modules]', 'comma separated list of nebula modules to use', list)
   .option('--minify', 'Compress CSS output using CleanCSS')
   .option('--noBanner', 'Hide the “Powered by nebula.css…” banner from output css')
+  .option('--noSourceMap', 'Do not generate a sourcemap file alongside the file defined in --output')
   .action(function(entryFile) {
     // Make sure we save the entryFile somewhere if it's passed
     program.entryFile = entryFile;
   })
   .parse(process.argv);
 
-const nebulaConfig = {
+var configFilePath = path.join(process.cwd(), program.config || '.nebularc');
+var configFile;
+try {
+  configFile = JSON.parse(fs.readFileSync(configFilePath, 'utf8'));
+} catch (e) {
+  if (e.code !== 'ENOENT') {
+    console.log(e);
+    process.exit(1);
+  }
+}
+
+const nebulaConfig = Object.assign({}, configFile, {
   minify: !!program.minify,
   outFile: program.output,
   modules: program.modules
-};
+});
 
 modules.forEach( m => {
   // If passed, invert and transform options like noReset to useReset
