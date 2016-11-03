@@ -149,14 +149,6 @@ td { font-variant-numeric: tabular-nums; }
 
 .n-padding-bottom-large { padding-bottom: 70px; }
 
-.n-border-accent { border: 1px solid #009CDA; }
-
-.n-border-bottom-accent { border-bottom: 1px solid #009CDA; }
-
-.n-border-black { border: 1px solid #262626; }
-
-.n-border-bottom-black { border-bottom: 1px solid #262626; }
-
 body { font-size: 18px; }
 
 .n-type-h1, h1 { font-size: 31px; }
