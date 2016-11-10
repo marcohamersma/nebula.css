@@ -51,7 +51,8 @@ try {
 const nebulaConfig = Object.assign({}, configFile, {
   minify: !!program.minify,
   outFile: program.output,
-  modules: program.modules
+  modules: program.modules,
+  useSourceMap: program.noSourceMap ? !program.noSourceMap : null
 });
 
 modules.forEach( m => {
