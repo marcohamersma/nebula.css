@@ -22,13 +22,15 @@
 ///   }
 /// @output
 /// ```scss
-/// body { font-size: 21.6px; }
-/// .n-type-normal { font-size: 21.6px; }
-/// .n-type-small { font-size: 18px; }
-/// .n-type-smallest { font-size:  12.52px; }
-/// h1, .n-type-h1 { font-size: 37.2px; }
-/// h2, .n-type-h2 { font-size: 31.2px; }
-/// h3, .n-type-h3 { font-size: 25.2px; }
+///   @media screen and (min-width: 1280px) {
+///     body { font-size: 21.6px; }
+///     .n-type-normal { font-size: 21.6px; }
+///     .n-type-small { font-size: 18px; }
+///     .n-type-smallest { font-size:  12.52px; }
+///     h1, .n-type-h1 { font-size: 37.2px; }
+///     h2, .n-type-h2 { font-size: 31.2px; }
+///     h3, .n-type-h3 { font-size: 25.2px; }
+///   }
 /// ```
 @mixin scale-type($bodyTextScale: 1, $headerTextScale: $bodyTextScale) {
   body {
