@@ -118,6 +118,9 @@ Use discretionary(fancier) ligatures for headings, this might be a bit too much 
 ### `borderColors:Object`
 an array of color names that should get border classes. Nebula will then look up that color in the $colors map and use that.
 
+### `borderSize:Number`
+Default size in pixels for borders when they are generated.
+
 ### `borderProperties:Object`
 List of properties that should be generated. For example, assuming the existence of an 'accent' color:
 

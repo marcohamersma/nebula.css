@@ -29,6 +29,6 @@
 }
 
 @if ($use-borders) {
-  /// On initial inclusion we also print the classes for 1px borders.
-  @include border-rules();
+  /// On initial inclusion we also print the classes for the default border size.
+  @include border-rules($border-size);
 }
