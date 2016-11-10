@@ -14,7 +14,11 @@
 }
 
 @function space($name) {
-  @return raw-space($name) * 1px;
+  $value: raw-space($name);
+  @if $value {
+    @return $value* 1px;
+  }
+  @return $value;
 };
 
 @function raw-space($name) {
