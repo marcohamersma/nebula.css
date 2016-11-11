@@ -19,7 +19,7 @@ test('module isolation', t => {
   t.plan(nebula.defaultModules.length);
 
   nebula.defaultModules.forEach( m => {
-    nebula.build(null, { modules: [m] }).then(result => {
+    nebula.build(null, { modules: [m], borderColors: ['black'] }).then(result => {
       t.ok(result, `Module '${m}' should be able to render in isolation`);
     }).catch( t.fail );
   });
