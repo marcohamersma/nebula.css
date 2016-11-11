@@ -1,5 +1,5 @@
 # Nebula CSS Framework
-[![npm version](https://badge.fury.io/js/nebula.css.svg)](http://badge.fury.io/js/nebula.css)
+[![npm version](https://badge.fury.io/js/nebula.css.svg)](http://badge.fury.io/js/nebula.css) [![Build Status](https://travis-ci.org/marcohamersma/nebula.css.svg?branch=master)](https://travis-ci.org/marcohamersma/nebula.css)
 
 **pre-release**
 
