@@ -3,14 +3,6 @@
 /// @group typography
 ////
 
-/// Generate font size rule for specific size.
-/// Probably not used directly, only through @scale-type
-/// @param {Number} $size
-/// @access private
-@mixin font-size($size) {
-  font-size: $size * 1px;
-}
-
 /// Generates typography classes for a scale parameter.
 /// This looks up every font size and multiplies it with the scale value.
 /// Useful for adjusting font size at a breakpoint.
@@ -34,7 +26,7 @@
 /// ```
 @mixin scale-type($bodyTextScale: 1, $headerTextScale: $bodyTextScale) {
   body {
-    @include font-size(raw-font-size('normal') * $bodyTextScale);
+    font-size: raw-font-size('normal') * $bodyTextScale * 1px;
   }
 
   @for $i from 1 through length($header-base-sizes) {
@@ -43,13 +35,13 @@
 
     .#{$class-prefix}-type-#{$name},
     #{$name} {
-      @include font-size($value * $headerTextScale);
+      font-size: $value * $headerTextScale * 1px;
     }
   }
 
   @each $name, $value in $font-base-sizes {
     .#{$class-prefix}-type-#{$name} {
-      @include font-size($value * $bodyTextScale);
+      font-size: $value * $bodyTextScale * 1px;
     }
   }
 }
