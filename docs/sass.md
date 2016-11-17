@@ -24,4 +24,15 @@ You can also import individual nebula modules, like
 @import 'nebula.css/colors';
 ```
 
-For more information on how to use Nebula in a Sass pipeline, check out the [Sassdoc](http://marcohamersma.github.io/nebula.css/sassdoc).
+## Responsiveness
+After setting configuration variables and importing Nebula, you can scale typography and spacing with a couple of useful mixins: [scale-spacing](http://marcohamersma.github.io/nebula.css/sassdoc#mixin-scale-spacing) and [scale-type](http://marcohamersma.github.io/nebula.css/sassdoc#mixin-scale-type).
+
+```scss
+@media screen and (min-width: $breakpoint-widescreen) {
+  @include scale-spacing(1.5, 1.5);
+  @include scale-type(1.2, 1.3);
+}
+```
+
+## Documentation
+For more information on how to use Nebula, and how to use its mixins and functions, check out the [Sassdoc](http://marcohamersma.github.io/nebula.css/sassdoc).

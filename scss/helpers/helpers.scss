@@ -1,18 +1,36 @@
 @import './array-to-string';
 
+/// Retrieves the value of a font size from your configuration.
+/// _Please note that this value does not scale when `@include scale-type()` is used._
+/// @param {String} $name - Name of the font size to retrieve value for.
+/// @group typography
+/// @example
+/// footer { font-size: font-size('small'); }
+/// @see $font-base-sizes
 @function font-size($name) {
   @return raw-font-size($name) * 1px;
 }
 
+/// @access private
+/// @group typography
 @function raw-font-size($name) {
   @return map-get($font-base-sizes, $name);
 }
 
+/// Retrieves the value of a color from your configuration.
+/// @param {String} $name - Name of the color to retrieve value for.
+/// @group colors
+/// @example
+/// .special-button { background: color('accent'); }
 @function color($name) {
   // Make sure we're using a string, even if name is a color
   @return map-get($colors, "#{$name}");
 }
 
+/// Retrieves the value of a spacing value from your configuration.
+/// _Please note that this value does not scale when `@include scale-spacing()` is used._
+/// @param {String} $name - Name of the spacing value to retrieve value for.
+/// @group spacing
 @function space($name) {
   $value: raw-space($name);
   @if $value {
@@ -21,10 +39,14 @@
   @return $value;
 };
 
+/// @access private
+/// @group spacing
 @function raw-space($name) {
   @return map-get($spacing-values, $name);
 }
 
+/// @group typography
+/// @access private
 @mixin font-variants($variants) {
   font-variant: array-to-string($variants, ' ');
 }
