@@ -61,3 +61,10 @@ test('consistency between default sass version and javascript version', t => {
     t.equal(buildOutput, libSassOutput);
   }).catch(t.fail);
 });
+
+test('extra scss', t => {
+  t.plan(1);
+  nebula.build(null, { extraScss: '.omgLolWtf { color: red; }' }).then(result => {
+    t.ok(result.indexOf('.omgLolWtf') > 0);
+  }).catch( t.fail );
+});
