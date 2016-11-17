@@ -68,7 +68,6 @@ td { font-variant-numeric: tabular-nums; }
 
 .n-background-black { background-color: #262626; }
 
-/* Spacing */
 .n-spacing-smallest { margin: 5px 5px; }
 
 .n-vspacing-smallest { margin-top: 5px; margin-bottom: 5px; }
@@ -85,9 +84,9 @@ td { font-variant-numeric: tabular-nums; }
 
 .n-spacing-top-smallest { margin-top: 5px; }
 
-.n-spacing-bottom-smallest { margin-bottom: 5px; }
-
 .n-padding-top-smallest { padding-top: 5px; }
+
+.n-spacing-bottom-smallest { margin-bottom: 5px; }
 
 .n-padding-bottom-smallest { padding-bottom: 5px; }
 
@@ -107,9 +106,9 @@ td { font-variant-numeric: tabular-nums; }
 
 .n-spacing-top-small { margin-top: 20px; }
 
-.n-spacing-bottom-small { margin-bottom: 20px; }
-
 .n-padding-top-small { padding-top: 20px; }
+
+.n-spacing-bottom-small { margin-bottom: 20px; }
 
 .n-padding-bottom-small { padding-bottom: 20px; }
 
@@ -129,9 +128,9 @@ td { font-variant-numeric: tabular-nums; }
 
 .n-spacing-top-medium { margin-top: 40px; }
 
-.n-spacing-bottom-medium { margin-bottom: 40px; }
-
 .n-padding-top-medium { padding-top: 40px; }
+
+.n-spacing-bottom-medium { margin-bottom: 40px; }
 
 .n-padding-bottom-medium { padding-bottom: 40px; }
 
@@ -151,9 +150,9 @@ td { font-variant-numeric: tabular-nums; }
 
 .n-spacing-top-large { margin-top: 70px; }
 
-.n-spacing-bottom-large { margin-bottom: 70px; }
-
 .n-padding-top-large { padding-top: 70px; }
+
+.n-spacing-bottom-large { margin-bottom: 70px; }
 
 .n-padding-bottom-large { padding-bottom: 70px; }
 

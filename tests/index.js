@@ -3,6 +3,7 @@ var nebula = require('../index');
 var camelize = require('camelize');
 var sass = require('node-sass');
 var fs = require('mz/fs');
+var fakeSpacingCSS = require('./helpers/fake-spacing-css');
 const path = require('path');
 
 test('Outfile option should generate an actual file', t => {
@@ -66,5 +67,59 @@ test('extra scss', t => {
   t.plan(1);
   nebula.build(null, { extraScss: '.omgLolWtf { color: red; }' }).then(result => {
     t.ok(result.indexOf('.omgLolWtf') > 0);
+  }).catch( t.fail );
+});
+
+test('new spacing behaviour', t => {
+  t.plan(3);
+
+  function buildWithExtra(extraScss) {
+    return nebula.build(null, {
+      modules: ['spacing'],
+      useSpacing: false,
+      spacingValues: { medium: 10 },
+      spacingDirections: ['top', 'left'],
+      extraScss: extraScss
+    });
+  }
+
+  buildWithExtra('@include scale-spacing(1, 1);').then(result => {
+    t.equal(result, fakeSpacingCSS({
+      'spacing':  'margin: 10px 10px;',
+      'vspacing': 'margin-top: 10px; margin-bottom: 10px;',
+      'hspacing': 'margin-left: 10px; margin-right: 10px;',
+      'frame':    'margin: -10px -10px;',
+      'padding':  'padding: 10px 10px;',
+      'vpadding': 'padding-top: 10px; padding-bottom: 10px;',
+      'hpadding': 'padding-left: 10px; padding-right: 10px;',
+      'spacing-top': 'margin-top: 10px;',
+      'padding-top': 'padding-top: 10px;',
+      'spacing-left': 'margin-left: 10px;',
+      'padding-left': 'padding-left: 10px;',
+    }, 'medium'));
+  }).catch( t.fail );
+
+  buildWithExtra('@include scale-spacing(2);').then(result => {
+    t.equal(result, fakeSpacingCSS({
+      'spacing':  'margin-top: 20px; margin-bottom: 20px;',
+      'vspacing': 'margin-top: 20px; margin-bottom: 20px;',
+      'frame':    'margin-top: -20px; margin-bottom: -20px;',
+      'padding':  'padding-top: 20px; padding-bottom: 20px;',
+      'vpadding': 'padding-top: 20px; padding-bottom: 20px;',
+      'spacing-top': 'margin-top: 20px;',
+      'padding-top': 'padding-top: 20px;',
+    }, 'medium'), 'Should not print horizontal margins');
+  }).catch( t.fail );
+
+  buildWithExtra('@include scale-spacing(null, 2);').then(result => {
+    t.equal(result, fakeSpacingCSS({
+      'spacing':  'margin-left: 20px; margin-right: 20px;',
+      'hspacing': 'margin-left: 20px; margin-right: 20px;',
+      'frame':    'margin-left: -20px; margin-right: -20px;',
+      'padding':  'padding-left: 20px; padding-right: 20px;',
+      'hpadding': 'padding-left: 20px; padding-right: 20px;',
+      'spacing-left': 'margin-left: 20px;',
+      'padding-left': 'padding-left: 20px;',
+    }, 'medium'), 'Should not print vertical margins');
   }).catch( t.fail );
 });

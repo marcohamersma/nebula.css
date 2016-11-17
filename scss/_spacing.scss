@@ -3,10 +3,9 @@
 ////
 
 /// Generate spacing rules for a specific scale.
-/// This will take the value defined for each item in `$spacing-values`, and multiply it by a number. Useful for adjusting spacing at different breakpoints.
-/// *If `$use-spacing` is true, the result of this mixin is included in the default nebula.css output*.
-/// @param {Number} $vSpacingScale [1] - Multiplier for the _vertical_ spacing that is generated
-/// @param {Number} $hSpacingScale [$vSpacingScale] - Multiplier for the _horizontal_ spacing that is generated
+/// This will take the value defined for each item in `$spacing-values`, and multiply it by a number. Useful for adjusting spacing at different breakpoints. If either parameter is left empty, spacing for that direction will not be affected (see `rules-for-space-value`).
+/// *If `$use-spacing` is true, the output this mixin with the parameters `scale-spacing(1,1)` is included in the default nebula.css output.*
+/// @param {Number} $vSpacingScale - Multiplier for the _vertical_ spacing that is generated. Optional.
 /// @output
 /// ```scss
 ///   // Assuming, and the example above:
@@ -22,18 +21,36 @@
 ///   @include rules-for-space-value('medium', 10, 10);
 ///   @include rules-for-space-value('large', 20, 20);
 /// ```
-@mixin scale-spacing($vSpacingScale: 1, $hSpacingScale: $vSpacingScale) {
-  /* Spacing */
+@mixin scale-spacing($vSpacingScale: null, $hSpacingScale: null) {
   @each $name, $value in $spacing-values {
-    @include rules-for-space-value($name, $value * $vSpacingScale, $value * $hSpacingScale)
+    @if ($hSpacingScale and $vSpacingScale) {
+      @include rules-for-space-value($name, $value * $vSpacingScale, $value * $hSpacingScale);
+    } @else if $hSpacingScale {
+      @include rules-for-space-value($name, null, $value * $hSpacingScale);
+    } @else if $vSpacingScale {
+      @include rules-for-space-value($name, $value * $vSpacingScale);
+    }
   }
+}
+
+@mixin vSpacingProps($prop, $value) {
+  @if unitless($value) { $value: $value * 1px; }
+  #{$prop}-top: $value;
+  #{$prop}-bottom: $value;
+}
+
+@mixin hSpacingProps($prop, $value) {
+  @if unitless($value) { $value: $value * 1px; }
+  #{$prop}-left: $value;
+  #{$prop}-right: $value;
 }
 
 
 /// Mixin that prints out multiple CSS classes for managing spacing between and within elements. Depending on values in the `$spacing-directions` list, it will generate additional classes for specific directions. By default this adds spacing classes for the top and bottom.
+///
 /// @param {String} $name - The size's 'name', will be represented in the classname generated
 /// @param {Number} $vvalue - Amount of _vertical_ spacing applied
-/// @param {Number} $hvalue [$vvalue] - Amount of _horizontal_ spacing applied
+/// @param {Number} $hvalue - Amount of _horizontal_ spacing applied
 /// @see scale-spacing
 /// @output
 /// ```scss
@@ -52,55 +69,76 @@
 /// .n-spacing-bottom-$name {}
 /// .n-padding-top-$name {}
 /// .n-padding-bottom-$name {}
+///
+/// // If either `$vvalue` or `$hvalue` parameter is left empty,
+/// // the mixin wil omit output regarding that direction:
+///  @include rules-for-space-value('medium', null, 40);
+///  // Outputs:
+///  .n-spacing-medium  { margin-left: 40px;  margin-right: 40px; }
+///  .n-hspacing-medium { margin-left: 40px;  margin-right: 40px; }
+///  .n-padding-medium  { padding-left: 40px; padding-right: 40px; }
+///  .n-hpadding-medium { margin-left: 40px;  margin-right: 40px; }
 /// ```
-@mixin rules-for-space-value($name, $vvalue, $hvalue:$vvalue) {
+@mixin rules-for-space-value($name, $vvalue: null, $hvalue: null) {
   .#{$class-prefix}-spacing-#{$name} {
-    margin: $vvalue * 1px $hvalue * 1px;
+    @if ($hvalue and $vvalue) { margin: $vvalue * 1px $hvalue * 1px; }
+    @else if $hvalue { @include hSpacingProps('margin', $hvalue); }
+    @else if $vvalue { @include vSpacingProps('margin', $vvalue); }
   }
 
-  .#{$class-prefix}-vspacing-#{$name} {
-    margin-top: $vvalue * 1px;
-    margin-bottom: $vvalue * 1px;
+  @if $vvalue {
+    .#{$class-prefix}-vspacing-#{$name} {
+      @include vSpacingProps('margin', $vvalue);
+    }
   }
 
-  .#{$class-prefix}-hspacing-#{$name} {
-    margin-left: $hvalue * 1px;
-    margin-right: $hvalue * 1px;
+  @if $hvalue {
+    .#{$class-prefix}-hspacing-#{$name} {
+      @include hSpacingProps('margin', $hvalue);
+    }
   }
 
   .#{$class-prefix}-frame-#{$name} {
-    margin: $vvalue * -1px $hvalue * -1px;
+    @if ($hvalue and $vvalue) { margin: $vvalue * -1px $hvalue * -1px; }
+    @else if $hvalue { @include hSpacingProps('margin', -$hvalue); }
+    @else if $vvalue { @include vSpacingProps('margin', -$vvalue); }
   }
 
   .#{$class-prefix}-padding-#{$name} {
-    padding: $vvalue * 1px $hvalue * 1px;
+    @if ($hvalue and $vvalue) { padding: $vvalue * 1px $hvalue * 1px; }
+    @else if $hvalue { @include hSpacingProps('padding', $hvalue); }
+    @else if $vvalue { @include vSpacingProps('padding', $vvalue); }
   }
 
-  .#{$class-prefix}-vpadding-#{$name} {
-    padding-top: $vvalue * 1px;
-    padding-bottom: $vvalue * 1px;
-  }
-
-  .#{$class-prefix}-hpadding-#{$name} {
-    padding-left: $hvalue * 1px;
-    padding-right: $hvalue * 1px;
-  }
-
-  @each $direction in $spacing-directions {
-    .#{$class-prefix}-spacing-#{$direction}-#{$name} {
-      margin-#{$direction}: $vvalue * 1px;
+  @if $vvalue {
+    .#{$class-prefix}-vpadding-#{$name} {
+      @include vSpacingProps('padding', $vvalue);
     }
   }
 
-  @each $direction in $spacing-directions {
-    $value: $hvalue;
+  @if $hvalue {
+    .#{$class-prefix}-hpadding-#{$name} {
+      @include hSpacingProps('padding', $hvalue);
+    }
+  }
 
-    @if $direction == 'left' or $direction == 'right' {
-      $value: $vvalue;
+
+  @each $direction in $spacing-directions {
+    $directionValue: null;
+    @if (($direction == 'left' or $direction == 'right') and $hvalue) {
+      $directionValue: $hvalue;
+    } @else if (($direction == 'top' or $direction == 'bottom') and $vvalue) {
+      $directionValue: $vvalue;
     }
 
-    .#{$class-prefix}-padding-#{$direction}-#{$name} {
-      padding-#{$direction}: $value * 1px;
+    @if $directionValue {
+      .#{$class-prefix}-spacing-#{$direction}-#{$name} {
+        margin-#{$direction}: $directionValue * 1px;
+      }
+
+      .#{$class-prefix}-padding-#{$direction}-#{$name} {
+        padding-#{$direction}: $directionValue * 1px;
+      }
     }
   }
 }
@@ -108,5 +146,5 @@
 
 @if ($use-spacing) {
   // On initial inclusion we also print the default scale classes.
-  @include scale-spacing();
+  @include scale-spacing(1, 1);
 }
