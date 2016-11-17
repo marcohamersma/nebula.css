@@ -159,7 +159,7 @@
     margin-top: 0;
 
     li {
-      margin-bottom: space(&#39;smallest&#39;) or 1em;
+      margin-bottom: space(&#39;smallest&#39;) or .2em;
     }
   }
  }" data-collapsed="@mixin list-classes() { ... }"><code>@mixin list-classes() { ... }</code></pre><a href="https://github.com/marcohamersma/nebula.css/blob/master/scss/_lists.scss#L15-L33" class="item__source-link" target="_blank">View source</a></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>By default, Nebula&#39;s reset stylesheet removes any styling of lists. This allows you to use semantic lists for non-text elements.</p><p>To use traditional list, you can use the <code>.n-ul</code> and <code>.n-ol</code> classes created by this mixin. <em>If <code>$use-lists</code> is true, the result of this mixin is included in the default nebula.css output</em>.</p></div><h3 class="item__sub-heading">Parameters</h3><p>None.</p><h3 class="item__sub-heading">Output</h3><div class="item__description"><pre><code class="lang-css">.n-ul { list-style: disc outside; }
