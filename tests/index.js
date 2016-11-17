@@ -6,13 +6,19 @@ var fs = require('mz/fs');
 const path = require('path');
 
 test('Outfile option should generate an actual file', t => {
-  t.plan(1);
+  t.plan(2);
   nebula.build(null, {
-    outFile: path.join(__dirname, 'output.scss'),
-    useSourceMap: false
-  }).then( filename => fs.readFile(filename, 'utf8') )
-    .then( contents => t.ok(contents) )
-    .catch( t.fail );
+    outFile: path.join(__dirname, 'output.css')
+  }).then( filename => {
+    fs.readFile(filename, 'utf8')
+      .then( contents => t.ok(contents) )
+      .catch( t.fail );
+
+    fs.readFile(filename + '.map', 'utf8')
+      .then( contents => t.ok(contents) )
+      .catch( t.fail );
+
+  }).catch( t.fail );
 });
 
 test('module isolation', t => {
