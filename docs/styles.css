@@ -81,6 +81,8 @@ td { font-variant-numeric: tabular-nums; }
 
 .n-hpadding-smallest { padding-left: 5px; padding-right: 5px; }
 
+.n-frame-smallest { margin: -5px -5px; }
+
 .n-spacing-top-smallest { margin-top: 5px; }
 
 .n-spacing-bottom-smallest { margin-bottom: 5px; }
@@ -100,6 +102,8 @@ td { font-variant-numeric: tabular-nums; }
 .n-vpadding-small { padding-top: 20px; padding-bottom: 20px; }
 
 .n-hpadding-small { padding-left: 20px; padding-right: 20px; }
+
+.n-frame-small { margin: -20px -20px; }
 
 .n-spacing-top-small { margin-top: 20px; }
 
@@ -121,6 +125,8 @@ td { font-variant-numeric: tabular-nums; }
 
 .n-hpadding-medium { padding-left: 40px; padding-right: 40px; }
 
+.n-frame-medium { margin: -40px -40px; }
+
 .n-spacing-top-medium { margin-top: 40px; }
 
 .n-spacing-bottom-medium { margin-bottom: 40px; }
@@ -140,6 +146,8 @@ td { font-variant-numeric: tabular-nums; }
 .n-vpadding-large { padding-top: 70px; padding-bottom: 70px; }
 
 .n-hpadding-large { padding-left: 70px; padding-right: 70px; }
+
+.n-frame-large { margin: -70px -70px; }
 
 .n-spacing-top-large { margin-top: 70px; }
 
@@ -167,9 +175,7 @@ body { font-size: 18px; }
 
 .n-ol { list-style: decimal outside; }
 
-.n-ul, .n-ol { padding-left: 1.4em; margin-top: 0; }
-
-.n-ul li, .n-ol li { margin-bottom: 5px; }
+.n-ul, .n-ol { padding-left: 1.4em; margin-top: 0; margin-bottom: 5px; }
 
 .n-text-centered { text-align: center; }
 
@@ -189,5 +195,3 @@ body { font-size: 18px; }
   .n-show-on-mobile { display: none !important; } }
 
 body { font-family: 'Source Sans Pro', sans-serif; max-width: 700px; margin: 0 auto; }
-
-/*# sourceMappingURL=styles.css.map */

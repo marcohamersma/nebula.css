@@ -159,7 +159,7 @@
     margin-top: 0;
 
     li {
-      margin-bottom: space(&#39;smallest&#39;);
+      margin-bottom: space(&#39;smallest&#39;) or 1em;
     }
   }
  }" data-collapsed="@mixin list-classes() { ... }"><code>@mixin list-classes() { ... }</code></pre><a href="https://github.com/marcohamersma/nebula.css/blob/master/scss/_lists.scss#L15-L33" class="item__source-link" target="_blank">View source</a></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>By default, Nebula&#39;s reset stylesheet removes any styling of lists. This allows you to use semantic lists for non-text elements.</p><p>To use traditional list, you can use the <code>.n-ul</code> and <code>.n-ol</code> classes created by this mixin. <em>If <code>$use-lists</code> is true, the result of this mixin is included in the default nebula.css output</em>.</p></div><h3 class="item__sub-heading">Parameters</h3><p>None.</p><h3 class="item__sub-heading">Output</h3><div class="item__description"><pre><code class="lang-css">.n-ul { list-style: disc outside; }
@@ -204,6 +204,10 @@
     margin-right: $hvalue * 1px;
   }
 
+  .#{$class-prefix}-frame-#{$name} {
+    margin: $vvalue * -1px $hvalue * -1px;
+  }
+
   .#{$class-prefix}-padding-#{$name} {
     padding: $vvalue * 1px $hvalue * 1px;
   }
@@ -235,12 +239,15 @@
       padding-#{$direction}: $value * 1px;
     }
   }
- }" data-collapsed="@mixin rules-for-space-value($name, $vvalue, $hvalue: $vvalue) { ... }"><code>@mixin rules-for-space-value($name, $vvalue, $hvalue: $vvalue) { ... }</code></pre><a href="https://github.com/marcohamersma/nebula.css/blob/master/scss/_spacing.scss#L53-L99" class="item__source-link" target="_blank">View source</a></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>Mixin that prints out multiple CSS classes for managing spacing between and within elements. Depending on values in the <code>$spacing-directions</code> list, it will generate additional classes for specific directions. By default this adds spacing classes for the top and bottom.</p></div><h3 class="item__sub-heading">Parameters</h3><table class="item__parameters"><thead><tr><th scope="col"><span class="visually-hidden">parameter</span>Name</th><th scope="col"><span class="visually-hidden">parameter</span>Description</th><th scope="col"><span class="visually-hidden">parameter</span>Type</th><th scope="col"><span class="visually-hidden">parameter</span>Default value</th></tr></thead><tbody><tr class="item__parameter"><th scope="row" data-label="name"><code>$name</code></th><td data-label="desc"><p>The size&#39;s &#39;name&#39;, will be represented in the classname generated</p></td><td data-label="type"><code>String</code></td><td data-label="default">&mdash;<span class="visually-hidden">none</span></td></tr><tr class="item__parameter"><th scope="row" data-label="name"><code>$vvalue</code></th><td data-label="desc"><p>Amount of <em>vertical</em> spacing applied</p></td><td data-label="type"><code>Number</code></td><td data-label="default">&mdash;<span class="visually-hidden">none</span></td></tr><tr class="item__parameter"><th scope="row" data-label="name"><code>$hvalue</code></th><td data-label="desc"><p>Amount of <em>horizontal</em> spacing applied</p></td><td data-label="type"><code>Number</code></td><td data-label="default"><code>$vvalue</code></td></tr></tbody></table><h3 class="item__sub-heading">Output</h3><div class="item__description"><pre><code class="lang-scss">.n-spacing-$name {}  // (margin on all sides)
+ }" data-collapsed="@mixin rules-for-space-value($name, $vvalue, $hvalue: $vvalue) { ... }"><code>@mixin rules-for-space-value($name, $vvalue, $hvalue: $vvalue) { ... }</code></pre><a href="https://github.com/marcohamersma/nebula.css/blob/master/scss/_spacing.scss#L56-L106" class="item__source-link" target="_blank">View source</a></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>Mixin that prints out multiple CSS classes for managing spacing between and within elements. Depending on values in the <code>$spacing-directions</code> list, it will generate additional classes for specific directions. By default this adds spacing classes for the top and bottom.</p></div><h3 class="item__sub-heading">Parameters</h3><table class="item__parameters"><thead><tr><th scope="col"><span class="visually-hidden">parameter</span>Name</th><th scope="col"><span class="visually-hidden">parameter</span>Description</th><th scope="col"><span class="visually-hidden">parameter</span>Type</th><th scope="col"><span class="visually-hidden">parameter</span>Default value</th></tr></thead><tbody><tr class="item__parameter"><th scope="row" data-label="name"><code>$name</code></th><td data-label="desc"><p>The size&#39;s &#39;name&#39;, will be represented in the classname generated</p></td><td data-label="type"><code>String</code></td><td data-label="default">&mdash;<span class="visually-hidden">none</span></td></tr><tr class="item__parameter"><th scope="row" data-label="name"><code>$vvalue</code></th><td data-label="desc"><p>Amount of <em>vertical</em> spacing applied</p></td><td data-label="type"><code>Number</code></td><td data-label="default">&mdash;<span class="visually-hidden">none</span></td></tr><tr class="item__parameter"><th scope="row" data-label="name"><code>$hvalue</code></th><td data-label="desc"><p>Amount of <em>horizontal</em> spacing applied</p></td><td data-label="type"><code>Number</code></td><td data-label="default"><code>$vvalue</code></td></tr></tbody></table><h3 class="item__sub-heading">Output</h3><div class="item__description"><pre><code class="lang-scss">.n-spacing-$name {}  // (margin on all sides)
 .n-vspacing-$name {} // (vertical margins only)
 .n-hspacing-$name {} // (horizontal margins)
 .n-padding-$name {}  // (padding on all sides)
 .n-vpadding-$name {} // (vertical padding only)
 .n-hpadding-$name {} // (horizontal padding)
+
+// For working with items in a grid:
+.n-frame-$name    {} // (negative margins)
 
 // Additionally, based on $spacing-directions:
 .n-spacing-top-$name {}
@@ -253,7 +260,7 @@
   &#39;smallest&#39;: 12.5,
 ) !default;</code></pre><a href="https://github.com/marcohamersma/nebula.css/blob/master/scss/_config.scss#L73-L77" class="item__source-link" target="_blank">View source</a></div><h3 class="item__sub-heading">Type</h3><p><code>Map</code></p><h3 class="item__sub-heading">Used by</h3><ul class="list-unstyled"><li><span class="item__cross-type">[mixin]</span> <a href="#typography-mixin-scale-type"><code>scale-type</code></a></li></ul></section><section class="main__item container item" id="typography-variable-header-line-height"><h3 class="item__heading"><a class="item__name" href="#variable-header-line-height">header-line-height</a></h3><div class="item__code-wrapper"><pre class="item__code language-scss"><code>$header-line-height: 1.2 !default;</code></pre><a href="https://github.com/marcohamersma/nebula.css/blob/master/scss/_config.scss#L81-L81" class="item__source-link" target="_blank">View source</a></div><h3 class="item__sub-heading">Type</h3><p><code>Number</code></p><h3 class="item__sub-heading">Used by</h3><ul class="list-unstyled"><li><span class="item__cross-type">[mixin]</span> <a href="#base-mixin-base-styles"><code>base-styles</code></a></li></ul></section><section class="main__item container item" id="typography-variable-header-base-sizes"><h3 class="item__heading"><a class="item__name" href="#variable-header-base-sizes">header-base-sizes</a></h3><div class="item__code-wrapper"><pre class="item__code language-scss"><code>$header-base-sizes: (31, 26, 21.5) !default;</code></pre><a href="https://github.com/marcohamersma/nebula.css/blob/master/scss/_config.scss#L85-L85" class="item__source-link" target="_blank">View source</a></div><h3 class="item__sub-heading">Type</h3><p><code>List</code></p><h3 class="item__sub-heading">Used by</h3><ul class="list-unstyled"><li><span class="item__cross-type">[mixin]</span> <a href="#typography-mixin-scale-type"><code>scale-type</code></a></li></ul></section></section><section class="main__sub-section" id="typography-mixin"><h2 class="main__heading--secondary"><div class="container">mixins</div></h2><section class="main__item container item" id="typography-mixin-scale-type"><h3 class="item__heading"><a class="item__name" href="#mixin-scale-type">scale-type</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@mixin scale-type($bodyTextScale: 1, $headerTextScale: $bodyTextScale) { 
   body {
-    @include font-size(raw-font-size(&#39;normal&#39;) * $bodyTextScale);
+    font-size: raw-font-size(&#39;normal&#39;) * $bodyTextScale * 1px;
   }
 
   @for $i from 1 through length($header-base-sizes) {
@@ -262,16 +269,16 @@
 
     .#{$class-prefix}-type-#{$name},
     #{$name} {
-      @include font-size($value * $headerTextScale);
+      font-size: $value * $headerTextScale * 1px;
     }
   }
 
   @each $name, $value in $font-base-sizes {
     .#{$class-prefix}-type-#{$name} {
-      @include font-size($value * $bodyTextScale);
+      font-size: $value * $bodyTextScale * 1px;
     }
   }
- }" data-collapsed="@mixin scale-type($bodyTextScale: 1, $headerTextScale: $bodyTextScale) { ... }"><code>@mixin scale-type($bodyTextScale: 1, $headerTextScale: $bodyTextScale) { ... }</code></pre><a href="https://github.com/marcohamersma/nebula.css/blob/master/scss/_typography.scss#L35-L55" class="item__source-link" target="_blank">View source</a></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>Generates typography classes for a scale parameter. This looks up every font size and multiplies it with the scale value. Useful for adjusting font size at a breakpoint.</p></div><h3 class="item__sub-heading">Parameters</h3><table class="item__parameters"><thead><tr><th scope="col"><span class="visually-hidden">parameter</span>Name</th><th scope="col"><span class="visually-hidden">parameter</span>Description</th><th scope="col"><span class="visually-hidden">parameter</span>Type</th><th scope="col"><span class="visually-hidden">parameter</span>Default value</th></tr></thead><tbody><tr class="item__parameter"><th scope="row" data-label="name"><code>$bodyTextScale</code></th><td data-label="desc"><p>Scale multiplier for body text (based on <code>$font-base-sizes</code>)</p></td><td data-label="type"><code>Number</code></td><td data-label="default"><code>1</code></td></tr><tr class="item__parameter"><th scope="row" data-label="name"><code>$headerTextScale</code></th><td data-label="desc"><p>Scale multiplier for header texts (based on <code>$header-base-sizes</code>)</p></td><td data-label="type"><code>Number</code></td><td data-label="default"><code>$bodyTextScale</code></td></tr></tbody></table><h3 class="item__sub-heading">Example</h3><div class="item__example example"><pre class="example__code language-scss"><code>@media screen and (min-width: $breakpoint-widescreen) {
+ }" data-collapsed="@mixin scale-type($bodyTextScale: 1, $headerTextScale: $bodyTextScale) { ... }"><code>@mixin scale-type($bodyTextScale: 1, $headerTextScale: $bodyTextScale) { ... }</code></pre><a href="https://github.com/marcohamersma/nebula.css/blob/master/scss/_typography.scss#L27-L47" class="item__source-link" target="_blank">View source</a></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>Generates typography classes for a scale parameter. This looks up every font size and multiplies it with the scale value. Useful for adjusting font size at a breakpoint.</p></div><h3 class="item__sub-heading">Parameters</h3><table class="item__parameters"><thead><tr><th scope="col"><span class="visually-hidden">parameter</span>Name</th><th scope="col"><span class="visually-hidden">parameter</span>Description</th><th scope="col"><span class="visually-hidden">parameter</span>Type</th><th scope="col"><span class="visually-hidden">parameter</span>Default value</th></tr></thead><tbody><tr class="item__parameter"><th scope="row" data-label="name"><code>$bodyTextScale</code></th><td data-label="desc"><p>Scale multiplier for body text (based on <code>$font-base-sizes</code>)</p></td><td data-label="type"><code>Number</code></td><td data-label="default"><code>1</code></td></tr><tr class="item__parameter"><th scope="row" data-label="name"><code>$headerTextScale</code></th><td data-label="desc"><p>Scale multiplier for header texts (based on <code>$header-base-sizes</code>)</p></td><td data-label="type"><code>Number</code></td><td data-label="default"><code>$bodyTextScale</code></td></tr></tbody></table><h3 class="item__sub-heading">Example</h3><div class="item__example example"><pre class="example__code language-scss"><code>@media screen and (min-width: $breakpoint-widescreen) {
   @include scale-type($bodyTextScale: 1.2);
 }</code></pre></div><h3 class="item__sub-heading">Output</h3><div class="item__description"><pre><code class="lang-scss">  @media screen and (min-width: 1280px) {
     body { font-size: 21.6px; }

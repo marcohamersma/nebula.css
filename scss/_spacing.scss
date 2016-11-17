@@ -44,6 +44,9 @@
 /// .n-vpadding-$name {} // (vertical padding only)
 /// .n-hpadding-$name {} // (horizontal padding)
 ///
+/// // For working with items in a grid:
+/// .n-frame-$name    {} // (negative margins)
+///
 /// // Additionally, based on $spacing-directions:
 /// .n-spacing-top-$name {}
 /// .n-spacing-bottom-$name {}
@@ -63,6 +66,10 @@
   .#{$class-prefix}-hspacing-#{$name} {
     margin-left: $hvalue * 1px;
     margin-right: $hvalue * 1px;
+  }
+
+  .#{$class-prefix}-frame-#{$name} {
+    margin: $vvalue * -1px $hvalue * -1px;
   }
 
   .#{$class-prefix}-padding-#{$name} {
