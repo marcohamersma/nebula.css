@@ -47,7 +47,7 @@
   "dependencies": {
     "clean-css": "^3.4.20",
     "commander": "^2.9.0",
-    "css-color-names": "0.0.1",
+    "css-color-names": "0.0.4",
     "decamelize": "^1.2.0",
     "lodash.foreach": "^4.5.0",
     "lodash.isboolean": "^3.0.3",
@@ -76,6 +76,11 @@
     "atomic classes",
     "framework"
   ],
+  "greenkeeper": {
+    "ignore": [
+      "eslint"
+    ]
+  },
   "author": "Marco Hamersma",
   "license": "MIT"
 }
