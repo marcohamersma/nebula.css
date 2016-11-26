@@ -1,0 +1,10 @@
+*.sublime-project
+*.sublime-workspace
+docs/
+dist/
+tests/
+.travis.yml
+.sassdocrc
+.gitignore
+postcss-config.json
+NOTES.MD
