@@ -57,7 +57,7 @@
     "lodash.map": "^4.6.0",
     "lodash.reduce": "^4.6.0",
     "mz": "^2.4.0",
-    "node-sass": "^3.10.0"
+    "node-sass": "^4.0.0"
   },
   "devDependencies": {
     "autoprefixer": "^6.5.1",
