@@ -42,9 +42,10 @@ var configFile;
 try {
   configFile = JSON.parse(fs.readFileSync(configFilePath, 'utf8'));
 } catch (e) {
-  if (e.code !== 'ENOENT') {
-    console.log(e);
-    process.exit(1);
+  // If we're tried loading the default .nebularc, but it wasn't there.
+  // Don't show any errors
+  if (e.code !== 'ENOENT' || program.config) {
+    throw (e);
   }
 }
 
