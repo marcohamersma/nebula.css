@@ -16,6 +16,8 @@ nebula.build(<entry file>, <options>).then(…);
 
 _Most of the configuration variables are camelCase variations of the variables found in Sass_ (they are converted to dash-case before being passed along), for a more detailed (and maybe current) documentation of these variables, check out [SassDoc](http://marcohamersma.github.io/nebula.css/sassdoc), or the [list of default options](https://github.com/marcohamersma/nebula.css/blob/master/lib/base-config.js).
 
+By default, Nebula will look for an optional JSON file called `.nebularc` in the current working directory. This file can contain the usual configuration for nebula.css: colors, spacing, and font sizes. It will be merged with the options below and the [default settings](https://github.com/marcohamersma/nebula.css/blob/master/lib/base-config.js#L4-L100).
+
 ### Entry File `optional`.
 This is the file that contains the styles for your application. This has to be sass/scss file. It will be included by Nebula's Sass pipeline, and therefore will give you access to all Sass's features (including importing), plus Nebula's helper mixins and functions.
 
@@ -23,6 +25,9 @@ You can leave this blank, and no file will be included.
 
 ### Options `optional`
 You can pass an options object to Nebula to determine which modules to include, and where the output will go.
+
+### `config:String`
+If you rather keep your configuration somewhere else, you can use the `config` option to supply a path to a JSON file that contains the configuration for Nebula. This will replace the `.nebularc` file mentioned above.
 
 ### `colors:Object`
 Object with a list of colors. The `key` here refers to the colors name, and the value it's value. For example:
@@ -162,9 +167,7 @@ Combined with NPM and a package like [watch](https://www.npmjs.com/package/watch
 Running `npm start` will automatically build your css through Nebula, and watch for changes to your css folder.
 
 ## Configuration File
-By default, the CLI will look for an optional JSON file called `.nebularc` in the current working directory. This file can contain the usual configuration for nebula.css: colors, spacing, and font sizes. It will be merged with the settings below and the [default settings](https://github.com/marcohamersma/nebula.css/blob/master/lib/base-config.js#L4-L100).
-
-You can use the `-c` or `--config` option to change the path to the configuration file.
+If you rather keep your configuration somewhere else, you can use the `-c` or `--config` option to supply a path to a JSON file that contains the configuration for Nebula. This will replace the `.nebularc` file mentioned above.
 
 `$ nebula.css <entry point> -c config/nebula.json`
 

@@ -125,7 +125,7 @@ test('new spacing behaviour', t => {
   }).catch( t.fail );
 });
 
-const bannerText = '/*! Powered by nebula.css, by Marco Hamersma (https://github.com/marcohamersma/) */\n\n';
+const bannerText = '/*! Powered by nebula.css, by Marco Hamersma (https://github.com/marcohamersma/) */';
 
 test('configuration file through CLI', t => {
   t.plan(2);
@@ -133,14 +133,32 @@ test('configuration file through CLI', t => {
   exec('node cli.js -c tests/config-file-test.json', (error, stdout, stderror) => {
     if (stderror || error) t.fail(error || stderror);
 
-    t.equal(stdout, bannerText, 'Loading configuration file should output only banner');
+    t.equal(stdout.trim(), bannerText, 'Loading configuration file should output only banner');
   });
 
-  exec('node cli.js -c trolololo.json', (e, o, stderror) => {
+  exec('node cli.js -c trolololo.json', (e, output) => {
     t.equal(
-      stderror && stderror.indexOf('ENOENT') > 0,
+      output && output.indexOf('ENOENT') > 0,
       true,
       'should return ENOENT (file not found) when config file doesn\'t exist'
     );
   });
+});
+
+test('configuration file through API', t => {
+  t.plan(2);
+
+  nebula.build(null, { config: 'tests/config-file-test.json' }).then(result => {
+    t.equal(result.trim(), bannerText, 'Loading configuration file should output only banner');
+  }).catch( t.fail );
+
+  nebula.build(null, { config: 'trollololo.json' })
+    .then( () => t.fail('Should reject when file is not found'))
+    .catch( error => {
+      t.equal(
+        error && error.code,
+        'ENOENT',
+        'Should reject when file is not found'
+      );
+    });
 });

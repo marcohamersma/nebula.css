@@ -1,7 +1,5 @@
 #!/usr/bin/env node
 /* eslint no-console:0 */
-var fs = require('fs');
-var path = require('path');
 var program = require('commander');
 var camelize = require('camelize');
 var nebula = require('./index');
@@ -37,24 +35,13 @@ program
   })
   .parse(process.argv);
 
-var configFilePath = path.join(process.cwd(), program.config || '.nebularc');
-var configFile;
-try {
-  configFile = JSON.parse(fs.readFileSync(configFilePath, 'utf8'));
-} catch (e) {
-  // If we're tried loading the default .nebularc, but it wasn't there.
-  // Don't show any errors
-  if (e.code !== 'ENOENT' || program.config) {
-    throw (e);
-  }
-}
-
-const nebulaConfig = Object.assign({}, configFile, {
+const nebulaConfig = {
   minify: !!program.minify,
+  config: program.config,
   outFile: program.output,
   modules: program.modules,
   useSourceMap: program.noSourceMap ? !program.noSourceMap : null
-});
+};
 
 modules.forEach( m => {
   // If passed, invert and transform options like noReset to useReset
