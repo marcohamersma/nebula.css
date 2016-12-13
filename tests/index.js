@@ -4,6 +4,7 @@ var camelize = require('camelize');
 var sass = require('node-sass');
 var fs = require('mz/fs');
 var fakeSpacingCSS = require('./helpers/fake-spacing-css');
+const exec = require('child_process').exec;
 const path = require('path');
 
 test('Outfile option should generate an actual file', t => {
@@ -122,4 +123,24 @@ test('new spacing behaviour', t => {
       'padding-left': 'padding-left: 20px;',
     }, 'medium'), 'Should not print vertical margins');
   }).catch( t.fail );
+});
+
+const bannerText = '/*! Powered by nebula.css, by Marco Hamersma (https://github.com/marcohamersma/) */\n\n';
+
+test('configuration file through CLI', t => {
+  t.plan(2);
+
+  exec('node cli.js -c tests/config-file-test.json', (error, stdout, stderror) => {
+    if (stderror || error) t.fail(error || stderror);
+
+    t.equal(stdout, bannerText, 'Loading configuration file should output only banner');
+  });
+
+  exec('node cli.js -c trolololo.json', (e, o, stderror) => {
+    t.equal(
+      stderror && stderror.indexOf('ENOENT') > 0,
+      true,
+      'should return ENOENT (file not found) when config file doesn\'t exist'
+    );
+  });
 });
