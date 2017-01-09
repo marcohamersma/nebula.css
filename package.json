@@ -1,6 +1,6 @@
 {
   "name": "nebula.css",
-  "version": "1.0.0-rc2",
+  "version": "1.0.0-rc3",
   "description": "a CSS toolkit that generates utility classes for font sizes, colors, background colors and spacing, while having responsiveness in mind.",
   "bin": {
     "nebula.css": "./cli.js"
