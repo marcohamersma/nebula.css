@@ -45,7 +45,7 @@
   "homepage": "https://github.com/marcohamersma/nebula.css#readme",
   "main": "index.js",
   "dependencies": {
-    "clean-css": "^3.4.20",
+    "clean-css": "^4.0.0",
     "commander": "^2.9.0",
     "css-color-names": "0.0.4",
     "decamelize": "^1.2.0",
