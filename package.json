@@ -7,8 +7,8 @@
   },
   "scripts": {
     "start": "npm-watch",
-    "buildConfig": "node tools/convert-config.js > ./scss/_config.scss",
-    "buildVanilla": "node cli.js -o ./dist/nebula.css && node cli.js --minify -o ./dist/nebula.min.css",
+    "default": "node cli.js -o ./dist/nebula.css && node cli.js --minify -o ./dist/nebula.min.css",
+    "convertConfig": "node tools/convert-config.js > ./scss/_config.scss",
     "buildSass": "node-sass scss/nebula.scss dist/nebula.css --output-style compact --source-map true",
     "buildSassCustom": "node-sass tests/custom.scss dist/nebula.css --output-style compact --source-map true",
     "postcss": "postcss -c ./postcss-config.json",
@@ -17,7 +17,7 @@
     "test": "node tests/index.js | tap-diff && eslint . --quiet"
   },
   "watch": {
-    "buildVanilla": {
+    "default": {
       "patterns": [
         "scss",
         "lib"
@@ -28,11 +28,11 @@
       "patterns": ["scss"],
       "extensions": "scss"
     },
-    "buildConfig": "{lib/base-config.js, lib/config-builder.js}",
     "buildDocsCss": {
       "patterns": ["docs/scss"],
       "extensions": "scss"
     }
+    "convertConfig": "{lib/base-config.js, lib/config-builder.js}"
   },
   "pre-commit": "test",
   "repository": {
