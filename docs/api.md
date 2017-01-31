@@ -77,8 +77,8 @@ An array of modules to be used. This will default to `nebula.defaultModules.conc
 #### `outFile:String`
 If this is defined, Nebula will generate a CSS file in the specified location, with a source map if `useSourceMap` isn't set to `false`. In addition, `nebula.build`'s promise will not return the contents of the css file, but `outFile` itself.
 
-#### `extraScss:String`
-Add this string of text to Nebula's file. This works as an alternative to the entry file.
+#### `append:String`
+Add this string to Nebula's file (pre-compilation). This works as an alternative to supplying an entry file.
 
 #### `useSourceMap:Boolean`
 Determines if Sass should generate a sourceMap alongside the `outFile`. This defaults to `true`, but won't generate anything if `outFile` is not defined.

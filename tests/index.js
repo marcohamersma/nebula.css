@@ -66,8 +66,8 @@ test('consistency between default sass version and javascript version', t => {
 
 test('extra scss', t => {
   t.plan(1);
-  nebula.build(null, { extraScss: '.omgLolWtf { color: red; }' }).then(result => {
-    t.ok(result.indexOf('.omgLolWtf') > 0);
+  nebula.build(null, { append: '.omgLolWtf { color: red; }' }).then(result => {
+    t.ok(result.indexOf('.omgLolWtf') > 0, 'Should contain appended class');
   }).catch( t.fail );
 });
 
@@ -80,7 +80,7 @@ test('new spacing behaviour', t => {
       useSpacing: false,
       spacingValues: { medium: 10 },
       spacingDirections: ['top', 'left'],
-      extraScss: extraScss
+      append: extraScss
     });
   }
 
