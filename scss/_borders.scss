@@ -7,12 +7,15 @@
 /// @param {Number} $scale [1] - Determines the size (in pixels) of the border. This is useful if you want to scale border sizes at a breakpoint.
 /// @output
 /// ```scss
-/// // Assuming default settings
 /// .n-border-accent { border: 1px solid #009CDA; }
 /// .n-border-bottom-accent { border-bottom: 1px solid #009CDA; }
 ///
-/// .n-border-black { border: 1px solid #000000; }
-/// .n-border-bottom-black { border-bottom: 1px solid #000000; }
+/// // Also works with gradients (where possible)
+/// .n-border-gradient {
+///   border: 1px solid #F9A03D;
+///   border-image: linear-gradient(-180deg, #FBDA61 0%, #F76B1C 100%) 1;
+///  }
+/// .n-border-bottom-gradient { border-bottom: 1px solid #F9A03D; }
 /// ```
 @mixin border-rules($scale: 1) {
   @each $color in $border-colors {
@@ -23,6 +26,9 @@
 
       .#{$class-prefix}-#{$propertyName}-#{$color} {
         #{$propertyName}: ($scale * 1px) solid color($color);
+        @if ($propertyName == 'border') and (gradient($color)) {
+           border-image: gradient($color) $scale;
+        }
       }
     }
   }

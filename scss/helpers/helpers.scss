@@ -33,8 +33,8 @@
 }
 
 /// Retrieve the gradient for a color (if defined)
+/// @access private
 /// @group colors
-/// @private
 @function gradient($name) {
   $color: map-get($colors, "#{$name}");
 
