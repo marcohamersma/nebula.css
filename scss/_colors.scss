@@ -12,12 +12,22 @@
 /// ```
 @mixin color-rules() {
   @each $name, $value in $colors {
-    .#{$class-prefix}-color-#{$name} {
-      color: $value;
-    }
+    @if (type_of($value) == 'color') {
+      .#{$class-prefix}-color-#{$name} {
+        color: $value;
+      }
 
-    .#{$class-prefix}-background-#{$name} {
-      background-color: $value;
+      .#{$class-prefix}-background-#{$name} {
+        background-color: $value;
+      }
+    } @else if (type_of($value) == 'list'){
+      .#{$class-prefix}-color-#{$name} {
+        color: nth($value, 1);
+      }
+
+      .#{$class-prefix}-background-#{$name} {
+        background-image: nth($value, 2);
+      }
     }
   }
 }
