@@ -39,8 +39,26 @@ colors: {
 will generate:
 ```css
  .n-color-accent { color: #B5200F; }
- .n-background-accent { background: #B5200F; }
+ .n-background-accent { background-color: #B5200F; }
 ```
+
+Optionally, you can pass an array as the value, passing it a fallback color and a gradient/image definition:
+
+```js
+colors: {
+  gradient: [
+    '#F9A03D',
+    'linear-gradient(-180deg, #FBDA61 0%, #F76B1C 100%)'
+  ]
+
+}
+```
+will generate:
+```css
+ .n-color-gradient { color: #F9A03D; }
+ .n-background-gradient { background-image: #B5200F; }
+```
+
 
 ### `fontBaseSizes:Object`
 Object with a list of font-sizes. The `key` here refers to the size name, and the value the size at 1x scale.

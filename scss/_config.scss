@@ -54,6 +54,16 @@ $use-typography: true !default;
 
 /// @group colors
 /// @type map
+/// @example
+/// // Additionally, you can pass a Sass List with a value, which allows you
+/// // to pass along a gradient:
+///
+/// $colors: (
+///   // The first parameter is the fallback that is used for text.
+///   // The second the gradient that will be used
+///  'gradient' : (#F9A03D, linear-gradient(-180deg, #FBDA61 0%, #F76B1C 100%))
+///   …
+/// )
 $colors: (
   'accent'    : #009CDA,
   'background': #FFFFFF,
