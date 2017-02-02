@@ -14,14 +14,14 @@ $colors: (
 // Disable/enable individual modules through configuration variables
 $use-reset: false;
 
-@import 'nebula.css/nebula';
+@import 'nebula.css/scss/nebula';
 ```
 
 ## Modularity
 You can also import individual nebula modules, like
 ```scss
-@import 'nebula.css/config';
-@import 'nebula.css/colors';
+@import 'nebula.css/scss/config';
+@import 'nebula.css/scss/colors';
 ```
 
 ## Responsiveness
