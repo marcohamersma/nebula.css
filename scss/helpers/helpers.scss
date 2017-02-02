@@ -24,7 +24,23 @@
 /// .special-button { background: color('accent'); }
 @function color($name) {
   // Make sure we're using a string, even if name is a color
-  @return map-get($colors, "#{$name}");
+  $color: map-get($colors, "#{$name}");
+
+  @if (type_of($color) == 'list'){
+    @return nth($color, 1);
+  }
+  @return $color;
+}
+
+/// Retrieve the gradient for a color (if defined)
+/// @group colors
+/// @private
+@function gradient($name) {
+  $color: map-get($colors, "#{$name}");
+
+  @if (type_of($color) == 'list'){
+    @return nth($color, 2);
+  }
 }
 
 /// Retrieves the value of a spacing value from your configuration.
