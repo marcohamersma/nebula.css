@@ -12,7 +12,7 @@
     "buildSass": "node-sass scss/nebula.scss dist/nebula.css --output-style compact --source-map true",
     "buildSassCustom": "node-sass tests/custom.scss dist/nebula.css --output-style compact --source-map true",
     "postcss": "postcss -c ./postcss-config.json",
-    "buildDocsCss": "node cli.js ./docs/scss/styles.scss -o ./docs/styles.css -c docs/nebula.json",
+    "buildDocsCss": "node cli.js ./docs/scss/styles.scss -o ./docs/styles.css",
     "sassdoc": "sassdoc scss",
     "test": "node tests/index.js | tap-diff && eslint . --quiet"
   },

@@ -68,12 +68,13 @@ td { font-variant-numeric: tabular-nums; }
 
 .n-background-black { background-color: #262626; }
 
-/* Spacing */
 .n-spacing-smallest { margin: 5px 5px; }
 
 .n-vspacing-smallest { margin-top: 5px; margin-bottom: 5px; }
 
 .n-hspacing-smallest { margin-left: 5px; margin-right: 5px; }
+
+.n-frame-smallest { margin: -5px -5px; }
 
 .n-padding-smallest { padding: 5px 5px; }
 
@@ -81,13 +82,11 @@ td { font-variant-numeric: tabular-nums; }
 
 .n-hpadding-smallest { padding-left: 5px; padding-right: 5px; }
 
-.n-frame-smallest { margin: -5px -5px; }
-
 .n-spacing-top-smallest { margin-top: 5px; }
 
-.n-spacing-bottom-smallest { margin-bottom: 5px; }
-
 .n-padding-top-smallest { padding-top: 5px; }
+
+.n-spacing-bottom-smallest { margin-bottom: 5px; }
 
 .n-padding-bottom-smallest { padding-bottom: 5px; }
 
@@ -97,19 +96,19 @@ td { font-variant-numeric: tabular-nums; }
 
 .n-hspacing-small { margin-left: 20px; margin-right: 20px; }
 
+.n-frame-small { margin: -20px -20px; }
+
 .n-padding-small { padding: 20px 20px; }
 
 .n-vpadding-small { padding-top: 20px; padding-bottom: 20px; }
 
 .n-hpadding-small { padding-left: 20px; padding-right: 20px; }
 
-.n-frame-small { margin: -20px -20px; }
-
 .n-spacing-top-small { margin-top: 20px; }
 
-.n-spacing-bottom-small { margin-bottom: 20px; }
-
 .n-padding-top-small { padding-top: 20px; }
+
+.n-spacing-bottom-small { margin-bottom: 20px; }
 
 .n-padding-bottom-small { padding-bottom: 20px; }
 
@@ -119,19 +118,19 @@ td { font-variant-numeric: tabular-nums; }
 
 .n-hspacing-medium { margin-left: 40px; margin-right: 40px; }
 
+.n-frame-medium { margin: -40px -40px; }
+
 .n-padding-medium { padding: 40px 40px; }
 
 .n-vpadding-medium { padding-top: 40px; padding-bottom: 40px; }
 
 .n-hpadding-medium { padding-left: 40px; padding-right: 40px; }
 
-.n-frame-medium { margin: -40px -40px; }
-
 .n-spacing-top-medium { margin-top: 40px; }
 
-.n-spacing-bottom-medium { margin-bottom: 40px; }
-
 .n-padding-top-medium { padding-top: 40px; }
+
+.n-spacing-bottom-medium { margin-bottom: 40px; }
 
 .n-padding-bottom-medium { padding-bottom: 40px; }
 
@@ -141,19 +140,19 @@ td { font-variant-numeric: tabular-nums; }
 
 .n-hspacing-large { margin-left: 70px; margin-right: 70px; }
 
+.n-frame-large { margin: -70px -70px; }
+
 .n-padding-large { padding: 70px 70px; }
 
 .n-vpadding-large { padding-top: 70px; padding-bottom: 70px; }
 
 .n-hpadding-large { padding-left: 70px; padding-right: 70px; }
 
-.n-frame-large { margin: -70px -70px; }
-
 .n-spacing-top-large { margin-top: 70px; }
 
-.n-spacing-bottom-large { margin-bottom: 70px; }
-
 .n-padding-top-large { padding-top: 70px; }
+
+.n-spacing-bottom-large { margin-bottom: 70px; }
 
 .n-padding-bottom-large { padding-bottom: 70px; }
 
@@ -175,7 +174,9 @@ body { font-size: 18px; }
 
 .n-ol { list-style: decimal outside; }
 
-.n-ul, .n-ol { padding-left: 1.4em; margin-top: 0; margin-bottom: 5px; }
+.n-ul, .n-ol { padding-left: 1.4em; margin-top: 0; }
+
+.n-ul li, .n-ol li { margin-bottom: 5px; }
 
 .n-text-centered { text-align: center; }
 
@@ -194,4 +195,6 @@ body { font-size: 18px; }
 @media screen and (min-width: 400px) { .n-hide-on-mobile { display: block !important; }
   .n-show-on-mobile { display: none !important; } }
 
-body { font-family: 'Source Sans Pro', sans-serif; max-width: 700px; margin: 0 auto; }
+body { font-family: sans-serif; max-width: 700px; margin: 0 auto; }
+
+/*# sourceMappingURL=styles.css.map */
