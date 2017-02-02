@@ -28,10 +28,6 @@
       "patterns": ["scss"],
       "extensions": "scss"
     },
-    "buildDocsCss": {
-      "patterns": ["docs/scss"],
-      "extensions": "scss"
-    }
     "convertConfig": "{lib/base-config.js, lib/config-builder.js}"
   },
   "pre-commit": "test",
