@@ -66,3 +66,20 @@
 @mixin font-variants($variants) {
   font-variant: array-to-string($variants, ' ');
 }
+
+/// @group typography
+/// @access private
+@function all-headers {
+  $headerTypes: ();
+  @for $i from 1 through 6 {
+    $name: 'h#{$i}';
+    $headerTypes: append($headerTypes, $name", .#{$class-prefix}-type-#{$name}");
+  }
+
+  @return join($headerTypes, (), comma);
+}
+
+/// A list of all class names having to do with headers
+/// @group typography
+/// @access private
+$all-header-selectors: all-headers();

@@ -13,14 +13,12 @@
     @include font-variants($font-variants);
   }
 
-  h1, h2, h3, h4, h5, h6 {
+  #{$all-header-selectors} {
     font-weight: $type-bold-weight;
     position: relative;
     line-height: #{$header-line-height}em;
-  }
 
-  @if $fancy-ligatures-in-headings {
-    h1, h2, h3, h4, h5, h6 {
+    @if $fancy-ligatures-in-headings {
       @include font-variants(('discretionary-ligatures'));
     }
   }

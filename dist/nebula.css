@@ -36,7 +36,7 @@ img { max-width: 100%; }
 
 body { line-height: 1.4; text-rendering: optimizeLegibility; -ms-font-feature-settings: "kern" 1; -o-font-feature-settings: "kern" 1; font-feature-settings: "kern" 1; font-variant: common-ligatures ordinal oldstyle-nums contextual; }
 
-h1, h2, h3, h4, h5, h6 { font-weight: bolder; position: relative; line-height: 1.2em; }
+h1, .n-type-h1, h2, .n-type-h2, h3, .n-type-h3, h4, .n-type-h4, h5, .n-type-h5, h6, .n-type-h6 { font-weight: bolder; position: relative; line-height: 1.2em; }
 
 p { margin-bottom: 1.3em; }
 
