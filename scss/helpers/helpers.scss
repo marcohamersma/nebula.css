@@ -41,6 +41,8 @@
   @if (type_of($color) == 'list'){
     @return nth($color, 2);
   }
+
+  @return null;
 }
 
 /// Retrieves the value of a spacing value from your configuration.
