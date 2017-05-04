@@ -26,7 +26,7 @@
 
       .#{$class-prefix}-#{$propertyName}-#{$color} {
         #{$propertyName}: ($scale * 1px) solid color($color);
-        @if ($propertyName == 'border') and (gradient($color)) {
+        @if ($propertyName == 'border') and (gradient($color) or null) {
            border-image: gradient($color) $scale;
         }
       }
