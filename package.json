@@ -42,7 +42,7 @@
   "main": "index.js",
   "dependencies": {
     "clean-css": "^4.0.3",
-    "commander": "^2.9.0",
+    "commander": "2.16.0",
     "css-color-names": "0.0.4",
     "decamelize": "^1.2.0",
     "lodash.foreach": "^4.5.0",
