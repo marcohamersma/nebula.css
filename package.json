@@ -65,7 +65,7 @@
     "pre-commit": "^1.2.2",
     "sassdoc": "^2.1.20",
     "tap-diff": "^0.1.1",
-    "tape": "^4.6.2"
+    "tape": "4.9.1"
   },
   "keywords": [
     "css",
