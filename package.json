@@ -43,7 +43,7 @@
   "dependencies": {
     "clean-css": "^4.0.3",
     "commander": "^2.9.0",
-    "css-color-names": "0.0.4",
+    "css-color-names": "1.0.1",
     "decamelize": "^1.2.0",
     "lodash.foreach": "^4.5.0",
     "lodash.isboolean": "^3.0.3",
